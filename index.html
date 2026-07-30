@@ -434,861 +434,24 @@ body { font-family: var(--kl-font); line-height: 1.55; -webkit-font-smoothing: a
 @media (max-width: 640px) { .kl-dl .row { grid-template-columns: 1fr; } .kl-dl dd { padding-top: 0; } }
 
 /* ---------- Notes (editorial: kicker label in side column, hairline rule, no box) ---------- */
-.kl-hint,
-.kl-hint.info, .kl-hint.success, .kl-hint.accent, .kl-hint.warning, .kl-hint.danger {
-  display: grid; grid-template-columns: 128px 1fr; column-gap: 28px; align-items: baseline;
-  background: none; border: none; border-top: 1px solid var(--kl-border-strong);
-  border-radius: 0; padding: 18px 0 0; margin: 36px 0; gap: 0; column-gap: 28px;
-}
-.kl-hint .h-ic { display: none; }
-.kl-hint::before { content: "Note"; font-size: 11px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: var(--kl-text-muted); white-space: nowrap; }
-.kl-hint.accent::before { content: "Important"; }
-.kl-hint.warning::before { content: "Disclaimer"; }
-.kl-hint.danger::before { content: "Warning"; }
-.kl-hint .h-body { color: var(--kl-text); font-size: 15.5px; line-height: 1.72; }
-.kl-hint.warning .h-body { color: var(--kl-text-muted); font-size: 14px; line-height: 1.72; }
-@media (max-width: 720px) { .kl-hint, .kl-hint.info, .kl-hint.success, .kl-hint.accent, .kl-hint.warning, .kl-hint.danger { grid-template-columns: 1fr; row-gap: 10px; } }
-
-/* ---------- Cards (hairline, sharp, numbered) ---------- */
-.kl-cards { gap: 0; border-top: 1px solid var(--kl-border); margin: 28px 0; }
-.kl-card { border: none; border-bottom: 1px solid var(--kl-border); border-radius: 0; background: none; padding: 22px 24px 22px 0; transition: none; }
-.kl-card:hover { border-color: var(--kl-border); border-bottom-color: var(--kl-border); transform: none; box-shadow: none; }
-.kl-card .ic { font-size: 11px; font-weight: 600; letter-spacing: 0.1em; color: var(--kl-text-faint); margin-bottom: 12px; font-variant-numeric: tabular-nums; }
-.kl-card .ct { font-size: 16px; font-weight: 600; margin-bottom: 6px; }
-.kl-card .cd { font-size: 14px; line-height: 1.6; color: var(--kl-text-muted); }
-@media (min-width: 720px) {
-  .kl-cards { display: grid; grid-template-columns: repeat(2, 1fr); column-gap: 40px; }
-  .kl-card { padding-right: 0; }
-}
-
-/* ---------- Placeholders ---------- */
-.kl-tbd { background: var(--kl-pink-bg); color: var(--kl-pink); border: none; border-bottom: 1px solid var(--kl-pink-border); border-radius: 0; padding: 0 3px 1px; font-weight: 600; font-size: 0.95em; }
-.kl-soon { border: none; border-top: 1px solid var(--kl-border-strong); border-bottom: 1px solid var(--kl-border-strong); border-radius: 0; background: none; padding: 40px 24px; gap: 9px; margin: 28px 0; }
-.kl-soon-badge { font-size: 12px; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: var(--kl-text-muted); }
-.kl-soon-sub { font-size: 13px; color: var(--kl-text-faint); }
-
-/* ---------- Timeline (roadmap) ---------- */
-.kl-timeline { padding-left: 4px; margin-top: 32px; }
-.kl-tl-item { border-left: 1px solid var(--kl-border); padding: 0 0 32px 34px; }
-.kl-tl-dot { width: 9px; height: 9px; border-radius: 0; background: var(--kl-accent); border: none; left: -5px; top: 5px; }
-.kl-tl-item.future .kl-tl-dot { background: var(--kl-bg); border: 1px solid var(--kl-border-strong); }
-.kl-tl-phase { font-size: 11px; letter-spacing: 0.16em; color: var(--kl-text-faint); margin-bottom: 4px; }
-.kl-tl-title { font-size: 19px !important; font-weight: 700; border-top: none !important; padding-top: 0 !important; margin: 0 0 7px !important; }
-.kl-tl-body { font-size: 15px; line-height: 1.68; }
-
-/* ---------- Tables ---------- */
-.kl-table th, .kl-table td { border-color: var(--kl-border); }
-.kl-table th { background: var(--kl-bg-subtle); font-weight: 600; }
-
-/* ---------- Helpful footer + meta ---------- */
-.kl-helpful { border-top: 1px solid var(--kl-border); margin-top: 64px; font-size: 13px; letter-spacing: 0.01em; }
-.kl-helpful-btn { border-radius: 0; border-color: var(--kl-border-strong); }
-.kl-helpful-btn:hover { border-color: var(--kl-accent); color: var(--kl-accent-text); background: transparent; }
-.kl-helpful .thanks { color: var(--kl-accent-text); }
-.kl-meta { font-size: 12px; letter-spacing: 0.04em; }
-
-/* ---------- Pager ---------- */
-.kl-pager { border-top: 1px solid var(--kl-border); padding-top: 28px; margin-top: 30px; gap: 24px; }
-.kl-pager-btn { border: none; border-radius: 0; padding: 4px 0; }
-.kl-pager-btn:hover { background: none; border: none; }
-.kl-pager-btn:hover .kl-pager-title { color: var(--kl-accent-text); }
-.kl-pager-dir { font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; }
-.kl-pager-title { font-size: 16px; font-weight: 500; }
-
-/* ---------- Right TOC ---------- */
-.kl-toc { padding-top: 56px; }
-.kl-toc-title { font-size: 10.5px; letter-spacing: 0.16em; color: var(--kl-text-faint); }
-.kl-toc-link { border-left: 1px solid var(--kl-border); font-size: 12.5px; padding: 6px 0 6px 14px; }
-.kl-toc-link.active { border-left-color: var(--kl-accent); color: var(--kl-accent-text); }
-
-/* ---------- Hero ---------- */
-.kl-hero { padding: 12px 0 4px; }
-.kl-hero .eyebrow { display: inline-flex; align-items: center; gap: 12px; background: none; padding: 0; border-radius: 0; color: var(--kl-text-muted); font-size: 12px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; margin-bottom: 30px; }
-.kl-hero .eyebrow::before { content: ""; width: 28px; height: 1px; background: var(--kl-border-strong); display: inline-block; }
-.kl-hero h1 { font-family: var(--kl-serif); font-weight: 400; font-size: clamp(48px, 7.5vw, 84px); letter-spacing: -0.025em; line-height: 1.0; margin: 0 0 26px; }
-.kl-hero .grad { background: none; -webkit-text-fill-color: var(--kl-accent); color: var(--kl-accent); font-style: italic; }
-.kl-hero .lead { font-size: 20px; line-height: 1.62; color: var(--kl-text-muted); max-width: 560px; margin-bottom: 34px; }
-.kl-hero-cta { gap: 14px; }
-.kl-btn { border-radius: 0; font-size: 14px; font-weight: 500; letter-spacing: 0.02em; padding: 13px 26px; }
-.kl-btn:hover { transform: none; }
-.kl-article .kl-btn, .kl-article .kl-btn:hover { text-decoration: none; }
-.kl-btn-primary { background: var(--kl-text); color: var(--kl-bg); }
-.kl-btn-primary:hover { background: var(--kl-accent); color: #fff; }
-.kl-btn-ghost { border-color: var(--kl-border-strong); color: var(--kl-text); }
-.kl-btn-ghost:hover { border-color: var(--kl-accent); color: var(--kl-accent-text); background: none; }
-.kl-byline { font-size: 13px; letter-spacing: 0.02em; color: var(--kl-text-faint); margin-top: 22px; }
-.kl-home-divider { border-top: 1px solid var(--kl-border); margin: 48px 0; }
-
-/* ---------- Coming soon modal ---------- */
-.kl-modal { position: fixed; inset: 0; z-index: 200; display: none; }
-.kl-modal.open { display: block; }
-.kl-modal-scrim { position: absolute; inset: 0; background: rgba(20,19,15,0.45); }
-[data-theme="dark"] .kl-modal-scrim { background: rgba(0,0,0,0.62); }
-.kl-modal-card { position: relative; width: min(420px, calc(100vw - 40px)); margin: 16vh auto 0; background: var(--kl-bg-elevated); border: 1px solid var(--kl-border-strong); box-shadow: var(--kl-shadow-lg); padding: 44px 40px 34px; text-align: center; }
-.kl-modal.open .kl-modal-card { animation: klmodalin 0.22s ease; }
-@keyframes klmodalin { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
-.kl-modal-lang { font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--kl-text-faint); margin-bottom: 18px; }
-.kl-modal-title { font-family: var(--kl-serif); font-weight: 400; font-size: 34px; line-height: 1.12; letter-spacing: -0.01em; color: var(--kl-text); margin-bottom: 12px; }
-.kl-modal-sub { font-size: 15px; line-height: 1.62; color: var(--kl-text-muted); margin-bottom: 28px; }
-.kl-modal-close { background: var(--kl-text); color: var(--kl-bg); border: none; border-radius: 0; padding: 11px 30px; font-family: var(--kl-font); font-size: 13.5px; font-weight: 500; letter-spacing: 0.02em; cursor: pointer; }
-.kl-modal-close:hover { background: var(--kl-accent); color: #fff; }
-
-/* ---------- Responsive tweaks ---------- */
-@media (max-width: 860px) {
-  .kl-main { padding: 32px 24px 100px; }
-  .kl-article h1 { font-size: 34px; }
-}
-</style>
-<script>(function(){var r=sessionStorage.getItem('klover-redirect');if(r){sessionStorage.removeItem('klover-redirect');history.replaceState(null,null,r);}}());</script>
-</head>
-<body>
-<!-- ===================== HEADER ===================== -->
-<header class="kl-header">
-  <button class="kl-iconbtn kl-menu-toggle" id="menuToggle" aria-label="Menu">
-    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
-  </button>
-  <a class="kl-brand" data-nav="home" href="#home"><span class="mark"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><circle cx="12" cy="7.5" r="3.6"/><circle cx="7.5" cy="12" r="3.6"/><circle cx="16.5" cy="12" r="3.6"/><circle cx="12" cy="16.5" r="3.6"/></svg></span><span>KLOVER</span><span class="tag" data-i18n="ui.docs">Docs</span></a>
-  <div class="kl-header-spacer"></div>
-  <div class="kl-search-wrap">
-    <span class="kl-search-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></span>
-    <input type="text" class="kl-search" id="searchInput" autocomplete="off" aria-label="Search" />
-    <span class="kl-search-kbd">/</span>
-    <div class="kl-search-results" id="searchResults"></div>
-  </div>
-  <div class="kl-lang" id="langDropdown">
-    <button class="kl-lang-btn" id="langBtn" aria-haspopup="true" aria-expanded="false">
-      <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
-      <span class="lang-label" id="langCurrent">English</span>
-      <svg class="chev" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
-    </button>
-    <div class="kl-lang-menu" id="langMenu" role="menu"></div>
-  </div>
-  <button class="kl-iconbtn" id="themeToggle" aria-label="Toggle theme">
-    <svg id="iconSun" width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
-    <svg id="iconMoon" width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display:none"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
-  </button>
-</header>
-
-<!-- ===================== LAYOUT ===================== -->
-<div class="kl-layout">
-  <aside class="kl-sidebar" id="sidebar"><nav id="nav"></nav></aside>
-  <div class="kl-scrim" id="scrim"></div>
-  <main class="kl-main">
-    <div class="kl-article-wrap">
-      <div class="kl-breadcrumb" id="breadcrumb"></div>
-      <article class="kl-article" id="content"></article>
-      <div id="pageFooter"></div>
-      <nav class="kl-pager" id="pager"></nav>
-    </div>
-  </main>
-  <aside class="kl-toc">
-    <div class="kl-toc-title" data-i18n="ui.onThisPage">On this page</div>
-    <div id="toc"></div>
-  </aside>
-</div>
-
-<script>
-/* ============================================================
-   KLOVER i18n data and application engine
-   ============================================================ */
-const LANGS = [
-  { code: 'en', native: 'English',  en: 'English'  },
-  { code: 'zh', native: '中文',      en: 'Chinese'  },
-  { code: 'ko', native: '한국어',    en: 'Korean'   },
-  { code: 'ja', native: '日本語',    en: 'Japanese' },
-  { code: 'fr', native: 'Français',  en: 'French'   },
-  { code: 'es', native: 'Español',   en: 'Spanish'  },
-];
-/* Languages other than English and Korean are not yet translated.
-   Selecting one shows a localized "Coming soon" modal instead of switching. */
-const SUPPORTED_LANGS = ['en', 'ko'];
-const COMING_SOON = {
-  zh: { native: '中文', title: '即将推出', sub: '中文版文档正在准备中，敬请期待。', close: '关闭' },
-  ja: { native: '日本語', title: '近日公開', sub: '日本語版のドキュメントは現在準備中です。', close: '閉じる' },
-  fr: { native: 'Français', title: 'Bientôt disponible', sub: 'La documentation en français arrive bientôt.', close: 'Fermer' },
-  es: { native: 'Español', title: 'Próximamente', sub: 'La documentación en español estará disponible muy pronto.', close: 'Cerrar' },
-};
-const NAV_GROUPS = [
-  { label: null,                  items: ['home'] },
-  { label: 'ui.groupIntro',       items: ['sec1', 'sec2'] },
-  { label: 'ui.groupEcosystem',   items: ['sec3', 'sec4', 'sec5', 'sec6', 'sec_security'] },
-  { label: 'ui.groupParticipate', items: ['sec7', 'sec8'] },
-  { label: 'ui.groupResources',   items: ['sec9', 'sec_team', 'sec10', 'sec_faq'] },
-];
-const ICONS = { home:'', sec1:'01', sec2:'02', sec3:'03', sec4:'04', sec5:'05', sec6:'06', sec_security:'07', sec7:'08', sec8:'09', sec9:'10', sec_team:'11', sec10:'12', sec_faq:'13' };
-const ORDER = ['home','sec1','sec2','sec3','sec4','sec5','sec6','sec_security','sec7','sec8','sec9','sec_team','sec10','sec_faq'];
-/* Auto-detect the GitHub Pages project base (repo name) so the same file
-   works in any repo (klover-docs, klover-documentation, ...). Locally
-   (preview server / file), the base is root. */
-const BASE = location.hostname.endsWith('github.io') ? '/' + (location.pathname.split('/')[1] || '') : '';
-const PATH_MAP = {
-  home: '/',
-  sec1: '/introduction',
-  sec2: '/k-culture-opportunity',
-  sec3: '/ecosystem',
-  sec4: '/klvr',
-  sec5: '/culture-tokens',
-  sec6: '/platform',
-  sec_security: '/security',
-  sec7: '/governance',
-  sec8: '/launch-culture-token',
-  sec9: '/roadmap',
-  sec_team: '/team',
-  sec10: '/legal',
-  sec_faq: '/faq',
-};
-const PATH_TO_ID = Object.fromEntries(Object.entries(PATH_MAP).map(([k,v]) => [v,k]));
+.kl-hint,\n.kl-hint.info, .kl-hint.success, .kl-hint.accent, .kl-hint.warning, .kl-hint.danger {\n  display: grid; grid-template-columns: 128px 1fr; column-gap: 28px; align-items: baseline;\n  background: none; border: none; border-top: 1px solid var(--kl-border-strong);\n  border-radius: 0; padding: 18px 0 0; margin: 36px 0; gap: 0; column-gap: 28px;\n}\n.kl-hint .h-ic { display: none; }\n.kl-hint::before { content: "Note"; font-size: 11px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: var(--kl-text-muted); white-space: nowrap; }\n.kl-hint.accent::before { content: "Important"; }\n.kl-hint.warning::before { content: "Disclaimer"; }\n.kl-hint.danger::before { content: "Warning"; }\n.kl-hint .h-body { color: var(--kl-text); font-size: 15.5px; line-height: 1.72; }\n.kl-hint.warning .h-body { color: var(--kl-text-muted); font-size: 14px; line-height: 1.72; }\n@media (max-width: 720px) { .kl-hint, .kl-hint.info, .kl-hint.success, .kl-hint.accent, .kl-hint.warning, .kl-hint.danger { grid-template-columns: 1fr; row-gap: 10px; } }\n\n/* ---------- Cards (hairline, sharp, numbered) ---------- */\n.kl-cards { gap: 0; border-top: 1px solid var(--kl-border); margin: 28px 0; }\n.kl-card { border: none; border-bottom: 1px solid var(--kl-border); border-radius: 0; background: none; padding: 22px 24px 22px 0; transition: none; }\n.kl-card:hover { border-color: var(--kl-border); border-bottom-color: var(--kl-border); transform: none; box-shadow: none; }\n.kl-card .ic { font-size: 11px; font-weight: 600; letter-spacing: 0.1em; color: var(--kl-text-faint); margin-bottom: 12px; font-variant-numeric: tabular-nums; }\n.kl-card .ct { font-size: 16px; font-weight: 600; margin-bottom: 6px; }\n.kl-card .cd { font-size: 14px; line-height: 1.6; color: var(--kl-text-muted); }\n@media (min-width: 720px) {\n  .kl-cards { display: grid; grid-template-columns: repeat(2, 1fr); column-gap: 40px; }\n  .kl-card { padding-right: 0; }\n}\n\n/* ---------- Placeholders ---------- */\n.kl-tbd { background: var(--kl-pink-bg); color: var(--kl-pink); border: none; border-bottom: 1px solid var(--kl-pink-border); border-radius: 0; padding: 0 3px 1px; font-weight: 600; font-size: 0.95em; }\n.kl-soon { border: none; border-top: 1px solid var(--kl-border-strong); border-bottom: 1px solid var(--kl-border-strong); border-radius: 0; background: none; padding: 40px 24px; gap: 9px; margin: 28px 0; }\n.kl-soon-badge { font-size: 12px; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: var(--kl-text-muted); }\n.kl-soon-sub { font-size: 13px; color: var(--kl-text-faint); }\n\n/* ---------- Timeline (roadmap) ---------- */\n.kl-timeline { padding-left: 4px; margin-top: 32px; }\n.kl-tl-item { border-left: 1px solid var(--kl-border); padding: 0 0 32px 34px; }\n.kl-tl-dot { width: 9px; height: 9px; border-radius: 0; background: var(--kl-accent); border: none; left: -5px; top: 5px; }\n.kl-tl-item.future .kl-tl-dot { background: var(--kl-bg); border: 1px solid var(--kl-border-strong); }\n.kl-tl-phase { font-size: 11px; letter-spacing: 0.16em; color: var(--kl-text-faint); margin-bottom: 4px; }\n.kl-tl-title { font-size: 19px !important; font-weight: 700; border-top: none !important; padding-top: 0 !important; margin: 0 0 7px !important; }\n.kl-tl-body { font-size: 15px; line-height: 1.68; }\n\n/* ---------- Tables ---------- */\n.kl-table th, .kl-table td { border-color: var(--kl-border); }\n.kl-table th { background: var(--kl-bg-subtle); font-weight: 600; }\n\n/* ---------- Helpful footer + meta ---------- */\n.kl-helpful { border-top: 1px solid var(--kl-border); margin-top: 64px; font-size: 13px; letter-spacing: 0.01em; }\n.kl-helpful-btn { border-radius: 0; border-color: var(--kl-border-strong); }\n.kl-helpful-btn:hover { border-color: var(--kl-accent); color: var(--kl-accent-text); background: transparent; }\n.kl-helpful .thanks { color: var(--kl-accent-text); }\n.kl-meta { font-size: 12px; letter-spacing: 0.04em; }\n\n/* ---------- Pager ---------- */\n.kl-pager { border-top: 1px solid var(--kl-border); padding-top: 28px; margin-top: 30px; gap: 24px; }\n.kl-pager-btn { border: none; border-radius: 0; padding: 4px 0; }\n.kl-pager-btn:hover { background: none; border: none; }\n.kl-pager-btn:hover .kl-pager-title { color: var(--kl-accent-text); }\n.kl-pager-dir { font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; }\n.kl-pager-title { font-size: 16px; font-weight: 500; }\n\n/* ---------- Right TOC ---------- */\n.kl-toc { padding-top: 56px; }\n.kl-toc-title { font-size: 10.5px; letter-spacing: 0.16em; color: var(--kl-text-faint); }\n.kl-toc-link { border-left: 1px solid var(--kl-border); font-size: 12.5px; padding: 6px 0 6px 14px; }\n.kl-toc-link.active { border-left-color: var(--kl-accent); color: var(--kl-accent-text); }\n\n/* ---------- Hero ---------- */\n.kl-hero { padding: 12px 0 4px; }\n.kl-hero .eyebrow { display: inline-flex; align-items: center; gap: 12px; background: none; padding: 0; border-radius: 0; color: var(--kl-text-muted); font-size: 12px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; margin-bottom: 30px; }\n.kl-hero .eyebrow::before { content: ""; width: 28px; height: 1px; background: var(--kl-border-strong); display: inline-block; }\n.kl-hero h1 { font-family: var(--kl-serif); font-weight: 400; font-size: clamp(48px, 7.5vw, 84px); letter-spacing: -0.025em; line-height: 1.0; margin: 0 0 26px; }\n.kl-hero .grad { background: none; -webkit-text-fill-color: var(--kl-accent); color: var(--kl-accent); font-style: italic; }\n.kl-hero .lead { font-size: 20px; line-height: 1.62; color: var(--kl-text-muted); max-width: 560px; margin-bottom: 34px; }\n.kl-hero-cta { gap: 14px; }\n.kl-btn { border-radius: 0; font-size: 14px; font-weight: 500; letter-spacing: 0.02em; padding: 13px 26px; }\n.kl-btn:hover { transform: none; }\n.kl-article .kl-btn, .kl-article .kl-btn:hover { text-decoration: none; }\n.kl-btn-primary { background: var(--kl-text); color: var(--kl-bg); }\n.kl-btn-primary:hover { background: var(--kl-accent); color: #fff; }\n.kl-btn-ghost { border-color: var(--kl-border-strong); color: var(--kl-text); }\n.kl-btn-ghost:hover { border-color: var(--kl-accent); color: var(--kl-accent-text); background: none; }\n.kl-byline { font-size: 13px; letter-spacing: 0.02em; color: var(--kl-text-faint); margin-top: 22px; }\n.kl-home-divider { border-top: 1px solid var(--kl-border); margin: 48px 0; }\n\n/* ---------- Coming soon modal ---------- */\n.kl-modal { position: fixed; inset: 0; z-index: 200; display: none; }\n.kl-modal.open { display: block; }\n.kl-modal-scrim { position: absolute; inset: 0; background: rgba(20,19,15,0.45); }\n[data-theme="dark"] .kl-modal-scrim { background: rgba(0,0,0,0.62); }\n.kl-modal-card { position: relative; width: min(420px, calc(100vw - 40px)); margin: 16vh auto 0; background: var(--kl-bg-elevated); border: 1px solid var(--kl-border-strong); box-shadow: var(--kl-shadow-lg); padding: 44px 40px 34px; text-align: center; }\n.kl-modal.open .kl-modal-card { animation: klmodalin 0.22s ease; }\n@keyframes klmodalin { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }\n.kl-modal-lang { font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--kl-text-faint); margin-bottom: 18px; }\n.kl-modal-title { font-family: var(--kl-serif); font-weight: 400; font-size: 34px; line-height: 1.12; letter-spacing: -0.01em; color: var(--kl-text); margin-bottom: 12px; }\n.kl-modal-sub { font-size: 15px; line-height: 1.62; color: var(--kl-text-muted); margin-bottom: 28px; }\n.kl-modal-close { background: var(--kl-text); color: var(--kl-bg); border: none; border-radius: 0; padding: 11px 30px; font-family: var(--kl-font); font-size: 13.5px; font-weight: 500; letter-spacing: 0.02em; cursor: pointer; }\n.kl-modal-close:hover { background: var(--kl-accent); color: #fff; }\n\n/* ---------- Responsive tweaks ---------- */\n@media (max-width: 860px) {\n  .kl-main { padding: 32px 24px 100px; }\n  .kl-article h1 { font-size: 34px; }\n}\n</style>\n<script>(function(){var r=sessionStorage.getItem('klover-redirect');if(r){sessionStorage.removeItem('klover-redirect');history.replaceState(null,null,r);}}());</script>\n</head>\n<body>\n<!-- ===================== HEADER ===================== -->\n<header class="kl-header">\n  <button class="kl-iconbtn kl-menu-toggle" id="menuToggle" aria-label="Menu">\n    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>\n  </button>\n  <a class="kl-brand" data-nav="home" href="#home"><span class="mark"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><circle cx="12" cy="7.5" r="3.6"/><circle cx="7.5" cy="12" r="3.6"/><circle cx="16.5" cy="12" r="3.6"/><circle cx="12" cy="16.5" r="3.6"/></svg></span><span>KLOVER</span><span class="tag" data-i18n="ui.docs">Docs</span></a>\n  <div class="kl-header-spacer"></div>\n  <div class="kl-search-wrap">\n    <span class="kl-search-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></span>\n    <input type="text" class="kl-search" id="searchInput" autocomplete="off" aria-label="Search" />\n    <span class="kl-search-kbd">/</span>\n    <div class="kl-search-results" id="searchResults"></div>\n  </div>\n  <div class="kl-lang" id="langDropdown">\n    <button class="kl-lang-btn" id="langBtn" aria-haspopup="true" aria-expanded="false">\n      <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10z"/></svg>\n      <span class="lang-label" id="langCurrent">English</span>\n      <svg class="chev" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>\n    </button>\n    <div class="kl-lang-menu" id="langMenu" role="menu"></div>\n  </div>\n  <button class="kl-iconbtn" id="themeToggle" aria-label="Toggle theme">\n    <svg id="iconSun" width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>\n    <svg id="iconMoon" width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display:none"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>\n  </button>\n</header>\n\n<!-- ===================== LAYOUT ===================== -->\n<div class="kl-layout">\n  <aside class="kl-sidebar" id="sidebar"><nav id="nav"></nav></aside>\n  <div class="kl-scrim" id="scrim"></div>\n  <main class="kl-main">\n    <div class="kl-article-wrap">\n      <div class="kl-breadcrumb" id="breadcrumb"></div>\n      <article class="kl-article" id="content"></article>\n      <footer class="kl-footer">\n        <div class="kl-helpful">\n          <span data-i18n="ui.helpfulQuestion">Was this page helpful?</span>\n          <button class="kl-helpful-btn" onclick="sendHelpful(true)" data-i18n="ui.helpfulYes">Yes</button>\n          <button class="kl-helpful-btn" onclick="sendHelpful(false)" data-i18n="ui.helpfulNo">No</button>\n          <span class="thanks" id="helpfulThanks" style="display:none" data-i18n="ui.helpfulThanks">Thanks for your feedback!</span>\n        </div>\n        <div class="kl-meta" data-i18n="ui.lastModified">Last modified just now</div>\n        <div class="kl-pager" id="pager"></div>\n      </footer>\n    </div>\n  </main>\n  <aside class="kl-toc" id="toc"></aside>\n</div>\n\n<!-- Modal for coming soon languages -->\n<div class="kl-modal" id="comingSoonModal" aria-hidden="true">\n  <div class="kl-modal-scrim" onclick="closeComingSoon()"></div>\n  <div class="kl-modal-card" role="dialog" aria-modal="true">\n    <div class="kl-modal-lang" id="csLang">Language</div>\n    <div class="kl-modal-title" id="csTitle">Coming soon</div>\n    <div class="kl-modal-sub" id="csSub">This language version is currently being prepared.</div>\n    <button class="kl-modal-close" onclick="closeComingSoon()" id="csClose">Close</button>\n  </div>\n</div>\n\n<script>\n/* ============================================================\n   Path routing helpers\n   ============================================================ */\nconst PATH_MAP = {\n  home: '/',\n  sec1: '/introduction',\n  sec2: '/tokenize-culture',\n  sec3: '/ecosystem',\n  sec4: '/klvr',\n  sec5: '/culture-tokens',\n  sec6: '/platform',\n  sec_security: '/security',\n  sec7: '/governance',\n  sec8: '/launch-culture-token',\n  sec9: '/roadmap',\n  sec_team: '/team',\n  sec10: '/legal',\n  sec_faq: '/faq',\n};\nconst PATH_TO_ID = Object.fromEntries(Object.entries(PATH_MAP).map(([k,v]) => [v,k]));
 let KL_LANG = 'en';
 function sectionToPath(id) { return BASE + (KL_LANG === 'ko' ? '/kor' : '') + (PATH_MAP[id] || '/'); }
 
-/* ============================================================
-   TRANSLATIONS  (en = source of truth; others fall back to en)
-   ============================================================ */
-const I18N = {};
+/* ============================================================\n   TRANSLATIONS  (en = source of truth; others fall back to en)\n   ============================================================ */\nconst I18N = {};
 
-I18N.en = {
-  ui: {
-    docs: 'Docs',
-    searchPlaceholder: 'Search…',
-    searchNoResults: 'No results found',
-    onThisPage: 'On this page',
-    previous: 'Previous',
-    next: 'Next',
-    groupIntro: 'Introduction',
-    groupEcosystem: 'The Ecosystem',
-    groupParticipate: 'Participate',
-    groupResources: 'Resources',
-    helpfulQuestion: 'Was this helpful?',
-    helpfulYes: 'Yes',
-    helpfulNo: 'No',
-    helpfulThanks: 'Thanks for your feedback!',
-    lastModified: 'Last modified just now',
-    copy: 'Copy',
-    copied: 'Copied!',
-  },
-  nav: {
-    home: 'Overview',
-    sec1: 'Introduction',
-    sec2: 'Tokenize Culture',
-    sec3: 'The KLOVER Ecosystem',
-    sec4: '$KLVR',
-    sec5: 'Culture Tokens',
-    sec6: 'The KLOVER Platform',
-    sec7: 'Ecosystem Governance',
-    sec8: 'Launching a Culture Token',
-    sec9: 'Roadmap',
-    sec10: 'Legal & Compliance',
-    sec_security: 'Security & Audits',
-    sec_team: 'Team',
-    sec_faq: 'FAQ',
-  },
-  home: {
-    eyebrow: 'K-Culture Web3 Ecosystem',
-    title1: 'Tokenize',
-    title2: 'Culture',
-    lead: 'KLOVER is the K-Culture Web3 ecosystem that lets fans around the world own, influence, and engage with the culture they love. Welcome to the official documentation.',
-    cta1: 'Get Started',
-    cta2: 'Explore Culture Tokens',
-    byline: 'An ecosystem powered by LK Ventures.',
-    cards: [
-      { t: '$KLVR', d: 'The native token that powers the entire ecosystem.' },
-      { t: 'Culture Tokens', d: 'Fan ownership and real utilities, issued by K-Culture organizations.' },
-      { t: 'The KLOVER Platform', d: 'Web3 made simple, built for fans rather than crypto experts.' },
-      { t: 'Built on BASE', d: 'Fast, affordable, and secure infrastructure.' },
-    ],
-  },
-  pages: {
-    sec1: `<p class="kl-lead">Welcome to the official documentation for KLOVER, the K-Culture Web3 ecosystem that lets fans around the world own, influence, and engage with the culture they love. This documentation explains what KLOVER is, how its ecosystem works, and how fans, partners, and supporters can take part.</p>
-<h2 id="what">What is KLOVER?</h2>
-<p>Fans of K-POP, creators, and esports are everywhere, but they've never had one place that truly belongs to them. KLOVER is a Web3 ecosystem built to <strong>tokenize culture</strong>, beginning with Korean culture and expanding worldwide. It connects K-Culture organizations with their global fanbases through <strong>Culture Tokens</strong>, digital assets that transform passive fandom into active participation and ownership. The entire ecosystem is built on the <strong>BASE</strong> blockchain.</p>
-<h2 id="audience">Who This Documentation Is For</h2>
-<p>This documentation serves three audiences:</p>
-<ul>
-<li><strong>Fans</strong> who want to own Culture Tokens, take part in decisions, and reach exclusive experiences.</li>
-<li><strong>K-Culture organizations</strong> exploring how to bring their communities on-chain and launch a Culture Token.</li>
-<li><strong>Partners and supporters</strong> who want to understand the ecosystem, the $KLVR token, and the vision behind it.</li>
-</ul>
-<p>You can read it from start to finish, or jump to the section most relevant to you.</p>
-<h2 id="mission">Mission: Tokenize Culture</h2>
-<p>Our mission is simple: <strong>Tokenize Culture.</strong> We believe fans are not merely spectators. They are co-creators of culture's value, and KLOVER gives that contribution a tangible form.</p>
-<p>We start with Korean culture, and our vision is to expand to global culture, making KLOVER the home where any culture and its community can grow together.</p>
-<h2 id="brand">The KLOVER Brand</h2>
-<p>The KLOVER name unites two ideas. The <strong>clover</strong> is a universal symbol of luck, growth, and good fortune. <strong>"K-Lover"</strong> is the global community that loves K-Culture. Together they capture what KLOVER stands for: a flourishing home for the people who love culture and help it grow.</p>
-<h2 id="life4cut">LK Ventures: The Company Behind KLOVER</h2>
-<p>KLOVER is powered by <strong>LK Ventures</strong>, the leading K-Culture company. LK Ventures operates a diverse portfolio of cultural content businesses that put fans directly inside the K-Culture moments they love, with a footprint that spans more than 30 countries and reaches 3.8 million fans every month. That reach gives KLOVER deep cultural roots, real brand trust, and direct connections across the K-Culture industry, a foundation few can match.</p>\n<p>LK Ventures shows up everywhere K-Culture actually happens, from fan meetings to concert venues to live recordings, turning everyday fan moments into lasting connections. The trust and industry access built through that closeness are the foundation that makes KLOVER possible. KLOVER isn't being built by a technology company that decided to enter the K-Culture space. It's being built by a company already inside it.</p>
-<h2 id="terminology">Key Terminology</h2>
-<p>A quick reference for the core terms used throughout this documentation:</p>
-<div class="kl-dl">
-<div class="row"><dt>KLOVER</dt><dd>The overall K-Culture Web3 ecosystem and its consumer platform.</dd></div>
-<div class="row"><dt>$KLVR</dt><dd>The native token that powers the ecosystem and is used to acquire Culture Tokens.</dd></div>
-<div class="row"><dt>Culture Token</dt><dd>A token issued by a K-Culture organization that unlocks utilities for its holders.</dd></div>
-<div class="row"><dt>Culture Token Publisher</dt><dd>The organization (a label, MCN, or esports team) that issues a Culture Token.</dd></div>
-<div class="row"><dt>Utility</dt><dd>A benefit unlocked by a Culture Token, such as voting or exclusive experiences.</dd></div>
-<div class="row"><dt>BASE</dt><dd>The blockchain on which the KLOVER ecosystem is built.</dd></div>
-<div class="row"><dt>Presale</dt><dd>The initial sale of a new Culture Token on the KLOVER Platform, before secondary trading begins.</dd></div>
-<div class="row"><dt>Utility Hub</dt><dd>The area of the platform where holders use their Culture Tokens to vote and enter experiences.</dd></div>
-<div class="row"><dt>Web3</dt><dd>The category of internet services built on public blockchains, where people can truly own digital assets.</dd></div>
-</div>`,
-    sec2: `<p class="kl-lead">Culture is the greatest thing we have ever built together. Music, film, games, and all the moments around them take on their value in the hands of the people who love them. Yet those same people have rarely shared in what they helped create. KLOVER exists to fix that imbalance, turning culture into something fans can genuinely own. Here is how that journey unfolds.</p>
-<h2 id="culture-is-shared">Culture Is Built by All of Us</h2>
-<p>A culture is never the work of a few stars alone. It is built by everyone who listens, shares, shows up, and gladly opens their wallet. Every bit of a fan's passion, time, and word of mouth breathes life and value into it.</p>
-<p>So the real owners of a culture are the people who cherish it. K-Culture, or any culture beyond it, grows larger the more its people gather around it. That is exactly why KLOVER begins not with the 'K', but with <strong>Culture</strong> itself.</p>
-<h2 id="the-gap">Yet None of It Came Back to the Fans</h2>
-<p>Fans today are more invested than ever. They stream, they buy merch, they fill arenas. And still they have no channel to shape where the culture they love is headed, and no stake in the value they helped build.</p>
-<p>That value flows mostly to platforms and middlemen, while the fans who grew the culture are left with nothing. The passion burns as bright as ever, yet participation always stops at consumption. The link that would connect fans directly to the culture they love simply never existed.</p>
-<h2 id="vision">The KLOVER Vision</h2>
-<p>KLOVER's answer is simple: make culture something you can own. Through <strong>Culture Tokens</strong>, a fan's contribution takes on a visible, tangible form. It becomes more than applause, growing into a real say in decisions and access to experiences money alone cannot reach.</p>
-<p>The picture is concrete. Cast a vote on an artist's next move, hold a stake in a community's journey and grow alongside it, and take part as an owner rather than a guest. And this model does not stop at K-Culture. Any culture in the world, and any community that loves it, can grow side by side. Our vision comes down to two words, <strong>Tokenize Culture</strong>, returning every culture to the people who love it.</p>
-<h2 id="why-kculture">We Start With K-Culture</h2>
-<p>A vision this big should begin where the spark burns brightest, and for KLOVER that is K-Culture. Spanning K-POP, creators, and esports, K-Culture reaches across the globe, draws some of the most devoted fans anywhere, and already lives and moves online.</p>
-<p>On top of that, organizations like labels and MCNs outlast any single artist, carrying many fans across many projects. KLOVER, built by LK Ventures, holds direct relationships throughout this industry. K-Culture is the ideal stage to prove what Tokenize Culture can do, and it is only the first step.</p>
-<h2 id="why-now">Why Now</h2>
-<p>The technology has only just come of age. Thanks to blockchain, fans can now prove their ownership, exercise real influence, and share in the rewards they helped create. KLOVER puts that technology to work not for speculation, but to turn fandom into genuine participation.</p>
-<p>The timing is right, too. K-Culture has already gone global, and the infrastructure to support it is finally in place. Fans gain ownership and a voice, organizations find new ways to connect with their communities and new sources of revenue, and the ecosystem grows stronger with every community that joins. There has never been a better moment to tokenize culture.</p>`,
-    sec3: `<p class="kl-lead">The KLOVER ecosystem is built on four connected pillars that work together to tokenize culture.</p>
-<h2 id="architecture">Architecture Overview</h2>
-<p>KLOVER links four elements into one seamless loop: the <strong>$KLVR token</strong> (the ecosystem's currency), <strong>Culture Tokens</strong> (the assets fans hold), the <strong>KLOVER Platform</strong> (where everything happens), and the <strong>fans</strong> who bring it all to life. Each reinforces the others.</p>
-<h2 id="pillars">The Four Pillars</h2>
-<div class="kl-cards">
-<div class="kl-card"><div class="ic">01</div><div class="ct">$KLVR</div><div class="cd">The native token that powers the ecosystem and is required to acquire Culture Tokens.</div></div>
-<div class="kl-card"><div class="ic">02</div><div class="ct">Culture Tokens</div><div class="cd">Tokens issued by K-Culture organizations that unlock real utilities for fans.</div></div>
-<div class="kl-card"><div class="ic">03</div><div class="ct">The KLOVER Platform</div><div class="cd">The welcoming home for buying, trading, and using Culture Tokens.</div></div>
-<div class="kl-card"><div class="ic">04</div><div class="ct">Fans</div><div class="cd">The global community whose ownership, participation, and energy give the ecosystem its value.</div></div>
-</div>
-<h2 id="how-it-works">How It Works, End to End</h2>
-<p>A typical journey through the ecosystem looks like this:</p>
-<ol>
-<li>A fan acquires <strong>$KLVR</strong>, or deposits $KLVR or USDT into the platform.</li>
-<li>They choose a <strong>Culture Token</strong> from an organization they support.</li>
-<li>They join the token's <strong>presale</strong>, or buy it on the secondary market.</li>
-<li>They use the token in the <strong>Utility Hub</strong> to vote and enter experiences.</li>
-<li>They hold <strong>$KLVR</strong> to take part in ecosystem governance.</li>
-</ol>
-<h2 id="flywheel">The Economic Flywheel</h2>
-<p>The ecosystem is designed as a self-reinforcing loop:</p>
-<ul>
-<li>Demand for Culture Tokens drives demand for <strong>$KLVR</strong>.</li>
-<li>A thriving platform attracts more <strong>Culture Token Publishers</strong>.</li>
-<li>More publishers attract more <strong>fans</strong>.</li>
-<li>More fans deepen demand across the entire ecosystem.</li>
-</ul>
-<p>What makes this flywheel work is that each element strengthens the others. As more fans join, more publishers see the opportunity. As more publishers join, utilities expand and the platform gets richer. As the platform gets richer, more fans are drawn in. Participation in the ecosystem is itself the engine of its growth.</p>
-<h2 id="base">Built on BASE</h2>
-<p>KLOVER is built on <strong>BASE</strong>, a secure and dependable blockchain with the strength of Ethereum. We chose BASE for four reasons:</p>
-<ul>
-<li><strong>Low fees</strong> keep everyday actions affordable for fans.</li>
-<li><strong>Fast transactions</strong> make the experience feel immediate.</li>
-<li><strong>Strong security</strong> inherited from the Ethereum ecosystem.</li>
-<li><strong>Wide compatibility</strong> with standard Web3 wallets and tools.</li>
-</ul>
-<p>The result is infrastructure smooth enough for fans who have never used crypto before.</p>`,
-    sec4: `<p class="kl-lead">$KLVR is the native token at the heart of the ecosystem, the currency through which all value flows.</p>
-<h2 id="overview">Overview</h2>
-<h3 id="role">The Role of $KLVR</h3>
-<p>$KLVR is the medium of exchange across the entire ecosystem. It is required to purchase Culture Tokens, used within platform transactions, and grants holders a voice in ecosystem governance. Wherever value moves in KLOVER, $KLVR is involved.</p>
-<h3 id="utility">Token Utility</h3>
-<ul>
-<li><strong>Purchasing Culture Tokens:</strong> Culture Tokens can only be acquired using $KLVR, creating continuous, structural demand.</li>
-<li><strong>Governance:</strong> $KLVR holders vote on proposals raised by the KLOVER team.</li>
-<li><strong>Platform Medium:</strong> $KLVR facilitates transactions and activity across the platform.</li>
-</ul>
-<h3 id="demand">Sources of Demand</h3>
-<p>Demand for $KLVR comes from real use across the ecosystem, not from speculation alone:</p>
-<ul>
-<li><strong>Culture Token purchases</strong>, since every Culture Token is bought with $KLVR.</li>
-<li><strong>Platform activity</strong>, since transactions settle in the ecosystem's own token.</li>
-<li><strong>Governance</strong>, since holding $KLVR grants a voice in decisions.</li>
-</ul>
-<p>Demand for any single Culture Token stays capped by the size of that publisher's own fanbase. $KLVR works differently: it's the shared entry point for every Culture Token in the ecosystem, so demand builds every time a new publisher joins or an existing fanbase grows. The more publishers and fans the ecosystem holds, the wider the demand base for $KLVR becomes.</p>
-<h3 id="standard">Token Standard</h3>
-<p>$KLVR is an ERC-20 token deployed on the BASE blockchain, so it works with standard Web3 wallets and tools. The official contract address is <span class="kl-tbd">Needs to be decided</span> and will be published here before launch.</p>
-<h3 id="acquire">How to Acquire $KLVR</h3>
-<p>Fans will be able to obtain $KLVR directly through the KLOVER Platform, with a simple onboarding experience designed for newcomers. The full list of supported acquisition methods and availability is <span class="kl-tbd">Needs to be decided</span>.</p>
-<h2 id="tokenomics">Tokenomics</h2>
-<p>$KLVR has a total supply of 8.3 billion tokens, a number chosen to mirror the world's population. It's meant to signal a culture economy open to anyone on Earth, not reserved for a select few. That supply carries a total allocation of 100%, distributed across the categories below. The Token Generation Event (TGE) is scheduled for November 2026 (2026 Q4). Allocations with a 100% TGE unlock circulate from day one, while the rest unlock gradually through a cliff and linear vesting to keep the ecosystem aligned for the long term.</p>
-<p>The vesting structure is a safeguard for everyone in the ecosystem. Releasing the full supply at once would create immediate selling pressure and undermine price stability. Linear vesting keeps supply predictable and gradual, giving fans and partners the stable environment they need to build genuine, long-term engagement rather than short-term speculation.</p>
-<div id="klvr-table"></div>
-<div id="klvr-chart" class="klvr-tk-wrap"></div>
-<div class="kl-hint info"><div class="h-ic"></div><div class="h-body">Cliff is the lock-up period after TGE before unlocking begins, and vesting is the period over which tokens then release linearly. The chart shows circulating supply as a percentage of total supply.</div></div>`,
-    sec5: `<p class="kl-lead">Culture Tokens are the assets that bring fans and K-Culture organizations together. Each one is issued by a cultural organization and unlocks real utilities for its holders.</p>
-<h2 id="what-ct">What is a Culture Token?</h2>
-<p>A <strong>Culture Token</strong> is a digital token issued by a K-Culture organization (a music label, an MCN, or an esports team) that represents membership in its community and unlocks exclusive utilities. Holding one is a direct connection to the culture you love.</p>
-<h2 id="who">Who Can Issue a Culture Token</h2>
-<p>Culture Tokens are issued by <strong>established cultural organizations</strong> rather than individuals. This ensures longevity and a broad utility surface: organizations outlast any single artist or season and can serve many fans across many projects. <em>(See <a data-nav="sec8" href="#sec8">Launching a Culture Token</a>.)</em></p>
-<p>If Culture Tokens were tied to individual artists, their utility would effectively end the moment that artist stepped back, changed labels, or went on hiatus. Organization-level issuance solves this directly. A label's Culture Token can outlast any roster change, keeping the community intact and utilities flowing regardless of what happens to any single artist within it.</p>
-<h2 id="utilities">Culture Token Utilities</h2>
-<p>What Culture Tokens unlock looks nothing like a typical paid membership. Instead of tiered subscription perks, holders get a real say in decisions and creative choices that shape what publishers do next. Culture Tokens unlock a growing range of utilities. Examples include:</p>
-<ul>
-<li><strong>Voting:</strong> Publishers invite fans to decide between options approved in advance, such as a single's cover art, a concert outfit, or the next profile picture. Fans shape real outcomes, within boundaries the publisher sets.</li>
-<li><strong>Experiences:</strong> Raffles for dinners with artists, early access and lottery drops for concert tickets, entries to watch rehearsals, priority for fan meetings, and more.</li>
-<li><strong>Expanding Utilities:</strong> Utilities grow over time as publishers design new ways to reward their communities.</li>
-</ul>
-<div class="kl-hint info"><div class="h-ic"></div><div class="h-body">Voting is always curated by the publisher: fans choose among options the publisher has already approved.</div></div>
-<h2 id="how-voting">How Voting Works</h2>
-<p>Voting gives fans a real voice within clear boundaries:</p>
-<ol>
-<li>The publisher prepares a decision and a set of approved options.</li>
-<li>Holders of the Culture Token cast their votes during a set window.</li>
-<li>The result guides the publisher's final choice.</li>
-</ol>
-<p>Because the options are set in advance, voting stays meaningful and on brand.</p>
-<h2 id="lifecycle">The Culture Token Lifecycle</h2>
-<ul>
-<li><strong>Presale:</strong> Initial distribution on the KLOVER Platform.</li>
-<li><strong>Secondary Trading:</strong> Fans trade tokens within the platform's integrated marketplace.</li>
-<li><strong>Ongoing Utility:</strong> Holders access voting, experiences, and other utilities continuously.</li>
-</ul>
-<h2 id="ct-klover">Culture Tokens and $KLVR</h2>
-<p>Culture Tokens and $KLVR work together. $KLVR is the currency of the ecosystem, and every Culture Token is acquired with $KLVR. A Culture Token then carries the utilities of a single publisher, while $KLVR carries value and governance across the whole ecosystem.</p>
-<h2 id="value">The Value of Holding</h2>
-<p>Holding a Culture Token means <strong>belonging</strong>. It is a direct line to influence, exclusive access, and a shared stake in a publisher's cultural journey, turning everyday fandom into membership.</p>`,
-    sec6: `<p class="kl-lead">The KLOVER Platform is the home of the ecosystem, designed so that anyone, not just crypto experts, can take part.</p>
-<h2 id="philosophy">Platform Philosophy: Web3 Without Barriers</h2>
-<p>KLOVER is built for <strong>fans first</strong>. The platform hides blockchain complexity behind a familiar, intuitive experience. If you can deposit $KLVR or USDT, you can fully participate. <strong>No prior DeFi experience required.</strong></p>
-<h2 id="newcomers">Built for Newcomers</h2>
-<p>Most fans are not crypto experts, and they should not have to be. The platform removes the usual hurdles:</p>
-<ul>
-<li>No need to understand wallets, gas, or private keys to begin.</li>
-<li>A familiar interface, closer to a consumer app than a trading terminal.</li>
-<li>Clear steps for buying, holding, and using Culture Tokens.</li>
-</ul>
-<h2 id="getting-started">Getting Started</h2>
-<p>Getting started takes just a few steps:</p>
-<ol><li>Create your KLOVER account.</li><li>Deposit <strong>$KLVR</strong> or <strong>USDT</strong>.</li><li>Join Culture Token presales, trade, and use utilities.</li></ol>
-<h2 id="deposits">Deposits and Withdrawals</h2>
-<p>You can fund your account with <strong>$KLVR</strong> or <strong>USDT</strong>. Once funded, you can join presales, trade Culture Tokens, and use utilities. The full list of supported networks and deposit options is <span class="kl-tbd">Needs to be decided</span>.</p>
-<h2 id="features">Platform Features</h2>
-<ul>
-<li><strong>Culture Token Presales:</strong> Be among the first to acquire a newly launched Culture Token.</li>
-<li><strong>Trading:</strong> Buy and sell Culture Tokens in an integrated marketplace.</li>
-<li><strong>Utility Hub:</strong> Cast votes and enter raffles and experiences, all in one place.</li>
-</ul>
-<h2 id="fees">Fee Structure</h2>
-<p>KLOVER sustains the ecosystem through transparent transaction fees on platform activity, such as trading. The exact fee rates are <span class="kl-tbd">Needs to be decided</span>, and the full schedule will be published before launch.</p>
-<h2 id="security">Infrastructure &amp; Security</h2>
-<p>Built on <strong>BASE</strong>, the platform combines blockchain security with a custody and onboarding experience designed for mainstream users. Fans get the safety of decentralized infrastructure with the ease of a consumer app.</p>`,
-    sec7: `<p class="kl-lead">KLOVER gives its community a voice. Through ecosystem governance, $KLVR holders help steer the direction of the ecosystem.</p>
-<h2 id="gov-philosophy">Governance Philosophy</h2>
-<p>Governance at KLOVER is <strong>curated by the team and decided by the community</strong>. The KLOVER team raises matters for a vote, and $KLVR holders decide the outcome. This keeps proposals relevant and actionable while putting real decisions in the community's hands.</p>
-<p>What sets this apart from fan polls or social votes is that the outcome is recorded on-chain. Every vote is public and permanent. The community's decision is not advice to the team. It is something the team implements.</p>
-<h2 id="how">How Ecosystem Governance Works</h2>
-<ol>
-<li>The <strong>KLOVER team</strong> submits a proposal.</li>
-<li><strong>$KLVR holders</strong> vote, with voting weight based on their holdings.</li>
-<li>The outcome is <strong>implemented</strong> by the team.</li>
-</ol>
-<h2 id="voting-power">How Voting Power Works</h2>
-<p>Voting weight is based on the amount of $KLVR a holder commits to a vote. The more $KLVR you hold, the more weight your vote carries. The exact method, including any limits or lockups, is <span class="kl-tbd">Needs to be decided</span>.</p>
-<h2 id="examples">Examples of Governance Decisions</h2>
-<p>Governance focuses on matters that affect the wider ecosystem. Examples may include:</p>
-<ul>
-<li>Priorities for new features and utilities.</li>
-<li>Direction for ecosystem programs and initiatives.</li>
-<li>Selected parameters that shape how the ecosystem runs.</li>
-</ul>
-<h2 id="scope">Scope of Ecosystem Governance</h2>
-<p>Ecosystem governance covers matters at the ecosystem level that the team raises, including direction, priorities, and initiatives that affect the broader KLOVER community. The precise scope of governable decisions is <span class="kl-tbd">Needs to be decided</span>.</p>
-<h2 id="vs">Ecosystem Governance vs. Culture Token Voting</h2>
-<div class="kl-hint accent"><div class="h-ic"></div><div class="h-body">KLOVER has <strong>two distinct voting systems</strong>. Do not confuse them.</div></div>
-<div class="kl-dl">
-<div class="row"><dt>Ecosystem Governance</dt><dd>Uses <strong>$KLVR</strong>. Decides matters at the ecosystem level across all of KLOVER.</dd></div>
-<div class="row"><dt>Culture Token Voting</dt><dd>Uses a specific <strong>Culture Token</strong>. Decides matters within a single publisher's community (e.g. an album cover).</dd></div>
-</div>`,
-    sec8: `<p class="kl-lead">KLOVER partners with established K-Culture organizations to bring their communities on-chain. This is a broad overview for prospective partners.</p>
-<h2 id="who-partner">Who Should Partner with KLOVER?</h2>
-<p>KLOVER is designed for organizations with a <strong>passionate global fanbase</strong> and a <strong>lasting presence</strong> in K-Culture. Because Culture Tokens are issued by organizations rather than individuals, partners can offer enduring value across many artists, creators, and projects.</p>
-<p>KLOVER and its partners split the work along clear lines. Organizations focus on their fandom, their content, and their community, while KLOVER takes on token issuance, smart contract design, and blockchain infrastructure. Each side spends its energy on what it does best.</p>
-<h2 id="categories">Eligible Partner Categories</h2>
-<ul>
-<li><strong>K-POP Entertainment Companies</strong></li>
-<li><strong>Korean YouTube MCN Companies</strong></li>
-<li><strong>Korean Esports Organizations</strong></li>
-</ul>
-<p>…and other established K-Culture organizations with a global following.</p>
-<h2 id="eligibility">Eligibility</h2>
-<p>KLOVER looks for partners that can offer lasting value to a community. Typical signals include a global following, an active fanbase, and a track record in K-Culture. Full eligibility criteria are <span class="kl-tbd">Needs to be decided</span> and are confirmed during review.</p>
-<h2 id="receive">What Partners Receive</h2>
-<ul>
-<li>A complete platform and infrastructure, so partners never have to take on blockchain development or security risk themselves.</li>
-<li>Access to a global community of culture fans.</li>
-<li>Tools for utilities (voting, experiences) and governance.</li>
-<li>A new channel for fan engagement and revenue.</li>
-</ul>
-<h2 id="process">The Launch Process</h2>
-<p>At a high level, launching a Culture Token follows these stages:</p>
-<ol>
-<li><strong>Inquiry.</strong> The organization reaches out to the KLOVER team.</li>
-<li><strong>Review.</strong> Both sides confirm fit, goals, and eligibility.</li>
-<li><strong>Design.</strong> The token, its utilities, and its launch plan are shaped together.</li>
-<li><strong>Presale.</strong> The Culture Token is offered to fans on the platform.</li>
-<li><strong>Launch.</strong> Trading and utilities go live, and the community grows from there.</li>
-</ol>
-<p>KLOVER's role in this process goes beyond providing a platform. From the design stage onward, the KLOVER team works closely with each partner, sharing hands-on experience in token utility design, community strategy, and launch operations. Partners also benefit from LK Ventures' established relationships across the K-Culture industry.</p>
-<h2 id="revenue">Revenue Model for Partners</h2>
-<p>Partners can generate revenue from their Culture Token's presale and from ongoing platform activity. Specific terms and revenue share structures are <span class="kl-tbd">Needs to be decided</span> and are tailored to each partner during onboarding.</p>
-<h2 id="inquiry">Partner Inquiry &amp; Next Steps</h2>
-<p>Organizations interested in launching a Culture Token are invited to reach out to the KLOVER team. Official partnership contact details are:</p>
-<div class="kl-soon"><span class="kl-soon-badge">Coming Soon</span><span class="kl-soon-sub">Partnership contact information will be published here.</span></div>`,
-    sec9: `<p class="kl-lead">Here's how we get from where we are today to a world where any culture can be tokenized. The phases below lay out the full journey, from building core infrastructure to expanding well beyond K-Culture. Target timelines are <span class="kl-tbd">Needs to be decided</span> and will be shared as we get closer to each phase.</p>
-<div class="kl-timeline">
-<div class="kl-tl-item"><div class="kl-tl-dot"></div><div class="kl-tl-phase">Phase 1</div><h2 id="phase-1" class="kl-tl-title">Foundation</h2><div class="kl-tl-body">We're building the technical backbone that everything else runs on. This covers deploying $KLVR and the Culture Token smart contracts on BASE, developing the KLOVER Platform, and putting the security and compliance groundwork in place. The work happening here may be invisible to most people right now, but it's what makes everything that follows possible.</div></div>
-<div class="kl-tl-item future"><div class="kl-tl-dot"></div><div class="kl-tl-phase">Phase 2</div><h2 id="phase-2" class="kl-tl-title">Bloom Campaign</h2><div class="kl-tl-body">Before the token goes live, we're opening the doors to the community through Bloom, KLOVER's early community program. Participants contribute to the ecosystem in meaningful ways and earn Bloom Points, which convert to $KLVR rewards at launch. Think of it as the earliest way to build your stake before the rest of the world shows up. Bloom isn't about being first for the sake of it. It's about recognizing the people who believed early.</div></div>
-<div class="kl-tl-item future"><div class="kl-tl-dot"></div><div class="kl-tl-phase">Phase 3</div><h2 id="phase-3" class="kl-tl-title">$KLVR VIP Presale</h2><div class="kl-tl-body">The first real opportunity to hold $KLVR. This presale is exclusively available to whitelisted participants, including Bloom Campaign contributors and vetted community members. It's a limited window before the public launch, and allocation is confirmed during the review process. If you were part of Bloom, this is your reward for showing up early.</div></div>
-<div class="kl-tl-item future"><div class="kl-tl-dot"></div><div class="kl-tl-phase">Phase 4</div><h2 id="phase-4" class="kl-tl-title">$KLVR Launch</h2><div class="kl-tl-body">This is the moment $KLVR goes live to the world. The launch is our public declaration that KLOVER is open for business. The ecosystem formally opens, the infrastructure built across previous phases starts running at scale, and from here everything moves faster.</div></div>
-<div class="kl-tl-item future"><div class="kl-tl-dot"></div><div class="kl-tl-phase">Phase 5</div><h2 id="phase-5" class="kl-tl-title">KLOVER Platform</h2><div class="kl-tl-body">With $KLVR live, the KLOVER Platform opens to everyone. Fans can create accounts, deposit $KLVR or USDT, and start participating in Culture Token presales. The Utility Hub goes live so holders can vote, enter experiences, and engage with the communities they care about. This is where KLOVER stops being a concept and becomes something people actually use every day.</div></div>
-<div class="kl-tl-item future"><div class="kl-tl-dot"></div><div class="kl-tl-phase">Phase 6</div><h2 id="phase-6" class="kl-tl-title">First Culture Tokens</h2><div class="kl-tl-body">We onboard the first wave of K-Culture publishers and launch their Culture Tokens on the platform. Fans join presales, acquire their first tokens, and start accessing real utilities. These inaugural communities set the tone for what KLOVER can be, and we're choosing our first partners carefully to make sure the start is strong.</div></div>
-<div class="kl-tl-item future"><div class="kl-tl-dot"></div><div class="kl-tl-phase">Phase 7</div><h2 id="phase-7" class="kl-tl-title">Ecosystem Expansion</h2><div class="kl-tl-body">With the foundation proven, we grow. More publishers join across K-POP, MCNs, and esports. The range of utilities expands as publishers learn what their communities respond to. Network effects kick in, and each new community makes the platform stronger for everyone already here.</div></div>
-<div class="kl-tl-item future"><div class="kl-tl-dot"></div><div class="kl-tl-phase">Vision</div><h2 id="vision" class="kl-tl-title">Beyond K-Culture</h2><div class="kl-tl-body">The model we build for K-Culture isn't meant to stop there. The issuance structure, the utility design, and the governance model we prove out in K-Culture aren't bound to any single culture. It's a template built to carry over from one fandom to the next, largely as is. That's why, once the playbook is proven on the foundation K-Culture provides, KLOVER expands to tokenize cultures worldwide. Any passionate global community, any culture worth owning a piece of, belongs here, regardless of genre or geography. The vision is simple: <strong>Tokenize Culture</strong>. All of it.</div></div>
-</div>`,
-    sec10: `<p class="kl-lead">KLOVER operates with compliance at its core. Please review the following information carefully.</p>
-<h2 id="geography">Geographic Availability</h2>
-<p>KLOVER is built for fans everywhere and available in most international markets. Access is restricted in sanctioned jurisdictions and certain other regions in line with applicable laws and regulations. Restricted jurisdictions include countries subject to international sanctions such as Iran, North Korea, and Syria, as well as the Republic of Korea and any other markets where participation may be restricted under local rules. A complete list of restricted jurisdictions will be confirmed and published before launch.</p>
-<h2 id="eligibility-legal">User Eligibility</h2>
-<p>Access to the KLOVER ecosystem may depend on where you live and who you are. Users must meet the minimum age and any requirements that apply in their market, and must not be located in a restricted jurisdiction. Full eligibility terms are <span class="kl-tbd">Needs to be decided</span>.</p>
-<h2 id="regulatory">Regulatory Stance</h2>
-<p>KLOVER is committed to operating responsibly and adapting to the regulatory frameworks of the markets it serves. Our approach prioritizes long term sustainability and user protection over short term expansion.</p>
-<h2 id="privacy">Privacy</h2>
-<p>KLOVER is committed to handling personal data responsibly and in line with the rules of the markets it serves. A full privacy policy will be published before launch.</p>
-<h2 id="disclaimer">General Risk Disclaimer</h2>
-<div class="kl-hint warning"><div class="h-ic"></div><div class="h-body">Digital tokens involve risk, including the potential loss of value. This documentation is for <strong>informational purposes only</strong> and does not constitute financial, investment, or legal advice. Nothing herein is an offer or solicitation to buy or sell any asset. Please do your own research.</div></div>`,
-    sec_security: `<div class="kl-soon"><span class="kl-soon-badge">Coming Soon</span><span class="kl-soon-sub">Security practices and independent audit reports will be published here.</span></div>`,
-    sec_team: `<div class="kl-soon"><span class="kl-soon-badge">Coming Soon</span><span class="kl-soon-sub">The team behind KLOVER will be introduced here.</span></div>`,
-    sec_faq: `<div class="kl-soon"><span class="kl-soon-badge">Coming Soon</span><span class="kl-soon-sub">Answers to common questions will be published here.</span></div>`,
-  },
-};
-
-/* === Additional language packs are injected below (zh, ko, ja, fr, es). === */
-I18N.ko = {
-  "ui": {
-    "docs": "문서",
-    "searchPlaceholder": "검색…",
-    "searchNoResults": "검색 결과가 없습니다",
-    "onThisPage": "이 페이지에서",
-    "previous": "이전",
-    "next": "다음",
-    "groupIntro": "소개",
-    "groupEcosystem": "생태계",
-    "groupParticipate": "참여하기",
-    "groupResources": "자료",
-    "helpfulQuestion": "도움이 되셨나요?",
-    "helpfulYes": "네",
-    "helpfulNo": "아니요",
-    "helpfulThanks": "의견 감사합니다",
-    "lastModified": "방금 수정됨",
-    "copy": "복사",
-    "copied": "복사됐습니다"
-  },
-  "nav": {
-    "home": "개요",
-    "sec1": "소개",
-    "sec2": "Tokenize Culture",
-    "sec3": "KLOVER 생태계",
-    "sec4": "$KLVR",
-    "sec5": "Culture Token",
-    "sec6": "KLOVER 플랫폼",
-    "sec7": "생태계 거버넌스",
-    "sec8": "Culture Token 발행하기",
-    "sec9": "로드맵",
-    "sec10": "법률 및 컴플라이언스",
-    "sec_security": "보안 및 감사",
-    "sec_team": "팀",
-    "sec_faq": "자주 묻는 질문"
-  },
-  "home": {
-    "eyebrow": "K-Culture Web3 생태계",
-    "title1": "Tokenize",
-    "title2": "Culture",
-    "lead": "KLOVER는 팬이 K-Culture를 직접 소유하고 생태계 방향에 목소리를 낼 수 있는 Web3 생태계입니다. 공식 문서에서 생태계 구조와 참여 방법을 확인하세요.",
-    "cta1": "시작하기",
-    "cta2": "Culture Token 보기",
-    "byline": "LK Ventures가 만든 생태계입니다",
-    "cards": [
-      {
-        "t": "$KLVR",
-        "d": "KLOVER 생태계의 기축 통화로, 거버넌스 투표와 Culture Token 구매, 스테이킹까지 생태계 전반에 걸쳐 사용됩니다."
-      },
-      {
-        "t": "Culture Token",
-        "d": "K-Culture 조직이 직접 발행하는 팬 소유권 토큰으로, 홀더에게 실제 혜택을 제공합니다."
-      },
-      {
-        "t": "KLOVER 플랫폼",
-        "d": "암호화폐를 몰라도 누구나 이용할 수 있는 팬 중심 Web3 플랫폼입니다."
-      },
-      {
-        "t": "Base 위에 구축",
-        "d": "빠르고 저렴하며 안전한 인프라 위에 구축되어, 모든 온체인 활동이 안정적으로 처리됩니다."
-      }
-    ]
-  },
-  "pages": {
-    "sec1": "<p class=\"kl-lead\">KLOVER는 전 세계 팬이 사랑하는 문화를 직접 소유하고, 방향에 목소리를 내며, 더 깊이 참여할 수 있는 K-Culture Web3 생태계입니다. 이 문서는 KLOVER의 구조와 생태계 작동 방식, 그리고 팬, 파트너, 서포터가 참여하는 방법을 설명합니다.</p>\n<h2 id=\"what\">KLOVER란</h2>\n<p>K-POP, 크리에이터, e스포츠를 사랑하는 팬은 전 세계 곳곳에 흩어져 있지만, 이들을 하나로 이어 주는 공간은 그동안 마땅치 않았습니다. KLOVER는 <strong>문화를 tokenize</strong>하기 위해 구축한 Web3 생태계로, 한국 문화에서 시작해 전 세계로 확장합니다. <strong>Culture Token</strong>은 K-Culture 단체와 글로벌 팬덤을 연결하는 디지털 자산이며, 지켜보기만 했던 팬이 이제 직접 참여하고 소유하는 주체가 됩니다. 생태계 전체는 <strong>BASE</strong> 블록체인 위에서 운영됩니다.</p>\n<h2 id=\"audience\">이 문서의 독자</h2>\n<p>이 문서는 세 유형의 독자를 위해 작성했습니다.</p>\n<ul>\n<li><strong>팬</strong>: Culture Token을 소유하고, 의사결정에 참여하며, 특별한 경험을 원하는 분들.</li>\n<li><strong>K-Culture 단체</strong>: 커뮤니티를 on-chain으로 연결하고 Culture Token을 발행하려는 조직.</li>\n<li><strong>파트너와 서포터</strong>: 생태계 구조, $KLVR, KLOVER의 비전을 파악하려는 분들.</li>\n</ul>\n<p>처음부터 순서대로 읽어도 좋고, 필요한 섹션으로 바로 이동해도 됩니다.</p>\n<h2 id=\"mission\">미션: Tokenize Culture</h2>\n<p>KLOVER의 미션은 <strong>Tokenize Culture</strong>입니다. 팬은 단순한 소비자가 아니라 문화 가치를 함께 만드는 공동 창작자이며, KLOVER는 그 기여를 실제 자산으로 전환합니다.</p>\n<p>출발점은 한국 문화이며, KLOVER는 어떤 문화든 그 커뮤니티와 함께 성장하는 공간이 되고자 합니다.</p>\n<h2 id=\"brand\">KLOVER라는 이름</h2>\n<p>KLOVER는 두 가지 뜻을 담고 있습니다. <strong>클로버(clover)</strong>는 행운과 성장, 좋은 기운의 상징이며, <strong>\"K-Lover\"</strong>는 K-Culture를 사랑하는 전 세계 커뮤니티를 가리킵니다. 이 둘이 합쳐져, 문화를 사랑하고 함께 키우는 사람들의 공간이라는 의미를 담습니다.</p>\n<h2 id=\"life4cut\">LK Ventures: 인생네컷을 포함한 글로벌 K-Culture 기업</h2>\n<p>KLOVER는 <strong>LK Ventures</strong>가 설립하고 운영합니다. LK Ventures는 K-Culture Experience 플랫폼의 선두주자로, 인생네컷을 비롯한 다양한 문화 콘텐츠 비즈니스를 운영합니다. 그중 가장 잘 알려진 인생네컷은 한국을 대표하는 포토부스 브랜드로, 지금은 30개국, 1,040개 매장까지 뻗어나갔고 누적 촬영 1억 회, 월평균 이용자 380만 명을 기록하고 있습니다. 이렇게 쌓아 온 문화적 뿌리와 브랜드 신뢰, K-Culture 산업 전반에 걸친 네트워크가 KLOVER의 토대입니다.</p>\n<p>인생네컷의 포토부스는 팬 미팅, 콘서트, 공개 방송 현장 곁에 자리하며, 팬이 K-Culture의 순간을 직접 기록하는 공간이 됐습니다. 현장에서 팬과 가장 가까운 자리에서 쌓아 온 이 신뢰와 이해는 LK Ventures가 여러 K-Culture 비즈니스로 영역을 넓히는 동안 한결같이 이어져 왔습니다. 블록체인 기술만 가진 외부 기업이 아니라, 이미 K-Culture 생태계 안에 깊숙이 들어와 있는 회사가 KLOVER를 만들고 있습니다.</p>\n<h2 id=\"terminology\">핵심 용어</h2>\n<p>이 문서 전체에서 자주 쓰이는 핵심 용어를 정리했습니다.</p>\n<div class=\"kl-dl\">\n<div class=\"row\"><dt>KLOVER</dt><dd>K-Culture Web3 생태계 전체와 소비자용 플랫폼을 통틀어 부르는 이름입니다.</dd></div>\n<div class=\"row\"><dt>$KLVR</dt><dd>생태계 기축 통화로, Culture Token 구매와 생태계 참여에 사용됩니다.</dd></div>\n<div class=\"row\"><dt>Culture Token</dt><dd>K-Culture 단체가 발행하는 토큰으로, 홀더에게 유틸리티를 제공합니다.</dd></div>\n<div class=\"row\"><dt>Culture Token Publisher</dt><dd>Culture Token을 발행하는 단체로, 레이블, MCN, e스포츠 팀 등이 해당합니다.</dd></div>\n<div class=\"row\"><dt>Utility</dt><dd>Culture Token으로 이용할 수 있는 혜택으로, 투표권이나 특별 경험 등이 포함됩니다.</dd></div>\n<div class=\"row\"><dt>BASE</dt><dd>KLOVER 생태계가 구축된 블록체인입니다.</dd></div>\n<div class=\"row\"><dt>Presale</dt><dd>2차 거래 개시 전 KLOVER 플랫폼에서 새 Culture Token을 처음 판매하는 단계입니다.</dd></div>\n<div class=\"row\"><dt>Utility Hub</dt><dd>홀더가 Culture Token으로 투표하고 각종 혜택을 이용하는 플랫폼 내 공간입니다.</dd></div>\n<div class=\"row\"><dt>Web3</dt><dd>퍼블릭 블록체인 기반의 인터넷 서비스 영역으로, 디지털 자산을 실제로 소유할 수 있는 환경입니다.</dd></div>\n</div>",
-    "sec2": "<p class=\"kl-lead\">문화는 인류가 함께 쌓아 온 가장 큰 유산입니다. 음악, 영화, 게임, 그리고 그 주변의 수많은 순간들. 그 가치는 결국 그것을 사랑하는 사람들이 만들어 냅니다. 그런데 그 가치를 함께 만든 사람들에게 돌아오는 몫은 없었습니다. KLOVER는 이 불균형을 바로잡기 위해 만들어졌으며, 팬이 문화를 진짜로 소유할 수 있게 합니다.</p>\n<h2 id=\"culture-is-shared\">문화는 모두가 함께 만듭니다</h2>\n<p>문화는 소수의 스타만으로 만들어지지 않습니다. 노래를 듣고, 영상을 공유하고, 응원을 보내고, 기꺼이 지갑을 여는 수많은 사람들이 만들어 냅니다. 팬의 열정, 시간, 입소문 하나하나가 문화에 생명과 가치를 불어넣습니다.</p>\n<p>그래서 문화의 진짜 주인은 그것을 아끼는 사람들입니다. K-Culture든 그 너머의 어떤 문화든, 사랑하는 사람이 모일수록 더 크게 자랍니다. 그래서 KLOVER는 'K'가 아닌 <strong>Culture</strong> 자체를 중심에 둡니다.</p>\n<h2 id=\"the-gap\">그런데 팬에게 돌아오는 몫은 없었습니다</h2>\n<p>오늘날 팬들의 참여도는 그 어느 때보다 깊습니다. 스트리밍을 돌리고, 굿즈를 구매하고, 공연장을 가득 채웁니다. 그러나 사랑하는 문화의 방향에 목소리를 낼 수단도, 함께 키운 가치에 대한 지분도 없습니다.</p>\n<p>그렇게 쌓인 가치는 대부분 플랫폼과 중개자에게 흘러갑니다. 문화를 키운 팬은 빈손으로 남으며, 열정은 뜨겁지만 참여는 소비에서 멈춥니다. 팬이 문화와 직접 연결될 방법이 지금껏 없었습니다.</p>\n<h2 id=\"vision\">KLOVER의 비전</h2>\n<p>KLOVER의 답은 단순합니다. 문화를 소유할 수 있게 만드는 것입니다. <strong>Culture Token</strong>을 통해 팬의 기여는 실제로 소유할 수 있는 자산이 됩니다. 단순한 응원을 넘어, 의사결정에 참여할 권리와 돈으로는 살 수 없는 경험을 얻게 됩니다.</p>\n<p>아티스트의 다음 행보에 직접 투표하고, 커뮤니티의 여정에 지분을 갖고 함께 성장하며, 손님이 아닌 주인으로 참여합니다. 이 모델은 K-Culture에만 머물지 않습니다. 세계 어느 문화든, 그 문화를 사랑하는 커뮤니티라면 함께 자랄 수 있습니다. KLOVER의 비전은 두 단어입니다. <strong>Tokenize Culture</strong>, 그 문화를 사랑하는 사람들에게 돌려주는 일입니다.</p>\n<h2 id=\"why-kculture\">시작은 K-Culture입니다</h2>\n<p>KLOVER의 출발점은 K-Culture입니다. K-POP, 크리에이터, e스포츠를 아우르며 전 세계로 뻗어 있고, 어디서나 가장 열성적인 팬들이 있으며, 이미 온라인에서 활발하게 살아 움직이는 문화입니다.</p>\n<p>레이블이나 MCN 같은 조직은 아티스트 한 명보다 오래가고, 여러 프로젝트를 거치며 수많은 팬을 품습니다. KLOVER를 만든 LK Ventures는 이 산업 전반과 직접 연결된 네트워크를 갖고 있습니다. K-Culture는 이 모델을 검증하기에 가장 적합한 시장이며, 어디까지나 첫걸음입니다.</p>\n<h2 id=\"why-now\">왜 지금인가</h2>\n<p>블록체인 기술이 이제 충분히 무르익었습니다. 팬은 소유권을 증명하고, 직접 영향력을 행사하며, 함께 만든 결실을 나눌 수 있게 됐습니다. KLOVER는 이 기술을 투기가 아닌 팬 참여에 씁니다.</p>\n<p>시기도 맞아떨어집니다. K-Culture는 이미 글로벌 시장의 주류이고, 이를 뒷받침할 인프라도 갖춰졌습니다. 팬은 소유권과 목소리를 얻고, 조직은 커뮤니티와 새롭게 연결되며 새로운 수익원을 확보합니다. 생태계는 새로운 커뮤니티가 합류할 때마다 더 단단해집니다. 문화를 tokenize할 최적의 순간은 지금입니다.</p>",
-    "sec3": "<p class=\"kl-lead\">KLOVER 생태계는 서로 맞물린 네 가지 요소로 구성되며, 이 네 요소가 맞물려 돌아가면서 생태계 전체를 움직입니다.</p>\n<h2 id=\"architecture\">전체 구조</h2>\n<p>KLOVER는 네 가지 요소를 하나로 연결합니다. 생태계 기축 통화 <strong>$KLVR</strong>, 팬이 직접 보유하는 자산 <strong>Culture Token</strong>, 모든 활동이 이루어지는 <strong>KLOVER 플랫폼</strong>, 그리고 생태계를 실제로 움직이는 <strong>팬</strong>. 이 네 요소는 서로 맞물리며 하나의 순환 구조를 이룹니다.</p>\n<h2 id=\"pillars\">네 가지 핵심 요소</h2>\n<div class=\"kl-cards\">\n<div class=\"kl-card\"><div class=\"ic\">01</div><div class=\"ct\">$KLVR</div><div class=\"cd\">생태계 기축 통화로, Culture Token 구매와 Governance 참여에 사용됩니다.</div></div>\n<div class=\"kl-card\"><div class=\"ic\">02</div><div class=\"ct\">Culture Token</div><div class=\"cd\">K-Culture 조직이 발행하는 토큰으로, 팬이 실제로 쓸 수 있는 혜택을 담습니다.</div></div>\n<div class=\"kl-card\"><div class=\"ic\">03</div><div class=\"ct\">KLOVER 플랫폼</div><div class=\"cd\">Culture Token을 사고, 거래하고, 사용하는 공간입니다.</div></div>\n<div class=\"kl-card\"><div class=\"ic\">04</div><div class=\"ct\">팬</div><div class=\"cd\">직접 소유하고 참여하는 전 세계 커뮤니티로, 생태계의 가치는 팬에게서 나옵니다.</div></div>\n</div>\n<h2 id=\"how-it-works\">흐름 전체 보기</h2>\n<p>생태계를 이용하는 순서는 이렇습니다.</p>\n<ol>\n<li>팬이 <strong>$KLVR</strong>을 확보하거나, $KLVR이나 USDT를 플랫폼에 입금합니다.</li>\n<li>응원하는 조직의 <strong>Culture Token</strong>을 선택합니다.</li>\n<li>해당 토큰의 <strong>presale</strong>에 참여하거나, 2차 시장에서 구매합니다.</li>\n<li><strong>Utility Hub</strong>에서 토큰으로 투표하고 각종 혜택을 이용합니다.</li>\n<li><strong>$KLVR</strong>을 보유해 생태계 Governance에 참여합니다.</li>\n</ol>\n<h2 id=\"flywheel\">선순환 경제 구조</h2>\n<p>생태계는 수요가 수요를 만드는 구조입니다.</p>\n<ul>\n<li>Culture Token 수요가 높아질수록 <strong>$KLVR</strong> 수요도 함께 올라갑니다.</li>\n<li>플랫폼이 성장할수록 더 많은 <strong>Culture Token 발행사</strong>가 참여합니다.</li>\n<li>발행사가 늘수록 더 많은 <strong>팬</strong>이 유입됩니다.</li>\n<li>팬이 늘수록 생태계 전체가 더욱 강해집니다.</li>\n</ul>\n<p>이 순환의 핵심은 각 요소가 나머지를 끌어올린다는 점입니다. 팬이 늘면 파트너 유입이 빨라지고, 파트너가 많아질수록 유틸리티 범위가 넓어지며, 유틸리티가 좋아질수록 다시 팬이 모입니다. 생태계에 참여하는 행위 자체가 성장 동력이 됩니다.</p>\n<h2 id=\"base\">BASE 기반 인프라</h2>\n<p>KLOVER는 이더리움의 보안을 그대로 이어받은 <strong>BASE</strong> 블록체인 위에 구축되어 있으며, BASE를 선택한 이유는 네 가지입니다.</p>\n<ul>\n<li><strong>낮은 수수료</strong>로 팬의 일상 활동 비용을 낮춥니다.</li>\n<li><strong>빠른 거래 처리</strong>로 막힘 없는 사용 경험을 줍니다.</li>\n<li>이더리움 생태계에서 이어받은 <strong>강한 보안성</strong>을 갖췄습니다.</li>\n<li>표준 Web3 지갑이나 도구와도 <strong>폭넓게 호환</strong>됩니다.</li>\n</ul>\n<p>암호화폐를 처음 접하는 팬도 막힘 없이 쓸 수 있는 인프라입니다.</p>",
-    "sec4": "<p class=\"kl-lead\">$KLVR는 KLOVER 생태계의 기축 통화로, Culture Token 구매부터 플랫폼 내 결제, Governance 참여까지 생태계 전반에 걸쳐 사용됩니다.</p>\n<h2 id=\"overview\">개요</h2>\n<h3 id=\"role\">$KLVR의 역할</h3>\n<p>$KLVR는 생태계 전반에서 쓰이는 교환 수단입니다. Culture Token을 살 때 반드시 필요하고, 플랫폼 내 거래 수단이기도 하며, 보유하면 Governance에도 참여할 수 있습니다. KLOVER 안에서 가치가 오가는 곳이라면 어디든 $KLVR를 거칩니다.</p>\n<h3 id=\"utility\">Token Utility</h3>\n<ul>\n<li><strong>Culture Token 구매:</strong> Culture Token은 $KLVR로만 구매할 수 있으며, 구조적으로 꾸준한 수요가 생깁니다.</li>\n<li><strong>Governance:</strong> $KLVR 홀더는 KLOVER 팀이 제안한 안건에 직접 투표합니다.</li>\n<li><strong>플랫폼 결제 수단:</strong> 플랫폼 내 거래와 활동은 $KLVR로 처리됩니다.</li>\n</ul>\n<h3 id=\"demand\">수요 원천</h3>\n<p>$KLVR 수요는 투기가 아니라 생태계 내 실제 사용에서 비롯됩니다.</p>\n<ul>\n<li><strong>Culture Token 구매.</strong> 모든 Culture Token은 $KLVR로 구매합니다.</li>\n<li><strong>플랫폼 활동.</strong> 생태계 내 거래는 $KLVR로 정산됩니다.</li>\n<li><strong>Governance.</strong> $KLVR를 보유해야 의사결정에 참여할 수 있습니다.</li>\n</ul>\n<p>개별 Culture Token의 수요는 해당 발행사의 팬덤 규모 안에 머무릅니다. 반면 $KLVR은 모든 Culture Token의 공통 구매 수단이므로, 새로운 발행사가 생태계에 합류하고 팬덤이 늘어날 때마다 수요가 함께 쌓입니다. 생태계에 참여하는 발행사와 팬이 많아질수록 $KLVR의 수요 기반도 함께 넓어집니다.</p>\n<h3 id=\"standard\">토큰 표준</h3>\n<p>$KLVR는 BASE 블록체인에 배포된 ERC-20 토큰으로, 표준 Web3 지갑과 도구에서 바로 사용할 수 있습니다. 공식 컨트랙트 주소는 <span class=\"kl-tbd\">미정</span>이며, 출시 전에 이 페이지에 공개됩니다.</p>\n<h3 id=\"acquire\">$KLVR 구매 방법</h3>\n<p>팬은 KLOVER 플랫폼에서 $KLVR를 직접 구매할 수 있으며, Web3에 익숙하지 않아도 쉽게 시작할 수 있도록 온보딩을 설계했습니다. 지원 구매 방법과 범위는 <span class=\"kl-tbd\">미정</span>입니다.</p>\n<h2 id=\"tokenomics\">Tokenomics</h2>\n<p>$KLVR 총 발행량은 83억 개로, 전 세계 인구 수에 맞춘 숫자입니다. 특정 소수가 아니라 지구상 누구나 참여할 수 있는 문화 경제를 지향한다는 뜻을 담았습니다. 전체 물량은 아래 카테고리로 배분되며 합계는 100%입니다. TGE는 2026년 11월(Q4)로 예정되어 있으며, TGE에서 100% 즉시 해제되는 물량은 첫날부터 유통됩니다. 나머지는 Cliff 이후 선형 Vesting으로 순차 해제되어 생태계가 장기적으로 안정을 유지하도록 설계했습니다.</p>\n<p>Vesting 구조는 생태계 참여자 모두를 위한 안전장치입니다. 전체 물량이 한꺼번에 풀리면 초기 보유자에게 즉각적인 매도 유인이 생기고 토큰 가치가 급격히 흔들릴 수 있습니다. 선형 Vesting은 토큰이 예측 가능하게 시장에 공급되도록 조율해, 팬과 파트너 모두가 장기적 관점에서 생태계를 함께 키울 수 있는 환경을 만듭니다.</p>\n<div id=\"klvr-table\"></div>\n<div id=\"klvr-chart\" class=\"klvr-tk-wrap\"></div>\n<div class=\"kl-hint info\"><div class=\"h-ic\"></div><div class=\"h-body\">Cliff는 TGE 이후 Vesting이 시작되기 전까지의 잠금 기간입니다. Vesting은 그 이후 토큰이 선형으로 해제되는 기간을 말합니다. 차트는 총발행량 대비 유통 비율을 나타냅니다.</div></div>",
-    "sec5": "<p class=\"kl-lead\">Culture Token은 팬과 K-Culture 조직을 연결하는 자산으로, 각 토큰은 문화 조직이 직접 발행하며 홀더가 실제로 쓸 수 있는 혜택을 줍니다.</p>\n<h2 id=\"what-ct\">Culture Token이란</h2>\n<p><strong>Culture Token</strong>은 음악 레이블, MCN, e스포츠 팀 같은 K-Culture 조직이 발행하는 디지털 토큰으로, 커뮤니티 멤버십을 증명하고 홀더 전용 유틸리티를 제공합니다. Culture Token을 보유한다는 건 좋아하는 문화와 직접 연결된다는 의미입니다.</p>\n<h2 id=\"who\">Culture Token 발행 주체</h2>\n<p>Culture Token은 개인이 아니라 <strong>검증된 문화 조직</strong>이 발행합니다. 조직은 특정 아티스트나 시즌을 넘어 지속되며, 여러 프로젝트에 걸쳐 더 많은 팬에게 가치를 전달할 수 있어 토큰의 수명도 길고 유틸리티 범위도 넓습니다. <em>(<a data-nav=\"sec8\" href=\"#sec8\">Culture Token 런칭</a> 참고.)</em></p>\n<p>개인 아티스트 단위로 토큰이 발행된다면, 해당 아티스트가 활동을 중단하거나 소속을 이전하는 순간 토큰의 유틸리티도 함께 멈춥니다. 레이블이나 MCN이 발행하는 구조는 이 문제를 해결합니다. 소속 아티스트가 바뀌어도 커뮤니티와 혜택은 이어지고, 팬이 장기적으로 신뢰하고 쌓아갈 수 있는 자산이 됩니다.</p>\n<h2 id=\"utilities\">Culture Token 유틸리티</h2>\n<p>Culture Token이 주는 혜택은 흔한 유료 멤버십과 다릅니다. 등급별 구독 혜택을 넘어, 홀더가 실제 의사결정과 창작 과정에 직접 참여할 수 있는 혜택을 제공합니다. Culture Token이 주는 유틸리티는 계속 확장됩니다. 주요 예시는 다음과 같습니다.</p>\n<ul>\n<li><strong>투표:</strong> 발행사가 미리 승인한 선택지 안에서 팬이 직접 결정하며, 싱글 커버 아트, 콘서트 의상, 다음 프로필 사진 등 팬의 선택이 실제 결과로 이어집니다.</li>\n<li><strong>경험:</strong> 아티스트 디너 래플, 콘서트 티켓 선예매와 추첨, 리허설 관람 응모, 팬미팅 우선 참여 등 다양한 혜택을 받을 수 있습니다.</li>\n<li><strong>유틸리티 확장:</strong> 발행사가 더 많은 혜택을 추가할수록 유틸리티도 함께 확장됩니다.</li>\n</ul>\n<div class=\"kl-hint info\"><div class=\"h-ic\"></div><div class=\"h-body\">투표는 항상 발행사가 만들고 운영합니다. 팬은 발행사가 미리 승인한 선택지 중에서 고릅니다.</div></div>\n<h2 id=\"how-voting\">투표 진행 방식</h2>\n<p>투표는 명확한 범위 안에서 팬에게 실제 발언권을 줍니다.</p>\n<ol>\n<li>발행사가 안건과 승인된 선택지를 준비합니다.</li>\n<li>Culture Token 홀더가 정해진 기간 안에 투표합니다.</li>\n<li>결과가 발행사의 최종 결정에 반영됩니다.</li>\n</ol>\n<p>선택지를 미리 정해두기 때문에, 투표는 팬에게 의미 있고 발행사 방향과도 일치합니다.</p>\n<h2 id=\"lifecycle\">Culture Token 라이프사이클</h2>\n<ul>\n<li><strong>Presale:</strong> KLOVER 플랫폼에서 진행하는 최초 배포입니다.</li>\n<li><strong>2차 거래:</strong> 팬이 플랫폼 내 마켓플레이스에서 토큰을 거래합니다.</li>\n<li><strong>지속적인 유틸리티:</strong> 홀더는 투표, 경험 등 각종 유틸리티를 계속 이용할 수 있습니다.</li>\n</ul>\n<h2 id=\"ct-klover\">Culture Token과 $KLVR</h2>\n<p>Culture Token과 $KLVR은 함께 작동합니다. $KLVR은 생태계의 기축 통화이며, 모든 Culture Token은 $KLVR로 구매합니다. Culture Token은 특정 발행사의 유틸리티를 담고, $KLVR은 생태계 전체의 가치와 Governance를 맡습니다.</p>\n<h2 id=\"value\">보유의 가치</h2>\n<p>Culture Token을 보유한다는 건 <strong>소속</strong>입니다. 영향력을 행사하고, 독점 혜택을 누리고, 발행사의 여정에 함께 지분을 갖는 것으로, 팬심이 멤버십으로 바뀝니다.</p>",
-    "sec6": "<p class=\"kl-lead\">KLOVER 플랫폼은 암호화폐를 몰라도 누구나 이용할 수 있는 팬 중심 Web3 플랫폼입니다. 계정 생성 후 $KLVR 또는 USDT를 입금하면, Culture Token 거래부터 유틸리티 이용까지 모든 기능을 바로 쓸 수 있습니다.</p>\n<h2 id=\"philosophy\">플랫폼 철학: 장벽 없는 Web3</h2>\n<p>KLOVER는 <strong>팬 중심</strong>으로 만든 플랫폼입니다. 블록체인의 복잡성을 걷어내 누구나 편하게 쓸 수 있습니다. $KLVR 또는 USDT를 입금하면 모든 기능을 바로 이용할 수 있으며, <strong>별도의 DeFi 경험은 필요하지 않습니다.</strong></p>\n<h2 id=\"newcomers\">처음 오신 분을 위한 설계</h2>\n<p>대부분의 팬은 암호화폐 전문가가 아니며, 그럴 필요도 없습니다. KLOVER는 Web3 진입의 대표적인 장벽을 아래와 같이 없앴습니다.</p>\n<ul>\n<li>지갑, 가스비, 개인 키를 몰라도 바로 시작할 수 있습니다.</li>\n<li>트레이딩 터미널이 아닌 일반 소비자 앱 같은 인터페이스를 갖췄습니다.</li>\n<li>Culture Token 구매부터 활용까지 각 단계를 명확하게 안내합니다.</li>\n</ul>\n<h2 id=\"getting-started\">시작하기</h2>\n<p>몇 가지 단계만 거치면 바로 시작할 수 있습니다.</p>\n<ol><li>KLOVER 계정을 만드세요.</li><li><strong>$KLVR</strong> 또는 <strong>USDT</strong>를 입금하세요.</li><li>Culture Token 프리세일에 참여하고, 거래하고, 유틸리티를 사용하세요.</li></ol>\n<h2 id=\"deposits\">입금과 출금</h2>\n<p>계정에 <strong>$KLVR</strong> 또는 <strong>USDT</strong>를 충전하면, 프리세일 참여부터 Culture Token 거래, 유틸리티 이용까지 플랫폼의 모든 기능을 바로 쓸 수 있습니다. 지원 네트워크와 입금 방식 전체 목록은 <span class=\"kl-tbd\">미정</span>입니다.</p>\n<h2 id=\"features\">플랫폼 주요 기능</h2>\n<ul>\n<li><strong>Culture Token 프리세일:</strong> 새로 출시된 Culture Token을 남들보다 먼저 살 수 있는 기회입니다.</li>\n<li><strong>거래:</strong> 통합 마켓플레이스에서 Culture Token을 자유롭게 사고팔 수 있습니다.</li>\n<li><strong>Utility Hub:</strong> 투표, 래플, 체험 신청 등 다양한 유틸리티를 한 곳에서 이용할 수 있습니다.</li>\n</ul>\n<h2 id=\"fees\">수수료 구조</h2>\n<p>KLOVER는 거래를 비롯한 플랫폼 활동에 투명한 수수료를 적용해 생태계 운영을 뒷받침합니다. 정확한 수수료율은 <span class=\"kl-tbd\">미정</span>이며, 전체 내역은 런칭 전에 공개할 예정입니다.</p>\n<h2 id=\"security\">인프라와 보안</h2>\n<p>KLOVER는 <strong>BASE</strong>의 탈중앙화 보안 위에 구축되었지만, 사용자 입장에서는 커스터디와 온보딩이 일반 앱과 다를 것이 없습니다.</p>",
-    "sec7": "<p class=\"kl-lead\">KLOVER의 생태계 Governance는 $KLVR 홀더가 직접 의사결정에 참여하는 온체인 구조로 운영되며, 커뮤니티가 결정권을 갖습니다.</p>\n<h2 id=\"gov-philosophy\">Governance 철학</h2>\n<p>KLOVER의 Governance는 <strong>팀이 안건을 내고, 커뮤니티가 결정하는</strong> 구조로 운영됩니다. KLOVER 팀이 실행 가능한 범위 안에서 안건을 제안하며, 최종 판단은 $KLVR 홀더가 내립니다. 안건의 방향성은 팀이 잡되, 결정권은 커뮤니티가 갖습니다.</p>\n<p>기존의 팬 설문이나 소셜 투표와 가장 큰 차이는, KLOVER Governance가 결과를 온체인에 기록한다는 점입니다. 투표 과정과 결과는 누구나 검증할 수 있고 사후에 수정되지 않습니다. 팬의 목소리가 참고 의견에 그치지 않고 실제 실행으로 이어집니다.</p>\n<h2 id=\"how\">생태계 Governance 작동 방식</h2>\n<ol>\n<li><strong>KLOVER 팀</strong>이 안건을 제안합니다.</li>\n<li><strong>$KLVR 홀더</strong>가 투표하며, 투표 비중은 보유량에 따라 정해집니다.</li>\n<li>투표 결과는 팀이 <strong>실행</strong>합니다.</li>\n</ol>\n<h2 id=\"voting-power\">투표권 산정 방식</h2>\n<p>투표 비중은 해당 안건에 행사한 $KLVR 수량을 기준으로 정해지며, 보유량이 많을수록 투표 영향력이 커집니다. 한도 설정이나 락업 적용 등 구체적인 산정 방식은 <span class=\"kl-tbd\">미정</span>입니다.</p>\n<h2 id=\"examples\">Governance 결정 사례</h2>\n<p>Governance는 생태계 전체에 영향을 주는 사안을 다루며, 주요 예시는 다음과 같습니다.</p>\n<ul>\n<li>신규 기능과 유틸리티의 개발 우선순위를 결정합니다.</li>\n<li>생태계 프로그램과 이니셔티브의 방향을 설정합니다.</li>\n<li>생태계 운영의 주요 변수를 조정합니다.</li>\n</ul>\n<h2 id=\"scope\">생태계 Governance 범위</h2>\n<p>생태계 Governance는 팀이 제안하는 생태계 수준의 사안을 다루며, KLOVER 커뮤니티 전체에 영향을 주는 방향, 우선순위, 이니셔티브가 여기에 해당합니다. 거버넌스 결정이 가능한 사안의 정확한 범위는 <span class=\"kl-tbd\">미정</span>입니다.</p>\n<h2 id=\"vs\">생태계 Governance vs. Culture Token 투표</h2>\n<div class=\"kl-hint accent\"><div class=\"h-ic\"></div><div class=\"h-body\">KLOVER에는 <strong>두 가지 별개의 투표 시스템</strong>이 존재합니다. 각각의 목적과 적용 범위를 혼동하지 않도록 주의하세요.</div></div>\n<div class=\"kl-dl\">\n<div class=\"row\"><dt>생태계 Governance</dt><dd><strong>$KLVR</strong>로 진행하며, KLOVER 생태계 전체에 걸친 사안을 결정합니다.</dd></div>\n<div class=\"row\"><dt>Culture Token 투표</dt><dd>특정 <strong>Culture Token</strong>으로 진행하며, 앨범 커버 선정 등 단일 발행사 커뮤니티 내 사안을 결정합니다.</dd></div>\n</div>",
-    "sec8": "<p class=\"kl-lead\">KLOVER는 K-Culture 조직과 파트너십을 맺어 해당 커뮤니티를 on-chain으로 연결합니다. KLOVER와의 파트너십을 검토 중인 조직을 위한 안내입니다.</p>\n<h2 id=\"who-partner\">어떤 조직이 잘 맞나요?</h2>\n<p>KLOVER는 <strong>열성적인 글로벌 팬덤</strong>을 보유하고 K-Culture에서 <strong>꾸준한 입지</strong>를 쌓은 조직을 위한 플랫폼입니다. Culture Token은 개인이 아닌 조직 단위로 발행되며, 파트너는 여러 아티스트, 크리에이터, 프로젝트에 걸쳐 팬들에게 꾸준히 가치를 전달할 수 있습니다.</p>\n<p>KLOVER와 파트너의 역할은 명확하게 나뉩니다. 조직은 팬덤과의 관계, 콘텐츠, 커뮤니티 운영에 집중하고, 토큰 발행과 스마트 컨트랙트 설계, 블록체인 인프라 운영 같은 기술 영역은 KLOVER가 전담합니다. 각자 가장 잘하는 일에 집중하도록 설계했습니다.</p>\n<h2 id=\"categories\">파트너 가능 조직 유형</h2>\n<ul>\n<li><strong>K-POP 엔터테인먼트 기업</strong></li>\n<li><strong>한국 유튜브 MCN 기업</strong></li>\n<li><strong>한국 e스포츠 조직</strong></li>\n</ul>\n<p>…그 외 글로벌 팬층을 보유한 K-Culture 조직도 대상입니다.</p>\n<h2 id=\"eligibility\">참여 자격</h2>\n<p>KLOVER는 커뮤니티에 꾸준히 가치를 전달할 수 있는 파트너를 찾습니다. 주요 기준은 글로벌 팬층, 활성화된 팬덤, K-Culture에서 쌓은 실적이며, 세부 자격 기준은 <span class=\"kl-tbd\">미정</span>으로 검토 단계에서 최종 확정됩니다.</p>\n<h2 id=\"receive\">파트너 혜택</h2>\n<ul>\n<li>완성된 플랫폼과 인프라를 그대로 활용할 수 있어, 블록체인 기술과 보안 리스크를 사내에서 직접 떠안을 필요가 없습니다.</li>\n<li>전 세계 K-Culture 팬 커뮤니티와 바로 연결됩니다.</li>\n<li>투표, 팬 경험 등 유틸리티 도구와 Governance 기능을 활용할 수 있습니다.</li>\n<li>팬 참여를 높이고 새로운 수익 채널을 확보할 수 있습니다.</li>\n</ul>\n<h2 id=\"process\">런칭 프로세스</h2>\n<p>Culture Token 런칭은 다음 단계로 진행됩니다.</p>\n<ol>\n<li><strong>문의.</strong> 조직이 KLOVER 팀에 연락합니다.</li>\n<li><strong>검토.</strong> 양측이 방향성, 목표, 자격 요건을 확인합니다.</li>\n<li><strong>설계.</strong> 토큰 구조, 유틸리티, 런칭 계획을 함께 수립합니다.</li>\n<li><strong>Presale.</strong> Culture Token을 플랫폼에서 팬들에게 공개 판매합니다.</li>\n<li><strong>런칭.</strong> 거래와 유틸리티가 시작되고 커뮤니티가 성장합니다.</li>\n</ol>\n<p>KLOVER 팀은 단순히 플랫폼을 제공하는 데 그치지 않습니다. 설계 단계부터 파트너사와 긴밀하게 협업하며, 토큰 유틸리티 설계부터 커뮤니티 런칭 운영까지 K-Culture 생태계에서 쌓은 노하우를 함께 나눕니다. LK Ventures가 보유한 K-Culture 산업 네트워크도 파트너사가 활용할 수 있습니다.</p>\n<h2 id=\"revenue\">파트너 수익 모델</h2>\n<p>파트너는 Culture Token Presale과 이후 플랫폼 활동을 통해 수익을 낼 수 있습니다. 구체적인 조건과 수익 배분 구조는 <span class=\"kl-tbd\">미정</span>이며, 온보딩 단계에서 파트너별로 별도 협의합니다.</p>\n<h2 id=\"inquiry\">파트너 문의 및 다음 단계</h2>\n<p>Culture Token 발행을 검토 중인 조직은 KLOVER 팀으로 문의 바랍니다. 파트너십 문의는 아래로 연락해 주세요.</p>\n<div class=\"kl-soon\"><span class=\"kl-soon-badge\">Coming Soon</span><span class=\"kl-soon-sub\">파트너십 연락처가 곧 공개됩니다.</span></div>",
-    "sec9": "<p class=\"kl-lead\">KLOVER가 지금 어디에 있고, 어디로 가는지 단계별로 정리했습니다. 핵심 인프라 구축부터 K-Culture를 넘어선 확장까지, 7개 Phase와 Vision으로 구성됩니다. 단계별 일정은 아직 <span class=\"kl-tbd\">미정</span>이며, 각 단계가 가까워지는 시점에 공유할 예정입니다.</p>\n<div class=\"kl-timeline\">\n<div class=\"kl-tl-item\"><div class=\"kl-tl-dot\"></div><div class=\"kl-tl-phase\">Phase 1</div><h2 id=\"phase-1\" class=\"kl-tl-title\">Foundation</h2><div class=\"kl-tl-body\">모든 것의 토대가 되는 기술 인프라를 구축하는 단계입니다. BASE에 $KLVR과 Culture Token smart contract를 배포하고, KLOVER 플랫폼을 개발하며, 보안과 컴플라이언스 체계를 마련합니다. 지금 당장 눈에 보이는 작업은 아니지만, 이후 모든 단계는 여기서 비롯됩니다.</div></div>\n<div class=\"kl-tl-item future\"><div class=\"kl-tl-dot\"></div><div class=\"kl-tl-phase\">Phase 2</div><h2 id=\"phase-2\" class=\"kl-tl-title\">Bloom Campaign</h2><div class=\"kl-tl-body\">토큰 공식 출시 전, KLOVER 초기 커뮤니티 프로그램 Bloom이 먼저 열립니다. 참여자는 생태계에 기여하며 Bloom Points를 적립하고, 이 포인트는 런칭 시 $KLVR 보상으로 전환됩니다. Bloom은 단순히 먼저 온 사람에게 주는 혜택이 아니라, KLOVER를 일찍 믿고 함께한 사람을 알아보기 위한 자리입니다.</div></div>\n<div class=\"kl-tl-item future\"><div class=\"kl-tl-dot\"></div><div class=\"kl-tl-phase\">Phase 3</div><h2 id=\"phase-3\" class=\"kl-tl-title\">$KLVR VIP Presale</h2><div class=\"kl-tl-body\">$KLVR을 처음으로 손에 넣을 수 있는 기회입니다. Whitelist에 등록된 참여자, 즉 Bloom Campaign 기여자와 검증된 커뮤니티 멤버에게만 열립니다. 공개 런칭 전 한정된 기간에만 진행되며, 배정 물량은 심사 과정에서 확정됩니다. Bloom에 참여했다면, 이 자리가 그 보답입니다.</div></div>\n<div class=\"kl-tl-item future\"><div class=\"kl-tl-dot\"></div><div class=\"kl-tl-phase\">Phase 4</div><h2 id=\"phase-4\" class=\"kl-tl-title\">$KLVR Launch</h2><div class=\"kl-tl-body\">$KLVR이 세상에 공개됩니다. KLOVER가 정식 운영에 돌입한다는 선언이기도 합니다. 이전 단계에서 구축한 인프라가 본격 가동에 들어가고, 여기서부터 속도가 붙습니다.</div></div>\n<div class=\"kl-tl-item future\"><div class=\"kl-tl-dot\"></div><div class=\"kl-tl-phase\">Phase 5</div><h2 id=\"phase-5\" class=\"kl-tl-title\">KLOVER Platform</h2><div class=\"kl-tl-body\">$KLVR 런칭 이후, KLOVER 플랫폼이 모두에게 열립니다. 팬은 계정을 만들고 $KLVR 또는 USDT를 입금해 Culture Token Presale에 참여할 수 있습니다. Utility Hub도 가동되어, 홀더는 투표하고 각종 혜택을 누리며 팬덤과 직접 이어집니다. KLOVER가 개념이 아닌 실제 사용하는 서비스가 되는 시점입니다.</div></div>\n<div class=\"kl-tl-item future\"><div class=\"kl-tl-dot\"></div><div class=\"kl-tl-phase\">Phase 6</div><h2 id=\"phase-6\" class=\"kl-tl-title\">First Culture Tokens</h2><div class=\"kl-tl-body\">K-Culture 발행사 1진을 온보딩하고, 이들의 Culture Token을 플랫폼에 처음 선보입니다. 팬은 Presale에 참여해 첫 토큰을 손에 넣고, 실제 유틸리티를 경험하기 시작합니다. 이 첫 커뮤니티들이 KLOVER의 기준을 세우는 만큼, 첫 파트너는 신중하게 선정합니다.</div></div>\n<div class=\"kl-tl-item future\"><div class=\"kl-tl-dot\"></div><div class=\"kl-tl-phase\">Phase 7</div><h2 id=\"phase-7\" class=\"kl-tl-title\">Ecosystem Expansion</h2><div class=\"kl-tl-body\">기반이 검증되면 확장합니다. K-POP, MCN, e스포츠 전반에 걸쳐 더 많은 발행사가 합류하고, 각 커뮤니티가 반응하는 유틸리티가 쌓일수록 플랫폼의 폭도 넓어집니다. 새로운 커뮤니티가 합류할수록 기존 참여자에게도 플랫폼이 더 강해지는 네트워크 효과가 생깁니다.</div></div>\n<div class=\"kl-tl-item future\"><div class=\"kl-tl-dot\"></div><div class=\"kl-tl-phase\">Vision</div><h2 id=\"vision\" class=\"kl-tl-title\">Beyond K-Culture</h2><div class=\"kl-tl-body\">K-Culture를 위해 만드는 이 모델은 여기서 끝나지 않습니다. K-Culture에서 검증한 발행 구조, 유틸리티 설계, Governance 방식은 특정 문화에 묶여 있지 않습니다. 하나의 팬덤에서 다른 팬덤으로, 하나의 문화권에서 다른 문화권으로 그대로 옮겨 쓸 수 있는 틀입니다. 그래서 KLOVER는 K-Culture에서 다진 기반 위에서, 자연스럽게 전 세계 문화로 확장합니다. 열정 있는 글로벌 커뮤니티라면, 소유할 가치가 있는 문화라면 장르와 국경에 상관없이 이곳에 자리가 있습니다. 비전은 단순합니다. <strong>Tokenize Culture</strong>. 세상 모든 문화를.</div></div>\n</div>",
-    "sec10": "<p class=\"kl-lead\">KLOVER는 컴플라이언스를 운영 원칙으로 삼으며, 아래 내용을 반드시 확인하시기 바랍니다.</p>\n<h2 id=\"geography\">서비스 제공 지역</h2>\n<p>KLOVER는 대부분의 국제 시장에서 이용할 수 있으며, 관련 법령 및 규정에 따라 제재 대상 국가와 일부 지역에서는 이용이 제한됩니다. 제한 지역에는 이란, 북한, 시리아 등 국제 제재 대상 국가, 대한민국, 그리고 현지 규정상 참여가 제한될 수 있는 기타 시장이 포함됩니다. 제한 지역의 전체 목록은 출시 전에 확정해 공개합니다.</p>\n<h2 id=\"eligibility-legal\">이용 자격</h2>\n<p>KLOVER 생태계 이용 가능 여부는 거주 지역과 이용자 상황에 따라 달라집니다. 이용자는 해당 시장에서 요구하는 최소 연령 및 기타 조건을 충족해야 하며, 제한 지역에 위치해서는 안 됩니다. 세부 이용 자격 조건은 <span class=\"kl-tbd\">미정</span>입니다.</p>\n<h2 id=\"regulatory\">규제 대응</h2>\n<p>KLOVER는 서비스를 제공하는 각 시장의 규제 체계를 준수하며 책임 있게 운영하고, 단기 사업 확장보다 장기 지속 가능성과 이용자 보호를 우선합니다.</p>\n<h2 id=\"privacy\">개인정보 보호</h2>\n<p>KLOVER는 개인정보를 각 시장의 규정에 따라 책임 있게 처리하며, 전체 개인정보 처리방침은 출시 전에 공개합니다.</p>\n<h2 id=\"disclaimer\">일반 위험 고지</h2>\n<div class=\"kl-hint warning\"><div class=\"h-ic\"></div><div class=\"h-body\">디지털 토큰에는 가치 하락을 포함한 투자 위험이 따릅니다. 본 문서는 <strong>정보 제공만을 목적</strong>으로 하며, 금융·투자·법률 자문에 해당하지 않습니다. 본 문서의 어떤 내용도 특정 자산의 매수 또는 매도를 권유하는 것이 아닙니다. 반드시 스스로 충분히 조사하고 판단하세요.</div></div>",
-    "sec_security": "<div class=\"kl-soon\"><span class=\"kl-soon-badge\">준비 중</span><span class=\"kl-soon-sub\">보안 운영 내역과 독립 감사 보고서를 이곳에 순차적으로 공개할 예정입니다.</span></div>",
-    "sec_team": "<div class=\"kl-soon\"><span class=\"kl-soon-badge\">준비 중</span><span class=\"kl-soon-sub\">KLOVER를 만들어 가는 팀을 곧 소개합니다.</span></div>",
-    "sec_faq": "<div class=\"kl-soon\"><span class=\"kl-soon-badge\">준비 중</span><span class=\"kl-soon-sub\">자주 묻는 질문과 답변을 곧 게재할 예정입니다.</span></div>"
-  }
-};
-
-/* __TRANSLATIONS_INJECT__ */
-
-/* ============================================================
-   APPLICATION ENGINE
-   ============================================================ */
-(function () {
-  'use strict';
-  const LS_LANG = 'klover-lang', LS_THEME = 'klover-theme';
-  function lsGet(k){ try { return localStorage.getItem(k); } catch(e){ return null; } }
-  function lsSet(k,v){ try { localStorage.setItem(k,v); } catch(e){} }
-  let lang = lsGet(LS_LANG) || 'en';
-  if (!LANGS.some(l => l.code === lang)) lang = 'en';
-
-  function pack() { return I18N[lang] || I18N.en; }
-  function deepGet(obj, path) { return path.split('.').reduce((o, k) => (o == null ? undefined : o[k]), obj); }
-  function t(path) { const v = deepGet(pack(), path); return (v !== undefined && v !== null) ? v : deepGet(I18N.en, path); }
-  function navLabel(id) { return (pack().nav && pack().nav[id]) || I18N.en.nav[id] || id; }
-  function pageHtml(id) { const p = pack().pages || {}; return (p[id] !== undefined) ? p[id] : (I18N.en.pages[id] || ''); }
-  function homeData() { const en = I18N.en.home, h = pack().home || {}; const m = Object.assign({}, en, h); if (!h.cards || !h.cards.length) m.cards = en.cards; return m; }
-
-  const el = {
-    nav: document.getElementById('nav'),
-    content: document.getElementById('content'),
-    breadcrumb: document.getElementById('breadcrumb'),
-    pageFooter: document.getElementById('pageFooter'),
-    pager: document.getElementById('pager'),
-    toc: document.getElementById('toc'),
-    langBtn: document.getElementById('langBtn'),
-    langMenu: document.getElementById('langMenu'),
-    langCurrent: document.getElementById('langCurrent'),
-    langDropdown: document.getElementById('langDropdown'),
-    search: document.getElementById('searchInput'),
-    searchResults: document.getElementById('searchResults'),
-    themeToggle: document.getElementById('themeToggle'),
-    iconSun: document.getElementById('iconSun'),
-    iconMoon: document.getElementById('iconMoon'),
-    menuToggle: document.getElementById('menuToggle'),
-    scrim: document.getElementById('scrim'),
-  };
-  let current = parseRoute();
-  lang = current.lang || lang; KL_LANG = lang;
-
-  /* ---------- THEME ---------- */
-  function applyTheme(theme) {
-    document.documentElement.setAttribute('data-theme', theme);
-    el.iconSun.style.display = theme === 'dark' ? 'none' : 'block';
-    el.iconMoon.style.display = theme === 'dark' ? 'block' : 'none';
-    lsSet(LS_THEME, theme);
-  }
-  (function initTheme() {
-    let theme = lsGet(LS_THEME);
-    if (!theme) theme = (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) ? 'dark' : 'light';
-    applyTheme(theme);
-  })();
-  el.themeToggle.addEventListener('click', () => applyTheme(document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark'));
-
-  /* ---------- LANGUAGE ---------- */
-  function buildLangMenu() {
-    el.langMenu.innerHTML = '';
-    LANGS.forEach(l => {
-      const opt = document.createElement('div');
-      opt.className = 'kl-lang-opt' + (l.code === lang ? ' active' : '');
-      opt.setAttribute('role', 'menuitem');
-      opt.innerHTML = '<span class="native">' + l.native + '</span><span class="en-name">' + l.en + '</span>' +
-        '<span class="check"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg></span>';
-      opt.tabIndex = 0;
-      const choose = () => {
-        closeLangMenu();
-        if (SUPPORTED_LANGS.indexOf(l.code) !== -1) { setLang(l.code); el.langBtn.focus(); }
-        else { showComingSoon(l.code); }
-      };
-      opt.addEventListener('click', choose);
-      opt.addEventListener('keydown', (e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); choose(); } });
-      el.langMenu.appendChild(opt);
-    });
-  }
-  function setLang(code) {
-    lang = code; KL_LANG = code;
-    lsSet(LS_LANG, code);
-    document.documentElement.setAttribute('lang', code);
-    const meta = LANGS.find(l => l.code === code);
-    el.langCurrent.textContent = meta ? meta.native : 'English';
-    history.replaceState({ section: current.section }, '', sectionToPath(current.section));
-    applyStaticI18n(); buildLangMenu(); renderNav(); renderPage(current, false);
-  }
-  function openLangMenu() { el.langDropdown.classList.add('open'); el.langBtn.setAttribute('aria-expanded', 'true'); const f = el.langMenu.querySelector('.kl-lang-opt'); if (f) f.focus(); }
-  function closeLangMenu() { el.langDropdown.classList.remove('open'); el.langBtn.setAttribute('aria-expanded', 'false'); }
-  el.langBtn.addEventListener('click', (e) => { e.stopPropagation(); el.langDropdown.classList.contains('open') ? closeLangMenu() : openLangMenu(); });
-  document.addEventListener('click', (e) => { if (!el.langDropdown.contains(e.target)) closeLangMenu(); });
-  function applyStaticI18n() {
-    document.querySelectorAll('[data-i18n]').forEach(node => { node.textContent = t(node.getAttribute('data-i18n')); });
-    el.search.setAttribute('placeholder', t('ui.searchPlaceholder'));
-    el.search.setAttribute('aria-label', t('ui.searchPlaceholder'));
-  }
-
-  /* ---------- COMING SOON MODAL ---------- */
-  let modalEl = null;
-  function buildModal() {
-    modalEl = document.createElement('div');
-    modalEl.className = 'kl-modal';
-    modalEl.innerHTML = '<div class="kl-modal-scrim"></div><div class="kl-modal-card" role="dialog" aria-modal="true"><div class="kl-modal-lang"></div><div class="kl-modal-title"></div><div class="kl-modal-sub"></div><button class="kl-modal-close" type="button"></button></div>';
-    document.body.appendChild(modalEl);
-    modalEl.querySelector('.kl-modal-scrim').addEventListener('click', closeModal);
-    modalEl.querySelector('.kl-modal-close').addEventListener('click', closeModal);
-  }
-  function showComingSoon(code) {
-    const c = COMING_SOON[code];
-    if (!c) return;
-    if (!modalEl) buildModal();
-    modalEl.querySelector('.kl-modal-lang').textContent = c.native;
-    modalEl.querySelector('.kl-modal-title').textContent = c.title;
-    modalEl.querySelector('.kl-modal-sub').textContent = c.sub;
-    const card = modalEl.querySelector('.kl-modal-card');
-    card.setAttribute('lang', code);
-    modalEl.querySelector('.kl-modal-close').textContent = c.close;
-    modalEl.classList.add('open');
-    modalEl.querySelector('.kl-modal-close').focus();
-  }
-  function closeModal() {
-    if (modalEl) modalEl.classList.remove('open');
-    if (el.langBtn) el.langBtn.focus();
-  }
-
-  /* ---------- NAV ---------- */
-  function renderNav() {
-    el.nav.innerHTML = '';
-    NAV_GROUPS.forEach(group => {
-      const g = document.createElement('div');
-      g.className = 'kl-nav-group';
-      if (group.label) {
-        const gl = document.createElement('div');
-        gl.className = 'kl-nav-group-label';
-        gl.textContent = t(group.label);
-        g.appendChild(gl);
-      }
-      group.items.forEach(id => {
-        const link = document.createElement('a');
-        link.className = 'kl-nav-link' + (id === current.section ? ' active' : '');
-        link.href = sectionToPath(id);
-        link.setAttribute('data-nav', id);
-        link.innerHTML = '<span class="ico" aria-hidden="true">' + (ICONS[id] || '•') + '</span><span>' + navLabel(id) + '</span>';
-        g.appendChild(link);
-      });
-      el.nav.appendChild(g);
-    });
-  }
-
-  /* ---------- ROUTER ---------- */
-  function parseRoute() {
-    let path = window.location.pathname.slice(BASE.length) || '/';
-    if (!path.startsWith('/')) path = '/' + path;
-    let routeLang = 'en';
-    if (path === '/kor' || path.indexOf('/kor/') === 0) { routeLang = 'ko'; path = path.slice(4) || '/'; }
-    if (path !== '/' && path.endsWith('/')) path = path.slice(0, -1);
-    return { section: PATH_TO_ID[path] || 'home', lang: routeLang };
-  }
-  function navigate(id) {
-    history.pushState({ section: id }, '', sectionToPath(id));
-    current = { section: id };
-    renderPage(current, false);
-    renderNav();
-  }
-  window.addEventListener('popstate', () => {
-    current = parseRoute();
-    if (current.lang !== lang) {
-      lang = current.lang; KL_LANG = lang;
-      document.documentElement.setAttribute('lang', lang);
-      const meta = LANGS.find(l => l.code === lang);
-      el.langCurrent.textContent = meta ? meta.native : 'English';
-      applyStaticI18n(); buildLangMenu();
-    }
-    renderPage(current, true); renderNav();
-  });
-
-  /* ---------- RENDER ---------- */
-  function renderPage(route, doScroll) {
-    const id = route.section;
-    if (id === 'home') renderHome(); else renderSection(id);
-    renderBreadcrumb(id); renderFooter(id); renderPager(id); buildToc(id);
-    if (id === 'sec4') initKlvrChart();
-    window.scrollTo({ top: 0, behavior: 'auto' });
-    closeMobileNav(); setActiveStates(route);
-  }
-  function renderHome() {
-    const h = homeData();
-    let cards = '';
-    (h.cards || []).forEach((c, i) => { cards += '<div class="kl-card"><div class="ic">' + String(i + 1).padStart(2, '0') + '</div><div class="ct">' + c.t + '</div><div class="cd">' + c.d + '</div></div>'; });
-    el.content.innerHTML =
-      '<div class="kl-hero">' +
-        '<span class="eyebrow">' + h.eyebrow + '</span>' +
-        '<h1>' + h.title1 + ' <span class="grad">' + h.title2 + '</span></h1>' +
-        '<p class="lead">' + h.lead + '</p>' +
-        '<div class="kl-hero-cta">' +
-          '<a class="kl-btn kl-btn-primary" data-nav="sec1" href="' + sectionToPath('sec1') + '">' + h.cta1 + ' →</a>' +
-          '<a class="kl-btn kl-btn-ghost" data-nav="sec5" href="' + sectionToPath('sec5') + '">' + h.cta2 + '</a>' +
-        '</div>' +
-        '<div class="kl-byline">' + h.byline + '</div>' +
-      '</div>' +
-      '<hr class="kl-home-divider" />' +
-      '<div class="kl-cards">' + cards + '</div>';
-  }
-  function fixContentLinks(html) {
-    return html.replace(/href="#([\w]+)"/g, function(m, id) {
-      return PATH_MAP[id] ? 'href="' + sectionToPath(id) + '"' : m;
-    });
-  }
-  function renderSection(id) {
-    el.content.innerHTML = '<h1>' + navLabel(id) + '</h1>' + fixContentLinks(pageHtml(id));
-  }
-  function renderBreadcrumb(id) {
-    const root = 'KLOVER ' + t('ui.docs');
-    if (id === 'home') el.breadcrumb.innerHTML = '<span>' + root + '</span>';
-    else el.breadcrumb.innerHTML = '<a data-nav="home" href="' + sectionToPath('home') + '">' + root + '</a><span class="sep">›</span><span>' + navLabel(id) + '</span>';
-  }
-  function renderFooter(id) {
-    if (id === 'home') { el.pageFooter.innerHTML = ''; return; }
-    el.pageFooter.innerHTML =
-      '<div class="kl-helpful" id="helpful">' +
-        '<span>' + t('ui.helpfulQuestion') + '</span>' +
-        '<button class="kl-helpful-btn" data-helpful>' + t('ui.helpfulYes') + '</button>' +
-        '<button class="kl-helpful-btn" data-helpful>' + t('ui.helpfulNo') + '</button>' +
-      '</div>' +
-      '<div class="kl-meta">' + t('ui.lastModified') + '</div>';
-  }
-  function renderPager(id) {
-    const idx = ORDER.indexOf(id);
-    const prev = idx > 0 ? ORDER[idx - 1] : null;
-    const next = idx < ORDER.length - 1 ? ORDER[idx + 1] : null;
-    let html = '';
-    html += prev
-      ? '<a class="kl-pager-btn prev" data-nav="' + prev + '" href="' + sectionToPath(prev) + '"><span class="kl-pager-dir">← ' + t('ui.previous') + '</span><span class="kl-pager-title">' + navLabel(prev) + '</span></a>'
-      : '<span class="kl-pager-btn empty"></span>';
-    html += next
-      ? '<a class="kl-pager-btn next" data-nav="' + next + '" href="' + sectionToPath(next) + '"><span class="kl-pager-dir">' + t('ui.next') + ' →</span><span class="kl-pager-title">' + navLabel(next) + '</span></a>'
-      : '<span class="kl-pager-btn empty"></span>';
-    el.pager.innerHTML = html;
-  }
-
-  /* ---------- $KLVR tokenomics: allocation table + release schedule chart ---------- */
-  /* TGE = 2026 Q4 (Nov 2026) = month 0. Linear vesting begins after the cliff. */
+I18N.en = {\n  ui: {\n    docs: 'Docs',\n    searchPlaceholder: 'Search…',\n    searchNoResults: 'No results found',\n    onThisPage: 'On this page',\n    previous: 'Previous',\n    next: 'Next',\n    groupIntro: 'Introduction',\n    groupEcosystem: 'The Ecosystem',\n    groupParticipate: 'Participate',\n    groupResources: 'Resources',\n    helpfulQuestion: 'Was this helpful?',\n    helpfulYes: 'Yes',\n    helpfulNo: 'No',\n    helpfulThanks: 'Thanks for your feedback!',\n    lastModified: 'Last modified just now',\n    copy: 'Copy',\n    copied: 'Copied!',\n  },\n  nav: {\n    home: 'Overview',\n    sec1: 'Introduction',\n    sec2: 'Tokenize Culture',\n    sec3: 'The KLOVER Ecosystem',\n    sec4: '$KLVR',\n    sec5: 'Culture Tokens',\n    sec6: 'The KLOVER Platform',\n    sec7: 'Ecosystem Governance',\n    sec8: 'Launching a Culture Token',\n    sec9: 'Roadmap',\n    sec10: 'Legal & Compliance',\n    sec_security: 'Security & Audits',\n    sec_team: 'Team',\n    sec_faq: 'FAQ',\n  },\n  home: {\n    eyebrow: 'K-Culture Web3 Ecosystem',\n    title1: 'Tokenize',\n    title2: 'Culture',\n    lead: 'KLOVER is the K-Culture Web3 ecosystem that lets fans around the world own, influence, and engage with the culture they love. Welcome to the official documentation.',\n    cta1: 'Get Started',\n    cta2: 'Explore Culture Tokens',\n    byline: 'An ecosystem powered by LK Ventures.',\n    cards: [\n      { t: '$KLVR', d: 'The native token that powers the entire ecosystem.' },\n      { t: 'Culture Tokens', d: 'Fan ownership and real utilities, issued by K-Culture organizations.' },\n      { t: 'The KLOVER Platform', d: 'Web3 made simple, built for fans rather than crypto experts.' },\n      { t: 'Built on BASE', d: 'Fast, affordable, and secure infrastructure.' },\n    ],\n  },\n  pages: {\n    sec1: `<p class="kl-lead">Welcome to the official documentation for KLOVER, the K-Culture Web3 ecosystem that lets fans around the world own, influence, and engage with the culture they love. This documentation explains what KLOVER is, how its ecosystem works, and how fans, partners, and supporters can take part.</p>\n<h2 id="what">What is KLOVER?</h2>\n<p>Fans of K-POP, creators, and esports are everywhere, but they've never had one place that truly belongs to them. KLOVER is a Web3 ecosystem built to <strong>tokenize culture</strong>, beginning with Korean culture and expanding worldwide. It connects K-Culture organizations with their global fanbases through <strong>Culture Tokens</strong>, digital assets that transform passive fandom into active participation and ownership. The entire ecosystem is built on the <strong>BASE</strong> blockchain.</p>\n<h2 id="audience">Who This Documentation Is For</h2>\n<p>This documentation serves three audiences:</p>\n<ul>\n<li><strong>Fans</strong> who want to own Culture Tokens, take part in decisions, and reach exclusive experiences.</li>\n<li><strong>K-Culture organizations</strong> exploring how to bring their communities on-chain and launch a Culture Token.</li>\n<li><strong>Partners and supporters</strong> who want to understand the ecosystem, the $KLVR token, and the vision behind it.</li>\n</ul>\n<p>You can read it from start to finish, or jump to the section most relevant to you.</p>\n<h2 id="mission">Mission: Tokenize Culture</h2>\n<p>Our mission is simple: <strong>Tokenize Culture</strong>. We believe fans are not merely spectators. They are co-creators of culture's value, and KLOVER gives that contribution a tangible form. We start with Korean culture, and our vision is to expand to global culture, making KLOVER the home where any culture and its community can grow together.</p>\n<h2 id="brand">The KLOVER Brand</h2>\n<p>The KLOVER name unites two ideas. The <em>clover</em> is a universal symbol of luck, growth, and good fortune. <em>"K-Lover"</em> is the global community that loves K-Culture. Together they capture what KLOVER stands for: a flourishing home for the people who love culture and help it grow.</p>\n<h2 id="life4cut">LK Ventures: The Company Behind KLOVER</h2>\n<p>KLOVER is powered by <strong>LK Ventures</strong>, the leading K-Culture company. LK Ventures operates a diverse portfolio of cultural content businesses that put fans directly inside the K-Culture moments they love, with a footprint that spans more than 30 countries and reaches 3.8 million fans every month. That reach gives KLOVER deep cultural roots, real brand trust, and direct connections across the industry from day one.</p>\n<h2 id="terminology">Key Terminology</h2>\n<div class="kl-dl">\n  <div class="row"><dt>$KLVR</dt><dd>The native ERC-20 token on BASE that powers the KLOVER ecosystem. $KLVR is the required medium to purchase Culture Tokens, trade, and vote on ecosystem governance.</dd></div>\n  <div class="row"><dt>Culture Token</dt><dd>A digital token issued by a K-Culture organization (a music label, an MCN, or an esports team) representing membership and unlocking real utilities for its holders.</dd></div>\n  <div class="row"><dt>KLOVER Platform</dt><dd>The fan-facing Web3 platform where users purchase Culture Tokens, vote, trade, and access exclusive experiences.</dd></div>\n</div>`,\n    sec2: `<p class="kl-lead">Culture is one of the most powerful forces on Earth, yet the people who build its value have always been left on the outside.</p>\n<h2 id="culture-is-shared">Culture Is Built by All of Us</h2>\n<p>Culture doesn't happen in a vacuum. A song becomes a hit because millions of fans listen, share, and sing along. An esports team becomes legendary because fans fill arenas and scream from home. A creator grows because a community watches every upload. The real value of culture is created by the community around it.</p>\n<h2 id="the-gap">Yet None of It Came Back to the Fans</h2>\n<p>Traditional entertainment has treated fandom as a one-way street. Fans spend time, energy, and money, but hold zero lasting stake in the culture they help build. They have no voice in key decisions, no proof of early support, and no share in the upside when an artist or creator succeeds. The relationship has always been strictly transactional.</p>\n<h2 id="vision">The KLOVER Vision</h2>\n<p>KLOVER changes that dynamic permanently. By placing culture on-chain, we turn fandom from passive consumption into active ownership and participation. Fans become genuine stakeholders with verifiable proof of support, governance rights, and access to unique experiences that money alone cannot buy.</p>\n<h2 id="why-kculture">We Start With K-Culture</h2>\n<p>Korean culture is the ideal proving ground for tokenized culture. K-POP, Korean drama, gaming, and webtoons have built the most passionate, organized, and digitally native fanbases in the world. K-Culture fans already organize global campaigns, vote in fan polls, and rally around the creators they love. KLOVER gives that energy a permanent, on-chain home.</p>\n<h2 id="why-now">Why Now</h2>\n<p>Three shifts make this the right moment:</p>\n<ul>\n<li><strong>Web3 infrastructure is ready:</strong> Layer-2 blockchains like BASE make on-chain transactions fast, affordable, and seamless for millions of users.</li>\n<li><strong>Global fanbases are digitally connected:</strong> Fans are already comfortable using digital platforms to support their favorite creators.</li>\n<li><strong>Creators and labels need direct fan relationships:</strong> K-Culture organizations are actively seeking ways to engage global fans directly, beyond traditional social algorithms and middlemen.</li>\n</ul>`,\n    sec3: `<p class="kl-lead">The KLOVER ecosystem brings fans, K-Culture organizations, and infrastructure together in a single self-sustaining flywheel.</p>\n<h2 id="architecture">Architecture Overview</h2>\n<p>KLOVER is built around three core pillars working together:</p>\n<div class="kl-cards">\n  <div class="kl-card"><div class="ic">01</div><div class="ct">$KLVR Token</div><div class="cd">The native ecosystem token that serves as the required currency for all Culture Tokens and grants governance rights.</div></div>\n  <div class="kl-card"><div class="ic">02</div><div class="ct">Culture Tokens</div><div class="cd">Organization-level membership tokens issued by K-Culture partners, granting real utilities to holders.</div></div>\n  <div class="kl-card"><div class="ic">03</div><div class="ct">KLOVER Platform</div><div class="cd">The fan-centric Web3 application where fans discover, acquire, trade, and use Culture Tokens.</div></div>\n</div>\n<h2 id="pillars">The Four Pillars</h2>\n<div class="kl-dl">\n  <div class="row"><dt>1. Global Fans</dt><dd>Fans acquire $KLVR, purchase Culture Tokens of their favorite organizations, vote on decisions, and reach exclusive experiences.</dd></div>\n  <div class="row"><dt>2. K-Culture Partners</dt><dd>Music labels, MCNs, and esports teams issue Culture Tokens to deepen fan engagement, launch exclusive utilities, and open new revenue streams.</dd></div>\n  <div class="row"><dt>3. LK Ventures</dt><dd>LK Ventures powers the ecosystem with deep cultural expertise, industry connections, and an offline footprint across 30+ countries.</dd></div>\n  <div class="row"><dt>4. The KLOVER Platform</dt><dd>The underlying infrastructure that powers smooth onboarding, secure token transactions, and transparent governance for every user.</dd></div>\n</div>\n<h2 id="how-it-works">How It Works, End to End</h2>\n<ol>\n<li><strong>Organization Onboarding:</strong> A K-Culture organization partners with KLOVER to launch its official Culture Token.</li>\n<li><strong>Fan Acquisition:</strong> Fans acquire $KLVR on the platform and use it to purchase the organization's Culture Token.</li>\n<li><strong>Utility & Engagement:</strong> Token holders access exclusive perks: voting on decisions, priority event access, behind-the-scenes content, and special merch.</li>\n<li><strong>Ecosystem Growth:</strong> As more organizations join and more fans enter, activity across $KLVR increases, reinforcing the entire ecosystem.</li>\n</ol>\n<h2 id="flywheel">The Economic Flywheel</h2>\n<p>Every part of KLOVER strengthens the others. More K-Culture partners attract more fans. More fans increase demand for $KLVR and Culture Tokens. Increased demand enables partners to offer richer utilities, attracting even more partners. The result is a growing, self-sustaining culture economy.</p>\n\n<h2 id="base">Built on BASE</h2>\n<p>KLOVER is deployed on <strong>BASE</strong>, the Layer-2 blockchain built by Coinbase. BASE provides the ideal foundation for a mainstream consumer ecosystem:</p>\n<ul>\n<li><strong>Sub-cent transaction fees:</strong> Fans can transact without worrying about gas costs.</li>\n<li><strong>Near-instant speed:</strong> Fast confirmation times keep the user experience feeling like a modern Web2 app.</li>\n<li><strong>Institutional security:</strong> Built on Ethereum's security model with Coinbase's infrastructure support.</li>\n<li><strong>Seamless onboarding:</strong> Easy fiat-to-crypto gateways designed for mainstream users who have never used Web3 tools before.</li>\n</ul>`,\n    sec4: `<p class="kl-lead">$KLVR is the native token at the heart of the ecosystem, the currency through which all value flows.</p>\n<h2 id="overview">Overview</h2>\n<h3 id="role">The Role of $KLVR</h3>\n<p>$KLVR is the medium of exchange across the entire ecosystem. It is required to purchase Culture Tokens, used within platform transactions, and grants holders a voice in ecosystem governance. Wherever value moves in KLOVER, $KLVR is involved.</p>\n<h3 id="utility">Token Utility</h3>\n<ul>\n<li><strong>Purchasing Culture Tokens:</strong> Culture Tokens can only be acquired using $KLVR, creating continuous, structural demand.</li>\n<li><strong>Governance:</strong> $KLVR holders vote on proposals raised by the KLOVER team.</li>\n<li><strong>Platform Medium:</strong> $KLVR facilitates transactions and activity across the platform.</li>\n</ul>\n<h3 id="demand">Sources of Demand</h3>\n<p>Demand for $KLVR comes from real use across the ecosystem, not from speculation alone:</p>\n<ul>\n<li><strong>Culture Token purchases</strong>, since every Culture Token is bought with $KLVR.</li>\n<li><strong>Platform activity</strong>, since transactions settle in the ecosystem's own token.</li>\n<li><strong>Governance</strong>, since holding $KLVR grants a voice in decisions.</li>\n</ul>\n<p>Demand for any single Culture Token stays capped by the size of that publisher's own fanbase. $KLVR works differently: it's the shared entry point for every Culture Token in the ecosystem, so demand builds every time a new publisher joins or an existing fanbase grows. The more publishers and fans the ecosystem holds, the wider the demand base for $KLVR becomes.</p>\n<h3 id="standard">Token Standard</h3>\n<p>$KLVR is an ERC-20 token deployed on the BASE blockchain, so it works with standard Web3 wallets and tools. The official contract address is <span class="kl-tbd">Needs to be decided</span> and will be published here before launch.</p>\n<h3 id="acquire">How to Acquire $KLVR</h3>\n<p>Fans will be able to obtain $KLVR directly through the KLOVER Platform, with a simple onboarding experience designed for newcomers. The full list of supported acquisition methods and availability is <span class="kl-tbd">Needs to be decided</span>.</p>\n<h2 id="tokenomics">Tokenomics</h2>\n<p>$KLVR has a total supply of 8.3 billion tokens, a number chosen to mirror the world's population. It's meant to signal a culture economy open to anyone on Earth, not reserved for a select few. That supply carries a total allocation of 100%, distributed across the categories below. The Token Generation Event (TGE) is scheduled for November 2026 (2026 Q4). Allocations with a 100% TGE unlock circulate from day one, while the rest unlock gradually through a cliff and linear vesting to keep the ecosystem aligned for the long term.</p>\n<p>The vesting structure is a safeguard for everyone in the ecosystem. Releasing the full supply at once would create immediate selling pressure and undermine price stability. Linear vesting keeps supply predictable and gradual, giving fans and partners the stable environment they need to build genuine, long-term engagement rather than short-term speculation.</p>\n<div id="klvr-table"></div>\n<div id="klvr-chart" class="klvr-tk-wrap"></div>\n<div class="kl-hint info"><div class="h-ic"></div><div class="h-body">Cliff is the lock-up period after TGE before unlocking begins, and vesting is the period over which tokens then release linearly. The chart shows circulating supply as a percentage of total supply.</div></div>`,\n    sec5: `<p class="kl-lead">Culture Tokens are the assets that bring fans and K-Culture organizations together. Each one is issued by a cultural organization and unlocks real utilities for its holders.</p>\n<h2 id="what-ct">What is a Culture Token?</h2>\n<p>A <strong>Culture Token</strong> is a digital token issued by a K-Culture organization (a music label, an MCN, or an esports team) that represents membership in its community and unlocks exclusive utilities. Holding one is a direct connection to the culture you love.</p>\n<h2 id="who">Who Can Issue a Culture Token</h2>\n<p>Culture Tokens are issued by <strong>established cultural organizations</strong> rather than individuals. This ensures longevity and a broad utility surface: organizations outlast any single artist or season and can serve many fans across many projects. (See <a href="#sec8">Launching a Culture Token</a>.)</p>\n<p>If Culture Tokens were tied to individual artists, their utility would effectively end the moment that artist stepped back, changed labels, or went on hiatus. Organization-level issuance solves this directly. A label's Culture Token remains valuable across every artist on its roster, present and future. As the label signs new talent or launches new projects, the utility of its Culture Token expands automatically.</p>\n<h2 id="utilities">Token Utilities & Benefits</h2>\n<p>Culture Tokens are designed for real use, not idle holding. Every issuing organization defines its own set of perks, which can include:</p>\n<ul>\n<li><strong>Governance & Voting:</strong> Vote on official polls (e.g., choosing concert encore songs, selecting merchandise designs, or picking fan meet locations).</li>\n<li><strong>Priority Access:</strong> Get early access to concert ticket drops, exclusive merch releases, and fan meeting sign-ups.</li>\n<li><strong>Exclusive Experiences:</strong> Enter raffles for backstage passes, VIP meet-and-greets, and private community Q&As.</li>\n<li><strong>Digital Proof of Support:</strong> Verifiable, on-chain proof that you were an early and active member of a community.</li>\n</ul>\n<h2 id="how-voting">How Voting Works</h2>\n<p>Voting is one of the most direct ways fans influence the organizations they support. Issuing organizations run official polls on the KLOVER Platform. Voting power scales with token holdings, while built-in anti-sybil mechanisms keep decisions fair and representative of genuine fan consensus.</p>\n<h2 id="lifecycle">Culture Token Lifecycle</h2>\n<ol>\n<li><strong>Application & Review:</strong> The organization applies and passes KLOVER's review process.</li>\n<li><strong>Issuance & Sale:</strong> The organization issues its Culture Token on the platform. Fans purchase tokens using $KLVR.</li>\n<li><strong>Utility Activation:</strong> The organization launches perks, voting polls, and exclusive experiences for token holders.</li>\n<li><strong>Ongoing Growth:</strong> As the organization expands its offerings, token utility and fan participation grow together over time.</li>\n</ol>\n<h2 id="ct-klover">Culture Tokens and $KLVR</h2>\n<p>Culture Tokens and $KLVR work together seamlessly:</p>\n<ul>\n<li>$KLVR is required to purchase every Culture Token.</li>\n<li>Holding $KLVR gives you ecosystem-wide voice; holding a Culture Token gives you direct voice inside that specific organization.</li>\n<li>Fans can hold $KLVR to participate across multiple communities or focus on the specific Culture Tokens of their favorite organizations.</li>\n</ul>`,\n    sec6: `<p class="kl-lead">The KLOVER Platform is the fan-centric Web3 application designed to make token ownership simple, intuitive, and accessible for everyone.</p>\n<h2 id="value">Design Philosophy</h2>\n<p>Most Web3 applications are built for crypto experts: complex wallet setups, confusing gas fees, and technical jargon create friction for ordinary people. The KLOVER Platform takes a fundamentally different approach: <strong>Web3 back end, Web2 front end</strong>.</p>\n<p>Fans use familiar login methods, plain-language interfaces, and simple payment gateways. The blockchain operates quietly behind the scenes, providing transparent ownership and security without getting in the way of the experience.</p>\n<h2 id="newcomers">Built for Fans First</h2>\n<ul>\n<li><strong>Social Login:</strong> Create an account using email or social accounts—no seed phrases required to get started.</li>\n<li><strong>Fiat Onramps:</strong> Purchase $KLVR and Culture Tokens using standard payment methods.</li>\n<li><strong>Gasless Transactions:</strong> Platform actions don't require fans to manage gas tokens or calculate transaction fees.</li>\n<li><strong>Mobile-Optimized:</strong> Designed to feel fast and responsive on any device, anywhere.</li>\n</ul>\n<h2 id="getting-started">Platform Features</h2>\n<div class="kl-cards">\n  <div class="kl-card"><div class="ic">01</div><div class="ct">Discovery</div><div class="cd">Explore K-Culture organizations, browse Culture Tokens, and see active utilities and upcoming perks.</div></div>\n  <div class="kl-card"><div class="ic">02</div><div class="ct">Acquisition</div><div class="cd">Purchase $KLVR and Culture Tokens seamlessly with standard payment methods.</div></div>\n  <div class="kl-card"><div class="ic">03</div><div class="ct">Fan Hub</div><div class="cd">Vote in official polls, claim exclusive perks, sign up for events, and manage your token portfolio.</div></div>\n  <div class="kl-card"><div class="ic">04</div><div class="ct">Community Space</div><div class="cd">Connect with fellow fans, view leaderboards, and verify community status on-chain.</div></div>\n</div>\n<h2 id="deposits">Security & Self-Custody</h2>\n<p>While the platform makes onboarding simple, full self-custody remains available for experienced users at any time. You can connect standard Web3 wallets (such as MetaMask or Coinbase Wallet) or export your platform keys whenever you choose.</p>`,\n    sec_security: `<p class="kl-lead">Security, transparency, and trust are the non-negotiable foundation of the KLOVER ecosystem.</p>\n<h2 id="features">Security Commitment</h2>\n<p>KLOVER is built to safeguard fans, partners, and assets at every layer of the architecture. On-chain smart contracts undergo rigorous third-party audits before deployment, and all critical ecosystem functions utilize multi-signature controls.</p>\n<h2 id="fees">Core Protections</h2>\n<ul>\n<li><strong>Smart Contract Audits:</strong> All core protocol contracts are audited by leading independent security firms prior to mainnet launch. Audit reports will be published openly in this documentation.</li>\n<li><strong>Multi-Sig Controls:</strong> Treasury, admin, and emergency contract functions require multiple independent approvals.</li>\n<li><strong>Transparent Code:</strong> Protocol contracts are open-source and verified on block explorers.</li>\n<li><strong>Anti-Sybil Governance:</strong> Governance voting includes mechanisms to prevent manipulation and ensure genuine community representation.</li>\n</ul>\n<h2 id="security">Reporting Issues</h2>\n<p>We welcome responsible disclosure from security researchers. A formal bug bounty program and disclosure guidelines will be announced prior to protocol launch.</p>`,\n    sec7: `<p class="kl-lead">Governance in KLOVER ensures that the community has a real, transparent voice in how the ecosystem evolves.</p>\n<h2 id="gov-philosophy">Governance Philosophy</h2>\n<p>We believe sustainable ecosystems are built with their communities, not just for them. $KLVR token holders participate in high-level ecosystem governance, while Culture Token holders participate in organization-specific decisions.</p>\n<h2 id="how">How Governance Works</h2>\n<ol>\n<li><strong>Proposal Creation:</strong> Proposals can be submitted by the KLOVER team or qualified community members.</li>\n<li><strong>Discussion Period:</strong> The community reviews and discusses the proposal in official forums.</li>\n<li><strong>On-Chain Voting:</strong> $KLVR holders cast votes directly on the platform. Voting weight corresponds to token holdings.</li>\n<li><strong>Execution:</strong> Passed proposals are executed by the team or through automated smart contracts.</li>\n</ol>\n<h2 id="voting-power">Two Layers of Voice</h2>\n<div class="kl-dl">\n  <div class="row"><dt>$KLVR Governance</dt><dd>Ecosystem-wide decisions: protocol upgrades, treasury grants, new feature priorities, and ecosystem policies.</dd></div>\n  <div class="row"><dt>Culture Token Governance</dt><dd>Organization-specific decisions: concert encore choices, merchandise designs, fan meet locations, and community perks.</dd></div>\n</div>\n<h2 id="examples">Example Governance Areas</h2>\n<ul>\n<li>Allocating grants from the Ecosystem Development Fund.</li>\n<li>Prioritizing new platform features and tool integrations.</li>\n<li>Voting on official partner onboarding initiatives.</li>\n<li>Selecting community campaign themes and event locations.</li>\n</ul>\n<h2 id="scope">Governance Safeguards</h2>\n<p>To ensure stability and protect participants, governance includes structured voting windows, minimum quorum thresholds, and execution timelocks. These safeguards prevent sudden or malicious changes while keeping decision-making open and accountable.</p>`,\n    sec8: `<p class="kl-lead">KLOVER provides K-Culture organizations with the complete infrastructure needed to launch, manage, and grow an official Culture Token.</p>\n<h2 id="vs">Why Launch a Culture Token?</h2>\n<p>Traditional social platforms place middlemen and algorithms between organizations and their fans. Launching a Culture Token creates a direct, permanent connection with your global fanbase, turning passive social followers into an active, invested community.</p>\n<h2 id="who-partner">Who Can Apply</h2>\n<p>KLOVER partners with established K-Culture organizations across major sectors:</p>\n<ul>\n<li><strong>Music Labels & Entertainment Agencies:</strong> Connect fans with rosters of artists, concerts, and releases.</li>\n<li><strong>MCNs & Creator Studios:</strong> Empower digital creators to build shared ownership with their audiences.</li>\n<li><strong>Esports Teams & Gaming Orgs:</strong> Bring competitive gaming communities on-chain with match voting and exclusive perks.</li>\n<li><strong>Webtoon & IP Studios:</strong> Engage readers and collectors around iconic cultural IPs.</li>\n</ul>\n<h2 id="categories">Eligibility Criteria</h2>\n<p>To maintain high ecosystem quality and protect fans, KLOVER evaluates applicants on:</p>\n<ul>\n<li><strong>Established Fandom:</strong> Demonstrable, active community and fanbase.</li>\n<li><strong>Long-Term Commitment:</strong> Clear roadmap for delivering ongoing perks and utility to token holders.</li>\n<li><strong>Operational Legitimacy:</strong> Registered business entity with verified track record.</li>\n</ul>\n<h2 id="eligibility">What KLOVER Provides</h2>\n<p>Partners receive end-to-end support to ensure a successful launch:</p>\n<ul>\n<li><strong>Turnkey Token Infrastructure:</strong> Smart contract deployment, auditing, and platform integration.</li>\n<li><strong>Fan-Centric UI:</strong> Simple purchasing, voting, and perk management tools for your fans.</li>\n<li><strong>Co-Marketing & Growth:</strong> Promotion across the KLOVER ecosystem and LK Ventures' global footprint.</li>\n<li><strong>Dedicated Onboarding:</strong> Strategic guidance on tokenomics, utility design, and community management.</li>\n</ul>\n<h2 id="receive">The Launch Process</h2>\n<ol>\n<li><strong>Application:</strong> Submit your organization details and utility vision.</li>\n<li><strong>Review & Design:</strong> Work with KLOVER to design your token's utility structure and rollout plan.</li>\n<li><strong>Integration & Testing:</strong> Deploy contracts and configure your organization's hub on the platform.</li>\n<li><strong>Launch & Growth:</strong> Announce to your fanbase, activate utilities, and engage your community.</li>\n</ol>\n<h2 id="process">Inquire About Launching</h2>\n<p>If your organization is interested in launching an official Culture Token, contact our team at <a href="mailto:partners@klover.fan">partners@klover.fan</a>.</p>`,\n    sec9: `<p class="kl-lead">Our phased roadmap outlines the journey from initial foundation to a fully decentralized, global culture economy.</p>\n<div class="kl-timeline">\n  <div class="kl-tl-item">\n    <div class="kl-tl-dot"></div>\n    <div class="kl-tl-phase">Phase 1</div>\n    <h3 class="kl-tl-title">Ecosystem Foundation</h3>\n    <div class="kl-tl-body">Brand launch, official documentation, core smart contract development on BASE, and initial security architecture setup.</div>\n  </div>\n  <div class="kl-tl-item">\n    <div class="kl-tl-dot"></div>\n    <div class="kl-tl-phase">Phase 2</div>\n    <h3 class="kl-tl-title">Smart Contract Audits & Testnet</h3>\n    <div class="kl-tl-body">Independent third-party audits for $KLVR and Culture Token contracts. Public testnet deployment and developer integration testing.</div>\n  </div>\n  <div class="kl-tl-item">\n    <div class="kl-tl-dot"></div>\n    <div class="kl-tl-phase">Phase 3</div>\n    <h3 class="kl-tl-title">Genesis Partner Onboarding</h3>\n    <div class="kl-tl-body">Onboarding first cohort of genesis K-Culture partners (music labels, MCNs, esports teams). Co-designing utility structures and fan perks.</div>\n  </div>\n  <div class="kl-tl-item future">\n    <div class="kl-tl-dot"></div>\n    <div class="kl-tl-phase">Phase 4</div>\n    <h3 class="kl-tl-title">Platform Launch & TGE</h3>\n    <div class="kl-tl-body">$KLVR Token Generation Event (TGE) scheduled for 2026 Q4 (Nov 2026). Public launch of the KLOVER Platform and initial Culture Token sales.</div>\n  </div>\n  <div class="kl-tl-item future">\n    <div class="kl-tl-dot"></div>\n    <div class="kl-tl-phase">Phase 5</div>\n    <h3 class="kl-tl-title">Fandom Features & Governance</h3>\n    <div class="kl-tl-body">Rollout of on-chain voting, exclusive perk redemption, community leaderboards, and $KLVR governance portal activation.</div>\n  </div>\n  <div class="kl-tl-item future">\n    <div class="kl-tl-dot"></div>\n    <div class="kl-tl-phase">Phase 6</div>\n    <h3 class="kl-tl-title">Global Offline Integration</h3>\n    <div class="kl-tl-body">Integrating token utilities with LK Ventures' physical footprint across 30+ countries. In-booth photo perks, event check-ins, and offline fan rewards.</div>\n  </div>\n  <div class="kl-tl-item future">\n    <div class="kl-tl-dot"></div>\n    <div class="kl-tl-phase">Phase 7</div>\n    <h3 class="kl-tl-title">Global Culture Expansion</h3>\n    <div class="kl-tl-body">Expanding beyond K-Culture to onboard international entertainment, sports, and creator communities worldwide.</div>\n  </div>\n</div>`,\n    sec_team: `<p class="kl-lead">KLOVER is brought to life by a team of entertainment veterans, Web3 engineers, and community builders.</p>\n<h2 id="vision">Powered by LK Ventures</h2>\n<p>LK Ventures is the driving force behind KLOVER. Operating a global portfolio of cultural content businesses across 30+ countries, LK Ventures provides the ecosystem with unprecedented industry reach, established brand trust, and operational excellence from day one.</p>\n<h2 id="geography">Core Capabilities</h2>\n<ul>\n<li><strong>Cultural IP Partnerships:</strong> Direct, long-standing relationships with top music labels, agencies, MCNs, and creators.</li>\n<li><strong>Global Distribution:</strong> Established physical and digital distribution reach across Asia, North America, Europe, and beyond.</li>\n<li><strong>Web3 Engineering:</strong> Senior blockchain architects and smart contract developers with extensive Layer-2 and DeFi experience.</li>\n<li><strong>Fan Engagement:</strong> Specialized community managers and growth strategists experienced in digital fandom dynamics.</li>\n</ul>`,\n    sec10: `<p class="kl-lead">KLOVER is committed to full legal compliance, user privacy, and responsible operation across all operating jurisdictions.</p>\n<h2 id="eligibility-legal">Regulatory Approach</h2>\n<p>We actively monitor global digital asset regulations and work closely with legal counsel to ensure protocol architecture and platform operations comply with applicable standards in every region we serve.</p>\n<h2 id="regulatory">Token Classification</h2>\n<p>$KLVR is designed purely as a functional utility token within the KLOVER ecosystem. It grants access to platform features, Culture Token purchases, and governance participation. It does not represent equity, debt, or an expectation of profit from the efforts of others.</p>\n<h2 id="privacy">Privacy & Data Protection</h2>\n<p>We respect user privacy. Platform interaction minimizes personal data collection, and all data handling adheres to international privacy standards including GDPR.</p>\n<h2 id="disclaimer">General Disclaimer</h2>\n<p>This documentation is provided for informational purposes only and does not constitute financial, investment, or legal advice. Token availability and platform features may be subject to geographic restrictions based on local regulations.</p>`,\n    sec_faq: `<p class="kl-lead">Frequently asked questions about $KLVR, Culture Tokens, and the KLOVER ecosystem.</p>\n<div class="kl-accordion">\n  <button class="kl-acc-head"><span>What is KLOVER?</span><span class="kl-acc-ic">+</span></button>\n  <div class="kl-acc-body"><p>KLOVER is a Web3 ecosystem built to tokenize culture. It connects K-Culture organizations (music labels, MCNs, esports teams) with global fans through Culture Tokens, powered by the $KLVR token on BASE.</p></div>\n</div>\n<div class="kl-accordion">\n  <button class="kl-acc-head"><span>What is the $KLVR token?</span><span class="kl-acc-ic">+</span></button>\n  <div class="kl-acc-body"><p>$KLVR is the native ERC-20 token on BASE that powers the ecosystem. It is required to purchase Culture Tokens, used for platform transactions, and grants ecosystem governance rights.</p></div>\n</div>\n<div class="kl-accordion">\n  <button class="kl-acc-head"><span>What is a Culture Token?</span><span class="kl-acc-ic">+</span></button>\n  <div class="kl-acc-body"><p>A Culture Token is a digital token issued by a K-Culture organization representing community membership. Holding one unlocks perks like voting on official polls, priority event access, and exclusive experiences.</p></div>\n</div>\n<div class="kl-accordion">\n  <button class="kl-acc-head"><span>Do I need crypto experience to use KLOVER?</span><span class="kl-acc-ic">+</span></button>\n  <div class="kl-acc-body"><p>No. The KLOVER Platform is built with a Web2 front end—featuring social logins, standard payment methods, and gasless transactions—so anyone can participate easily without prior Web3 knowledge.</p></div>\n</div>\n<div class="kl-accordion">\n  <button class="kl-acc-head"><span>Which blockchain is KLOVER built on?</span><span class="kl-acc-ic">+</span></button>\n  <div class="kl-acc-body"><p>KLOVER is built on BASE, Coinbase's Layer-2 blockchain, providing sub-cent transaction fees, near-instant speed, and Ethereum-grade security.</p></div>\n</div>\n<div class="kl-accordion">\n  <button class="kl-acc-head"><span>When is the Token Generation Event (TGE)?</span><span class="kl-acc-ic">+</span></button>\n  <div class="kl-acc-body"><p>The $KLVR TGE is scheduled for November 2026 (2026 Q4), alongside the public platform launch.</p></div>\n</div>`,\n  },\n};\n\n/* ============================================================\n   KOREAN TRANSLATION (ko)\n   ============================================================ */\nI18N.ko = {\n  ui: {\n    docs: '공식 문서',\n    searchPlaceholder: '검색…',\n    searchNoResults: '검색 결과가 없습니다',\n    onThisPage: '목차',\n    previous: '이전',\n    next: '다음',\n    groupIntro: '소개',\n    groupEcosystem: '생태계',\n    groupParticipate: '참여하기',\n    groupResources: '자료',\n    helpfulQuestion: '이 문서가 도움이 되었나요?',\n    helpfulYes: '네',\n    helpfulNo: '아니오',\n    helpfulThanks: '피드백해 주셔서 감사합니다!',\n    lastModified: '최근 업데이트: 방금 전',\n    copy: '복사',\n    copied: '복사됨!',\n  },\n  nav: {\n    home: '개요',\n    sec1: '소개',\n    sec2: 'Tokenize Culture',\n    sec3: 'KLOVER 생태계',\n    sec4: '$KLVR',\n    sec5: 'Culture Token',\n    sec6: 'KLOVER 플랫폼',\n    sec7: '생태계 거버넌스',\n    sec8: 'Culture Token 발행하기',\n    sec9: '로드맵',\n    sec10: '법률 및 컴플라이언스',\n    sec_security: '보안 및 감사',\n    sec_team: '팀',\n    sec_faq: '자주 묻는 질문',\n  },\n  home: {\n    eyebrow: 'K-Culture Web3 생태계',\n    title1: 'Tokenize',\n    title2: 'Culture',\n    lead: 'KLOVER는 팬이 K-Culture를 직접 소유하고 생태계 방향에 목소리를 낼 수 있는 Web3 생태계입니다. 공식 문서에서 생태계 구조와 참여 방법을 확인하세요.',\n    cta1: '시작하기',\n    cta2: 'Culture Token 보기',\n    byline: 'LK Ventures가 만든 생태계입니다',\n    cards: [\n      {\n        t: '$KLVR',\n        d: 'KLOVER 생태계의 기축 통화로, 거버넌스 투표와 Culture Token 구매, 스테이킹까지 생태계 전반에 걸쳐 사용됩니다.'\n      },\n      {\n        t: 'Culture Token',\n        d: 'K-Culture 조직이 직접 발행하는 팬 소유권 토큰으로, 홀더에게 실제 혜택을 제공합니다.'\n      },\n      {\n        t: 'KLOVER 플랫폼',\n        d: '암호화폐를 몰라도 누구나 이용할 수 있는 팬 중심 Web3 플랫폼입니다.'\n      },\n      {\n        t: 'Base 위에 구축',\n        d: '빠르고 저렴하며 안전한 인프라 위에 구축되어, 모든 온체인 활동이 안정적으로 처리됩니다.'\n      }\n    ]\n  },\n  pages: {\n    sec1: `<p class=\"kl-lead\">KLOVER는 전 세계 팬이 사랑하는 문화를 직접 소유하고, 방향에 목소리를 내며, 더 깊이 참여할 수 있는 K-Culture Web3 생태계입니다. 이 문서는 KLOVER의 구조와 생태계 작동 방식, 그리고 팬, 파트너, 서포터가 참여하는 방법을 설명합니다.</p>\n<h2 id=\"what\">KLOVER란</h2>\n<p>K-POP, 크리에이터, e스포츠를 사랑하는 팬은 전 세계 곳곳에 흩어져 있지만, 이들을 하나로 이어 주는 공간은 그동안 마땅치 않았습니다. KLOVER는 <strong>문화를 tokenize</strong>하기 위해 구축한 Web3 생태계로, 한국 문화에서 시작해 전 세계로 확장합니다. <strong>Culture Token</strong>은 K-Culture 단체와 글로벌 팬덤을 연결하는 디지털 자산이며, 지켜보기만 하던 팬을 적극 참여하는 소유자로 바꿉니다. 모든 생태계는 <strong>BASE</strong> 블록체인 위에 구축됩니다.</p>\n<h2 id=\"audience\">이 문서의 대상</h2>\n<p>이 문서는 세 대상을 위해 작성되었습니다.</p>\n<ul>\n<li><strong>팬:</strong> Culture Token을 소유하고, 의사결정에 참여하며, 전용 혜택을 누리고 싶은 분</li>\n<li><strong>K-Culture 조직:</strong> 커뮤니티를 온체인으로 불러와 Culture Token을 발행하려는 분</li>\n<li><strong>파트너 및 서포터:</strong> KLOVER 생태계와 $KLVR 토큰, 그리고 비전을 이해하고 싶은 분</li>\n</ul>\n<p>처음부터 순서대로 읽어도 되고, 관심 있는 섹션으로 바로 이동해도 됩니다.</p>\n<h2 id=\"mission\">미션: Tokenize Culture</h2>\n<p>KLOVER의 미션은 단순합니다. <strong>Tokenize Culture.</strong> 팬은 관객에 머무르지 않고 문화 가치를 함께 만드는 주체이며, KLOVER는 그 기여를 형태 있는 가치로 만듭니다. 한국 문화에서 출발해 전 세계 문화로 넓혀 나가며, 모든 문화와 커뮤니티가 함께 성장하는 공간을 지향합니다.</p>\n<h2 id=\"brand\">KLOVER 브랜드</h2>\n<p>KLOVER라는 이름은 두 가치를 이어 줍니다. <em>Clover</em>는 행운과 성장의 보편적 상징이며, <em>"K-Lover"</em>는 K-Culture를 사랑하는 전 세계 커뮤니티를 뜻합니다. 문화를 사랑하고 성장을 함께 만드는 이들의 안식처라는 의미를 담았습니다.</p>\n<h2 id=\"life4cut\">LK Ventures: KLOVER를 만드는 기업</h2>\n<p>KLOVER는 대표적인 K-Culture 기업인 <strong>LK Ventures</strong>가 만듭니다. LK Ventures는 30개국 이상 진출, 월 380만 명 이상의 팬과 만나는 오프라인 및 디지털 인프라를 운영하고 있습니다. 이 기반 덕분에 KLOVER는 첫날부터 깊은 문화적 뿌리, 브랜드 신뢰, 산업 현장과의 직접 연결고리를 확보하고 시작합니다.</p>\n<h2 id=\"terminology\">주요 용어</h2>\n<div class=\"kl-dl\">\n  <div class=\"row\"><dt>$KLVR</dt><dd>BASE 블록체인 위에 발행된 ERC-20 기축 토큰입니다. Culture Token 구매, 거래, Governance 투표에 쓰입니다.</dd></div>\n  <div class=\"row\"><dt>Culture Token</dt><dd>음악 레이블, MCN, e스포츠 팀 같은 K-Culture 조직이 발행하는 팬 소유권 토큰입니다.</dd></div>\n  <div class=\"row\"><dt>KLOVER 플랫폼</dt><dd>팬이 Culture Token을 구매하고, 투표에 참여하며, 혜택을 이용하는 Web3 플랫폼입니다.</dd></div>\n</div>`,\n    sec2: `<p class=\"kl-lead\">문화는 세상에서 가장 강력한 힘 중 하나이지만, 그 가치를 만드는 팬들은 그동안 늘 밖에 서 있었습니다.</p>\n<h2 id=\"culture-is-shared\">문화는 우리 모두가 함께 만듭니다</h2>\n<p>문화는 저절로 생기지 않습니다. 노래 한 곡이 히트곡이 되는 건 수백만 팬이 듣고, 공유하며, 함께 부르기 때문입니다. e스포츠 팀이 전설이 되는 건 관중석을 채우고 목이 터져라 응원하는 팬 덕분입니다. 팬들의 참여와 애정이 문화의 진짜 가치를 만듭니다.</p>\n<h2 id=\"the-gap\">하지만 팬에게 돌아오는 건 없었습니다</h2>\n<p>기존 엔터테인먼트 산업은 팬덤을 일방통행으로 다루어 왔습니다. 팬은 시간과 에너지, 비용을 쏟아붓지만 자신이 키운 문화의 지분을 소유하지는 못합니다. 주요 의사결정에 목소리를 낼 수도 없고, 초기부터 응원했다는 증거를 남기기도 어려우며, 아티스트가 성공해도 결실을 나누지 못합니다.</p>\n<h2 id=\"vision\">KLOVER의 비전</h2>\n<p>KLOVER는 이 구도를 완전히 바꿉니다. 문화를 온체인에 올려 팬덤을 단순 소비에서 주체적 소유와 참여로 전환합니다. 팬은 검증 가능한 응원 기록, Governance 권한, 돈으로 살 수 없는 특별한 경험을 누리는 진짜 주주가 됩니다.</p>\n<h2 id=\"why-kculture\">왜 K-Culture인가</h2>\n<p>K-Culture는 문화를 tokenize하기에 가장 이상적인 무대입니다. K-POP, 드라마, 게임, 웹툰은 세계에서 가장 열정적이고 디지털에 익숙한 팬덤을 모았습니다. K-Culture 팬들은 이미 글로벌 캠페인을 조직하고, 팬 투표에 참여하며, 좋아하는 크리에이터를 자발적으로 지원하고 있습니다. KLOVER는 그 에너지가 영구히 머물 온체인 안식처를 제공합니다.</p>\n<h2 id=\"why-now\">왜 지금인가</h2>\n<p>세 가지 흐름이 지금을 적기로 만들고 있습니다.</p>\n<ul>\n<li><strong>Web3 인프라의 완성:</strong> BASE 같은 Layer-2 블록체인 덕분에 온체인 거래가 빠르고 저렴해졌습니다.</li>\n<li><strong>글로벌 팬덤의 디지털 연결:</strong> 팬들은 이미 디지털 플랫폼에서 크리에이터를 지원하는 데 익숙합니다.</li>\n<li><strong>직접 소통을 원하는 조직:</strong> K-Culture 기업들은 중개자나 알고리즘 없이 팬과 직접 연결될 방법을 찾고 있습니다.</li>\n</ul>`,\n    sec3: `<p class=\"kl-lead\">KLOVER 생태계는 팬, K-Culture 조직, 인프라를 하나로 이어 스스로 성장하는 선순환 구조를 만듭니다.</p>\n<h2 id=\"architecture\">구조 개요</h2>\n<p>KLOVER 생태계는 세 가지 핵심 축으로 움직입니다.</p>\n<div class=\"kl-cards\">\n  <div class=\"kl-card\"><div class=\"ic\">01</div><div class=\"ct\">$KLVR 토큰</div><div class=\"cd\">Culture Token 구매에 반드시 필요한 기축 통화이자 Governance 권한을 주는 토큰입니다.</div></div>\n  <div class=\"kl-card\"><div class=\"ic\">02</div><div class=\"ct\">Culture Token</div><div class=\"cd\">K-Culture 파트너가 발행하는 멤버십 토큰으로, 실제 혜택을 홀더에게 제공합니다.</div></div>\n  <div class=\"kl-card\"><div class=\"ic\">03</div><div class=\"ct\">KLOVER 플랫폼</div><div class=\"cd\">팬이 Culture Token을 둘러보고, 구매하고, 거래하며 혜택을 누리는 Web3 공간입니다.</div></div>\n</div>\n<h2 id=\"pillars\">4대 기둥</h2>\n<div class=\"kl-dl\">\n  <div class=\"row\"><dt>1. 글로벌 팬</dt><dd>$KLVR를 구하고, 좋아하는 조직의 Culture Token을 구매해 투표와 전용 혜택에 참여합니다.</dd></div>\n  <div class=\"row\"><dt>2. K-Culture 파트너</dt><dd>레이블, MCN, e스포츠 팀이 토큰을 발행해 팬과 깊이 연결되고 새로운 수익원을 엽니다.</dd></div>\n  <div class=\"row\"><dt>3. LK Ventures</dt><dd>30개국 이상 오프라인 네트워크와 엔터테인먼트 전문성을 바탕으로 생태계를 뒷받침합니다.</dd></div>\n  <div class=\"row\"><dt>4. KLOVER 플랫폼</dt><dd>쉬운 온보딩과 안전한 토큰 거래, 투명한 Governance를 보장하는 기술 인프라입니다.</dd></div>\n</div>\n<h2 id=\"how-it-works\">작동 방식</h2>\n<ol>\n<li><strong>조직 온보딩:</strong> K-Culture 파트너가 KLOVER와 손잡고 공식 Culture Token을 발행합니다.</li>\n<li><strong>팬의 참여:</strong> 팬은 플랫폼에서 $KLVR를 구한 뒤 해당 조직의 Culture Token을 구매합니다.</li>\n<li><strong>혜택 이용:</strong> 홀더는 투표, 공연 우선 예매, 비하인드 콘텐츠, 한정판 굿즈 등 혜택을 누립니다.</li>\n<li><strong>생태계 확장:</strong> 참여 파트너와 팬이 늘어날수록 $KLVR 활동이 커지며 생태계 전체가 강화됩니다.</li>\n</ol>\n<h2 id=\"flywheel\">경제적 선순환</h2>\n<p>KLOVER의 모든 요소는 서로를 강화합니다. 파트너가 늘면 더 많은 팬이 모이고, 팬이 늘면 $KLVR와 Culture Token 수요가 커집니다. 수요가 커지면 파트너는 더 알찬 혜택을 제공할 수 있게 되어 또 다른 파트너를 끌어옵니다. 이렇게 스스로 커지는 문화 경제가 만들어집니다.</p>\n<h2 id=\"base\">BASE 위에 구축</h2>\n<p>KLOVER는 Coinbase가 만든 Layer-2 블록체인 <strong>BASE</strong>에 배포됩니다. BASE는 대중적인 서비스를 위한 이상적인 기반입니다.</p>\n<ul>\n<li><strong>원 미만의 수수료:</strong> 가스비 부담 없이 마음 놓고 거래할 수 있습니다.</li>\n<li><strong>빠른 처리 속도:</strong> 거의 즉시 처리되어 일반 Web2 앱처럼 쾌적합니다.</li>\n<li><strong>검증된 보안:</strong> 이더리움의 보안 모델과 Coinbase 인프라의 지원을 받습니다.</li>\n<li><strong>쉬운 온보딩:</strong> 암호화폐를 처음 접하는 팬도 쉽게 시작하도록 설계되어 있습니다.</li>\n</ul>`,\n    sec4: `<p class=\"kl-lead\">$KLVR는 KLOVER 생태계의 기축 통화로, Culture Token 구매부터 플랫폼 내 결제, Governance 참여까지 생태계 전반에 걸쳐 사용됩니다.</p>\n<h2 id=\"overview\">개요</h2>\n<h3 id=\"role\">$KLVR의 역할</h3>\n<p>$KLVR는 생태계 전반에서 쓰이는 교환 수단입니다. Culture Token을 살 때 반드시 필요하고, 플랫폼 내 거래 수단이기도 하며, 보유하면 Governance에도 참여할 수 있습니다. KLOVER 안에서 가치가 오가는 곳이라면 어디든 $KLVR를 거칩니다.</p>\n<h3 id=\"utility\">Token Utility</h3>\n<ul>\n<li><strong>Culture Token 구매:</strong> Culture Token은 $KLVR로만 구매할 수 있으며, 구조적으로 꾸준한 수요가 생깁니다.</li>\n<li><strong>Governance:</strong> $KLVR 홀더는 KLOVER 팀이 제안한 안건에 직접 투표합니다.</li>\n<li><strong>플랫폼 결제 수단:</strong> 플랫폼 내 거래와 활동은 $KLVR로 처리됩니다.</li>\n</ul>\n<h3 id=\"demand\">수요 원천</h3>\n<p>$KLVR 수요는 투기가 아니라 생태계 내 실제 사용에서 비롯됩니다.</p>\n<ul>\n<li><strong>Culture Token 구매.</strong> 모든 Culture Token은 $KLVR로 구매합니다.</li>\n<li><strong>플랫폼 활동.</strong> 생태계 내 거래는 $KLVR로 정산됩니다.</li>\n<li><strong>Governance.</strong> $KLVR를 보유해야 의사결정에 참여할 수 있습니다.</li>\n</ul>\n<p>개별 Culture Token의 수요는 해당 발행사의 팬덤 규모 안에 머무릅니다. 반면 $KLVR은 모든 Culture Token의 공통 구매 수단이므로, 새로운 발행사가 생태계에 합류하고 팬덤이 늘어날 때마다 수요가 함께 쌓입니다. 생태계에 참여하는 발행사와 팬이 많아질수록 $KLVR의 수요 기반도 함께 넓어집니다.</p>\n<h3 id=\"standard\">토큰 표준</h3>\n<p>$KLVR는 BASE 블록체인에 배포된 ERC-20 토큰으로, 표준 Web3 지갑과 도구에서 바로 사용할 수 있습니다. 공식 컨트랙트 주소는 <span class=\"kl-tbd\">미정</span>이며, 출시 전에 이 페이지에 공개됩니다.</p>\n<h3 id=\"acquire\">$KLVR 구매 방법</h3>\n<p>팬은 KLOVER 플랫폼에서 $KLVR를 직접 구매할 수 있으며, Web3에 익숙하지 않아도 쉽게 시작할 수 있도록 온보딩을 설계했습니다. 지원 구매 방법과 범위는 <span class=\"kl-tbd\">미정</span>입니다.</p>\n<h2 id=\"tokenomics\">Tokenomics</h2>\n<p>$KLVR 총 발행량은 83억 개로, 전 세계 인구 수에 맞춘 숫자입니다. 특정 소수가 아니라 지구상 누구나 참여할 수 있는 문화 경제를 지향한다는 뜻을 담았습니다. 전체 물량은 아래 카테고리로 배분되며 합계는 100%입니다. TGE는 2026년 11월(Q4)로 예정되어 있으며, TGE에서 100% 즉시 해제되는 물량은 첫날부터 유통됩니다. 나머지는 Cliff 이후 선형 Vesting으로 순차 해제되어 생태계가 장기적으로 안정을 유지하도록 설계했습니다.</p>\n<p>Vesting 구조는 생태계 참여자 모두를 위한 안전장치입니다. 전체 물량이 한꺼번에 풀리면 초기 보유자에게 즉각적인 매도 유인이 생기고 토큰 가치가 급격히 흔들릴 수 있습니다. 선형 Vesting은 토큰이 예측 가능하게 시장에 공급되도록 조율해, 팬과 파트너 모두가 장기적 관점에서 생태계를 함께 키울 수 있는 환경을 만듭니다.</p>\n<div id=\"klvr-table\"></div>\n<div id=\"klvr-chart\" class=\"klvr-tk-wrap\"></div>\n<div class=\"kl-hint info\"><div class=\"h-ic\"></div><div class=\"h-body\">Cliff는 TGE 이후 Vesting이 시작되기 전까지의 잠금 기간입니다. Vesting은 그 이후 토큰이 선형으로 해제되는 기간을 말합니다. 차트는 총발행량 대비 유통 비율을 나타냅니다.</div></div>`,\n    sec5: `<p class=\"kl-lead\">Culture Token은 팬과 K-Culture 조직을 연결하는 자산으로, 각 토큰은 문화 조직이 직접 발행하며 홀더가 실제로 쓸 수 있는 혜택을 줍니다.</p>\n<h2 id=\"what-ct\">Culture Token이란</h2>\n<p><strong>Culture Token</strong>은 음악 레이블, MCN, e스포츠 팀 같은 K-Culture 조직이 발행하는 디지털 토큰으로, 커뮤니티 멤버십을 증명하고 홀더 전용 유틸리티를 제공합니다. Culture Token을 보유한다는 건 좋아하는 문화와 직접 연결된다는 의미입니다.</p>\n<h2 id=\"who\">Culture Token 발행 주체</h2>\n<p>Culture Token은 개인이 아니라 <strong>검증된 문화 조직</strong>이 발행합니다. 덕분에 아티스트 개인의 부침에 흔들리지 않고 오래 지속되는 혜택을 줄 수 있습니다. (자세한 내용은 <a href=\"#sec8\">Culture Token 발행하기</a>를 참고하세요.)</p>\n<p>만약 Culture Token이 아티스트 개인에게 귀속된다면, 아티스트가 활동을 쉬거나 소속사를 옮길 때 토큰의 쓰임새도 끝나 버립니다. 조직 단위 발행은 이 문제를 깔끔하게 해결합니다. 레이블의 Culture Token은 현재와 미래의 모든 소속 아티스트 활동을 아우르며, 신인을 발굴하거나 새 프로젝트를 열 때마다 혜택이 자동으로 확장됩니다.</p>\n<h2 id=\"utilities\">유틸리티 및 혜택</h2>\n<p>Culture Token은 단순히 보유하는 데 그치지 않고 실제로 쓰도록 설계되었습니다. 발행 조직은 다음과 같은 혜택을 직접 기획합니다.</p>\n<ul>\n<li><strong>투표 및 Governance:</strong> 앵콜곡 선정, 굿즈 디자인 결정, 팬미팅 장소 투표 등 공식 안건에 표를 행사합니다.</li>\n<li><strong>우선 참여권:</strong> 콘서트 티켓 선예매, 한정판 굿즈 우선 구매, 팬미팅 신청 기회를 얻습니다.</li>\n<li><strong>독점 경험:</strong> 백스테이지 패스, VIP 팬미팅, 프라이빗 Q&A 참여 추첨 기회를 받습니다.</li>\n<li><strong>온체인 응원 증명:</strong> 해당 커뮤니티의 초기 멤버이자 열성 팬이라는 점을 온체인으로 증명합니다.</li>\n</ul>\n<h2 id=\"how-voting\">투표 작동 방식</h2>\n<p>투표는 팬이 응원하는 조직에 직접 목소리를 내는 가장 확실한 방법입니다. 파트너 조직은 KLOVER 플랫폼에서 공식 안건을 올리고, 팬은 보유한 토큰에 비례해 투표권을 행사합니다. 부정 투표 방지 메커니즘이 내장되어 있어 팬들의 진정한 뜻이 반영됩니다.</p>\n<h2 id=\"lifecycle\">Culture Token 라이프사이클</h2>\n<ol>\n<li><strong>신청 및 심사:</strong> 문화 조직이 신청서를 내고 KLOVER의 심사를 통과합니다.</li>\n<li><strong>발행 및 판매:</strong> 플랫폼에서 공식 Culture Token을 발행하고, 팬들은 $KLVR로 구매합니다.</li>\n<li><strong>혜택 활성화:</strong> 투표, 이벤트, 전용 콘텐츠 등 홀더 혜택을 차례로 엽니다.</li>\n<li><strong>지속적 성장:</strong> 파트너가 활동을 넓힐수록 토큰의 쓰임새와 팬 참여도 함께 깊어집니다.</li>\n</ol>\n<h2 id=\"ct-klover\">Culture Token과 $KLVR</h2>\n<p>Culture Token과 $KLVR는 서로를 보완합니다.</p>\n<ul>\n<li>모든 Culture Token을 살 때 $KLVR가 쓰입니다.</li>\n<li>$KLVR는 생태계 전체 방향에, Culture Token은 해당 조직의 결정에 목소리를 내게 해 줍니다.</li>\n<li>팬은 $KLVR로 여러 커뮤니티를 오가며 참여하거나, 특정 조직의 Culture Token에 집중할 수 있습니다.</li>\n</ul>`,\n    sec6: `<p class=\"kl-lead\">KLOVER 플랫폼은 암호화폐를 몰라도 누구나 쉽게 이용하도록 만든 팬 중심 Web3 공간입니다.</p>\n<h2 id=\"value\">설계 철학</h2>\n<p>기존 Web3 서비스는 복잡한 지갑 설정, 가스비 개념, 어려운 용어 때문에 일반 사용자가 접근하기 어려웠습니다. KLOVER 플랫폼은 다릅니다. <strong>백엔드는 Web3, 프론트엔드는 Web2</strong> 방식으로 만듭니다.</p>\n<p>팬은 익숙한 소셜 로그인과 간편 결제 인터페이스를 사용하고, 블록체인은 뒤에서 조용히 작동해 소유권과 보안을 든든하게 보장합니다.</p>\n<h2 id=\"newcomers\">팬을 먼저 생각한 기능</h2>\n<ul>\n<li><strong>소셜 로그인:</strong> 복잡한 비밀문구(Seed Phrase) 없이 이메일이나 소셜 계정으로 바로 가입합니다.</li>\n<li><strong>간편 결제:</strong> 익숙한 결제 수단으로 $KLVR와 Culture Token을 구매합니다.</li>\n<li><strong>가스비 없는 경험:</strong> 팬이 가스비를 직접 계산하거나 신경 쓸 필요가 없습니다.</li>\n<li><strong>모바일 최적화:</strong> 언제 어디서나 스마트폰으로 쾌적하게 이용합니다.</li>\n</ul>\n<h2 id=\"getting-started\">주요 기능</h2>\n<div class=\"kl-cards\">\n  <div class=\"kl-card\"><div class=\"ic\">01</div><div class=\"ct\">둘러보기</div><div class=\"cd\">K-Culture 조직과 Culture Token을 살펴보고 진행 중인 혜택을 확인합니다.</div></div>\n  <div class="kl-card"><div class="ic">02</div><div class="ct">구매하기</div><div class="cd">익숙한 결제 방식으로 $KLVR와 Culture Token을 손쉽게 구합니다.</div></div>\n  <div class="kl-card"><div class="ic">03</div><div class="ct">팬 허브</div><div class="cd">공식 투표에 참여하고, 혜택을 신청하며, 내 토큰을 한눈에 관리합니다.</div></div>\n  <div class="kl-card"><div class="ic">04</div><div class="ct">커뮤니티</div><div class="cd">다른 팬들과 소통하고, 리더보드를 확인하며, 온체인 활동 기록을 남깁니다.</div></div>\n</div>\n<h2 id=\"deposits\">보안 및 자산 주권</h2>\n<p>가입과 이용은 쉽지만, 원할 때는 언제든 스스로 지갑을 직접 관리할 수 있습니다. 메타마스크나 코인베이스 월렛 같은 외부 지갑을 연결하거나 개인키를 추출해 완전한 자산 주권을 가질 수 있습니다.</p>`,\n    sec_security: `<p class=\"kl-lead\">보안과 투명성, 신뢰는 KLOVER 생태계가 타협하지 않는 최우선 가치입니다.</p>\n<h2 id=\"features\">보안 공약</h2>\n<p>KLOVER는 모든 레이어에서 팬과 파트너의 자산을 보호하도록 설계되었습니다. 온체인 스마트 컨트랙트는 배포 전 전문 보안업체의 감사(Audit)를 거치며, 주요 생태계 기능에는 다중서명(Multi-Sig) 권한 관리가 적용됩니다.</p>\n<h2 id=\"fees\">핵심 보호 장치</h2>\n<ul>\n<li><strong>스마트 컨트랙트 감사:</strong> 프로토콜 배포 전 외부 전문기관의 감사를 받고, 검증 보고서를 이 문서에 공개합니다.</li>\n<li><strong>다중서명 관리:</strong> 금고, 관리자, 비상 권한 실행 시 독립된 복수 주체의 승인을 거칩니다.</li>\n<li><strong>코드 공개:</strong> 핵심 컨트랙트 코드는 공개 검증이 가능한 형태로 배포됩니다.</li>\n<li><strong>부정 투표 방지:</strong> Governance 시 시빌 공격(Sybil Attack)을 막고 진짜 팬의 뜻이 반영되도록 설계합니다.</li>\n</ul>\n<h2 id=\"security\">보안 제보</h2>\n<p>보안 연구자분들의 책임 있는 제보를 환영합니다. 정식 출시 전 버그 바운티 프로그램과 제보 가이드라인을 안내할 예정입니다.</p>`,\n    sec7: `<p class=\"kl-lead\">KLOVER의 Governance는 팬 커뮤니티가 생태계 성장에 직접 목소리를 내도록 보장합니다.</p>\n<h2 id=\"gov-philosophy\">Governance 철학</h2>\n<p>지속 가능한 생태계는 커뮤니티를 위해서가 아니라 커뮤니티와 <strong>함께</strong> 만들어 갈 때 완성됩니다. $KLVR 홀더는 생태계 전체 방향에, Culture Token 홀더는 해당 조직의 의사결정에 참여합니다.</p>\n<h2 id=\"how\">의사결정 프로세스</h2>\n<ol>\n<li><strong>안건 제안:</strong> KLOVER 팀 또는 자격을 갖춘 커뮤니티 멤버가 안건을 올립니다.</li>\n<li><strong>토론:</strong> 공식 포럼에서 안건을 미리 검토하고 의견을 나눕니다.</li>\n<li><strong>온체인 투표:</strong> $KLVR 홀더가 플랫폼에서 직접 표를 행사하며, 투표권은 토큰 보유량에 비례합니다.</li>\n<li><strong>실행:</strong> 가결된 안건은 팀 또는 자동화된 스마트 컨트랙트에 의해 실행됩니다.</li>\n</ol>\n<h2 id=\"voting-power\">2단계 의사결정 Structure</h2>\n<div class=\"kl-dl\">\n  <div class=\"row\"><dt>$KLVR Governance</dt><dd>생태계 전체 안건: 프로토콜 업그레이드, 금고 지원금 집행, 신규 기능 우선순위 등</dd></div>\n  <div class=\"row\"><dt>Culture Token Governance</dt><dd>조직 전용 안건: 앵콜곡 선정, 굿즈 디자인, 팬미팅 장소, 전용 혜택 기획 등</dd></div>\n</div>\n<h2 id=\"examples\">주요 투표 분야</h2>\n<ul>\n<li>생태계 발전기금(Ecosystem Development Fund) 지원 대상 결정</li>\n<li>플랫폼 신규 기능 개발 우선순위 결정</li>\n<li>공식 파트너 온보딩 지원책 투표</li>\n<li>커뮤니티 캠페인 주제 및 오프라인 행사 장소 선정</li>\n</ul>\n<h2 id=\"scope\">안전장치</h2>\n<p>생태계의 안정을 해치지 않도록 사전 검토 기간, 최소 정족수, 실행 유예 기간(Timelock) 등 기술적 안전장치를 두어 악의적인 안건을 막고 투명하게 운영합니다.</p>`,\n    sec8: `<p class=\"kl-lead\">KLOVER는 K-Culture 파트너가 공식 Culture Token을 손쉽게 발행하고 운영하도록 필요한 모든 인프라를 제공합니다.</p>\n<h2 id=\"vs\">왜 Culture Token을 발행해야 하는가</h2>\n<p>기존 소셜 플랫폼은 알고리즘과 중개자가 팬과의 사이를 갈라놓습니다. Culture Token을 발행하면 글로벌 팬덤과 단단한 직접 연결고리를 만들고, 단순 소셜 팔로워를 자발적으로 참여하는 단단한 커뮤니티로 바꿀 수 있습니다.</p>\n<h2 id=\"who-partner\">신청 대상</h2>\n<p>KLOVER는 다양한 K-Culture 분야의 검증된 조직과 함께합니다.</p>\n<ul>\n<li><strong>음악 레이블 및 엔터테인먼트사:</strong> 아티스트 라인업, 콘서트, 신보를 팬과 깊이 연결합니다.</li>\n<li><strong>MCN 및 크리에이터 스튜디오:</strong> 디지털 크리에이터와 시청자가 함께 성장하는 구조를 만듭니다.</li>\n<li><strong>e스포츠 팀 및 게임 단체:</strong> 경기 투표와 전용 혜택으로 팬덤을 온체인으로 모읍니다.</li>\n<li><strong>웹툰 및 IP 스튜디오:</strong> 대표 IP를 중심으로 독자 커뮤니티를 키웁니다.</li>\n</ul>\n<h2 id=\"categories\">자격 요건</h2>\n<p>팬을 보호하고 생태계 품질을 유지하기 위해 다음 기준을 심사합니다.</p>\n<ul>\n<li><strong>실체 있는 팬덤:</strong> 실제로 활성화된 커뮤니티와 팬층 보유 여부</li>\n<li><strong>지속적 운영 의지:</strong> 홀더에게 꾸준히 혜택을 제공할 수 있는 로드맵</li>\n<li><strong>운영 안정성:</strong> 법인 등록 및 신원 검증을 마친 조직</li>\n</ul>\n<h2 id=\"eligibility\">KLOVER가 제공하는 지원</h2>\n<p>성공적인 발행을 위해 처음부터 끝까지 필요한 기술과 운영을 지원합니다.</p>\n<ul>\n<li><strong>올인원 토큰 인프라:</strong> 스마트 컨트랙트 배포, 감사, 플랫폼 연동 전반 지원</li>\n<li><strong>팬 친화적 UI:</strong> 팬들이 어렵지 않게 구매하고 투표하며 혜택을 쓰는 도구 제공</li>\n<li><strong>공동 마케팅:</strong> KLOVER 생태계 및 LK Ventures의 글로벌 채널을 통한 홍보</li>\n<li><strong>맞춤 온보딩:</strong> 토크노믹스 설계, 혜택 기획, 커뮤니티 운영 전략 컨설팅</li>\n</ul>\n<h2 id=\"receive\">발행 절차</h2>\n<ol>\n<li><strong>신청서 제출:</strong> 조직 정보와 생각하는 혜택 구상을 제출합니다.</li>\n<li><strong>기획 및 검토:</strong> KLOVER 팀과 함께 토큰 쓰임새와 출시 일정을 다듬습니다.</li>\n<li><strong>연동 및 테스트:</strong> 컨트랙트를 배포하고 플랫폼 내 파트너 공간을 세팅합니다.</li>\n<li><strong>출시 및 운영:</strong> 팬들에게 알리고 혜택을 활성화하며 커뮤니티를 키워 갑니다.</li>\n</ol>\n<h2 id=\"process\">발행 문의</h2>\n<p>공식 Culture Token 발행에 관심 있는 파트너사는 <a href=\"mailto:partners@klover.fan\">partners@klover.fan</a>으로 문의해 주세요.</p>`,\n    sec9: `<p class=\"kl-lead\">단계별 로드맵은 초기 기초 공사부터 완전한 decentralized 글로벌 문화 경제로 가는 여정을 보여 줍니다.</p>\n<div class=\"kl-timeline\">\n  <div class=\"kl-tl-item\">\n    <div class=\"kl-tl-dot\"></div>\n    <div class=\"kl-tl-phase\">Phase 1</div>\n    <h3 class=\"kl-tl-title\">생태계 기초 수립</h3>\n    <div class=\"kl-tl-body\">브랜드 공개, 공식 문서 배포, BASE 기반 핵심 스마트 컨트랙트 개발, 기본 보안 구조 세팅.</div>\n  </div>\n  <div class=\"kl-tl-item\">\n    <div class=\"kl-tl-dot\"></div>\n    <div class=\"kl-tl-phase\">Phase 2</div>\n    <h3 class=\"kl-tl-title\">스마트 컨트랙트 감사 및 테스트넷</h3>\n    <div class=\"kl-tl-body\">$KLVR 및 Culture Token 컨트랙트 외부 보안 감사 진행. 퍼블릭 테스트넷 배포 및 개발자 연동 테스트.</div>\n  </div>\n  <div class=\"kl-tl-item\">\n    <div class=\"kl-tl-dot\"></div>\n    <div class=\"kl-tl-phase\">Phase 3</div>\n    <h3 class=\"kl-tl-title\">창립 파트너 온보딩</h3>\n    <div class=\"kl-tl-body\">초기 K-Culture 파트너(레이블, MCN, e스포츠 팀) 1차 라인업 확정 및 혜택 구조 공동 기획.</div>\n  </div>\n  <div class=\"kl-tl-item future\">\n    <div class=\"kl-tl-dot\"></div>\n    <div class=\"kl-tl-phase\">Phase 4</div>\n    <h3 class=\"kl-tl-title\">플랫폼 정식 출시 및 TGE</h3>\n    <div class=\"kl-tl-body\">$KLVR Token Generation Event(TGE) 진행(2026년 Q4 예정). KLOVER 플랫폼 오픈 및 1차 Culture Token 판매 시작.</div>\n  </div>\n  <div class=\"kl-tl-item future\">\n    <div class=\"kl-tl-dot\"></div>\n    <div class=\"kl-tl-phase\">Phase 5</div>\n    <h3 class=\"kl-tl-title\">팬덤 기능 및 Governance 오픈</h3>\n    <div class=\"kl-tl-body\">온체인 투표, 혜택 신청, 커뮤니티 리더보드, $KLVR Governance 포털 정식 열림.</div>\n  </div>\n  <div class=\"kl-tl-item future\">\n    <div class=\"kl-tl-dot\"></div>\n    <div class=\"kl-tl-phase\">Phase 6</div>\n    <h3 class=\"kl-tl-title\">글로벌 오프라인 거점 연동</h3>\n    <div class=\"kl-tl-body\">30개국 이상 진출한 LK Ventures의 오프라인 인프라와 토큰 혜택 결합. 현장 사진 혜택, 행사 체크인 등 혜택 확대.</div>\n  </div>\n  <div class=\"kl-tl-item future\">\n    <div class=\"kl-tl-dot\"></div>\n    <div class=\"kl-tl-phase\">Phase 7</div>\n    <h3 class=\"kl-tl-title\">글로벌 문화 영역 확장</h3>\n    <div class=\"kl-tl-body\">K-Culture를 넘어 전 세계 해외 엔터테인먼트, 스포츠, 크리에이터 커뮤니티로 영역 확장.</div>\n  </div>\n</div>`,\n    sec_team: `<p class=\"kl-lead\">KLOVER는 엔터테인먼트 전문가, Web3 엔지니어, 커뮤니티 빌더들이 힘을 모아 만듭니다.</p>\n<h2 id=\"vision\">LK Ventures 기반</h2>\n<p>LK Ventures는 KLOVER 생태계를 만들어 가는 원동력입니다. 전 세계 30개국 이상에서 문화 인프라를 운영해 온 경험을 바탕으로, 첫날부터 압도적인 현장 네트워크와 브랜드 신뢰를 제공합니다.</p>\n<h2 id=\"geography\">핵심 역량</h2>\n<ul>\n<li><strong>문화 IP 파트너십:</strong> 대표 음악 레이블, 엔터사, MCN, 크리에이터들과의 두터운 네트워크</li>\n<li><strong>글로벌 유통망:</strong> 아시아, 북미, 유럽을 아우르는 오프라인/디지털 유통 채널</li>\n<li><strong>Web3 엔지니어링:</strong> Layer-2 및 DeFi 경험이 풍부한 시니어 블록체인 개발진</li>\n<li><strong>팬덤 커뮤니티 운영:</strong> 디지털 팬덤의 생리를 깊이 이해하는 커뮤니티 전문가진</li>\n</ul>`,\n    sec10: `<p class=\"kl-lead\">KLOVER는 법률 준수와 사용자 개인정보 보호, 책임 있는 생태계 운영을 최우선으로 생각합니다.</p>\n<h2 id=\"eligibility-legal\">규제 준수 방향</h2>\n<p>세계 각국의 디지털 자산 관련 법과 규제를 면밀히 모니터링하며, 법률 자문과 함께 각 지역 기준에 맞추어 서비스를 안전하게 운영합니다.</p>\n<h2 id=\"regulatory\">토큰 성격</h2>\n<$KLVR는 KLOVER 생태계 안에서 쓰이는 기능성 유틸리티 토큰(Utility Token)입니다. 플랫폼 기능 이용, Culture Token 구매, Governance 참여에 쓰이며, 지분이나 채권, 타인의 노력에 의한 수익을 보장하는 금융 상품이 아닙니다.</p>\n<h2 id=\"privacy\">개인정보 보호</h2>\n<p>사용자 개인정보를 최우선으로 보호합니다. 서비스에 필요한 최소한의 정보만 다루며, GDPR을 비롯한 국제 개인정보 보호 기준을 철저히 지킵니다.</p>\n<h2 id=\"disclaimer\">일반 면책 조항</h2>\n<p>이 문서는 안내 목적으로 작성되었으며 투자, 법률, 금융 자문을 구성하지 않습니다. 토큰 이용 및 플랫폼 기능은 현지 법 규정에 따라 일부 지역에서 제한될 수 있습니다.</p>`,\n    sec_faq: `<p class=\"kl-lead\">$KLVR, Culture Token, KLOVER 생태계에 대해 자주 묻는 질문 모음입니다.</p>\n<div class=\"kl-accordion\">\n  <button class=\"kl-acc-head\"><span>KLOVER란 무엇인가요?</span><span class=\"kl-acc-ic\">+</span></button>\n  <div class=\"kl-acc-body\"><p>KLOVER는 문화를 tokenize하기 위해 구축된 Web3 생태계입니다. BASE 블록체인의 $KLVR 토큰과 Culture Token을 통해 K-Culture 조직과 글로벌 팬을 연결합니다.</p></div>\n</div>\n<div class=\"kl-accordion\">\n  <button class=\"kl-acc-head\"><span>$KLVR 토큰은 어떤 용도인가요?</span><span class=\"kl-acc-ic\">+</span></button>\n  <div class=\"kl-acc-body\"><p>$KLVR는 생태계 기축 통화로 Culture Token 구매, 플랫폼 내 거래, Governance 투표권 행사에 쓰입니다.</p></div>\n</div>\n<div class=\"kl-accordion\">\n  <button class=\"kl-acc-head\"><span>Culture Token이란 무엇인가요?</span><span class=\"kl-acc-ic\">+</span></button>\n  <div class=\"kl-acc-body\"><p>Culture Token은 K-Culture 조직이 발행하는 팬 소유권 토큰입니다. 보유하면 투표, 콘서트 예매 우선권, 전용 이벤트 참여 등 다양한 혜택을 얻습니다.</p></div>\n</div>\n<div class=\"kl-accordion\">\n  <button class=\"kl-acc-head\"><span>암호화폐를 잘 몰라도 쓸 수 있나요?</span><span class=\"kl-acc-ic\">+</span></button>\n  <div class=\"kl-acc-body\"><p>네. 소셜 가입, 간편 결제 등 일반 Web2 서비스처럼 쉽게 만들었기 때문에 암호화폐 지식이 없어도 누구나 바로 이용할 수 있습니다.</p></div>\n</div>\n<div class=\"kl-accordion\">\n  <button class=\"kl-acc-head\"><span>어느 블록체인을 사용하나요?</span><span class=\"kl-acc-ic\">+</span></button>\n  <div class=\"kl-acc-body\"><p>KLOVER는 Coinbase가 만든 Layer-2 블록체인 BASE 위에 구축되어, 원 미만의 저렴한 수수료와 빠른 속도를 제공합니다.</p></div>\n</div>\n<div class=\"kl-accordion\">\n  <button class=\"kl-acc-head\"><span>Token Generation Event(TGE)는 언제인가요?</span><span class=\"kl-acc-ic\">+</span></button>\n  <div class=\"kl-acc-body\"><p>$KLVR TGE는 2026년 4분기(11월 예정)에 진행될 예정입니다.</p></div>\n</div>`,\n  },\n};\n\n/* ============================================================\n   $KLVR TOKENOMICS DATA\n   ============================================================ */\n  /* TGE = 2026 Q4 (Nov 2026) = month 0. Linear vesting begins after the cliff. */
   var KLVR_TK = [
-    { ko:'생태계 발전기금',              en:'Ecosystem Development',  pct:42.0, tge:100, cliff:0,  vest:0,  color:'#1f5236' },
-    { ko:'유동성 (CEX 및 DEX 상장)',     en:'Liquidity',              pct:7.0,  tge:100, cliff:0,  vest:0,  color:'#2f7d54' },
-    { ko:'퍼블릭 세일',                  en:'Public Sale',            pct:7.0,  tge:100, cliff:0,  vest:0,  color:'#5ab07a' },
+    { ko:'생태계 발전기금',              en:'Ecosystem Development',  pct:40.0, tge:100, cliff:0,  vest:0,  color:'#1f5236' },
+    { ko:'유동성',                       en:'Liquidity',              pct:7.0,  tge:100, cliff:0,  vest:0,  color:'#2f7d54' },
+    { ko:'커뮤니티 세일',                en:'Community Sale',         pct:10.0, tge:100, cliff:0,  vest:0,  color:'#5ab07a' },
+    { ko:'초기 파트너',                  en:'Early Partners',         pct:17.0, tge:0,   cliff:6,  vest:12, color:'#b58a3c' },
     { ko:'에어드랍',                     en:'Airdrop',                pct:2.5,  tge:0,   cliff:3,  vest:6,  color:'#6aa67f' },
-    { ko:'투자자 (Private Sale)',        en:'Private Sale',           pct:10.0, tge:0,   cliff:3,  vest:3,  color:'#5878a0' },
+    { ko:'금고',                         en:'Treasury',               pct:5.0,  tge:0,   cliff:0,  vest:24, color:'#7e7194' },
     { ko:'마케팅',                       en:'Marketing',              pct:1.5,  tge:0,   cliff:6,  vest:12, color:'#aab36a' },
-    { ko:'금고',                         en:'Treasury',               pct:5.0,  tge:0,   cliff:12, vest:24, color:'#7e7194' },
     { ko:'재단',                         en:'Team',                   pct:10.0, tge:0,   cliff:24, vest:24, color:'#3d7c80' },
-    { ko:'인생네컷 (LK Ventures)',       en:'LK Ventures',            pct:5.0,  tge:0,   cliff:24, vest:24, color:'#c06b4a' },
-    { ko:'초기 파트너 (소속사 등)',      en:'Early Partners',         pct:10.0, tge:0,   cliff:24, vest:24, color:'#b58a3c' }
+    { ko:'인생네컷 (엘케이벤처스)',       en:'Life4Cut (LK Ventures)', pct:5.0,  tge:0,   cliff:24, vest:24, color:'#c06b4a' },
+    { ko:'전략 어드바이저',              en:'Strategic Advisors',     pct:2.0,  tge:0,   cliff:24, vest:24, color:'#5878a0' }
   ];
   var KLVR_STACK = [0,1,2,3,4,5,6,7,8,9]; /* bottom -> top: constant unlocks first, then vesting */
   function klvrRelFrac(c, m){ var b=c.tge/100; if(b>=1) return 1; var r=1-b, vp; if(m<c.cliff) vp=0; else if(c.vest<=0||m>=c.cliff+c.vest) vp=1; else vp=(m-c.cliff)/c.vest; return b+r*vp; }
@@ -1298,7 +461,7 @@ I18N.ko = {
     var host = document.getElementById('klvr-chart');
     var thost = document.getElementById('klvr-table');
     if (!host && !thost) return;
-    var ko = (lang === 'ko');
+    var ko = (KL_LANG === 'ko');
     /* ----- table ----- */
     if (thost){
       var th = '<table class="kl-table klvr-alloc"><thead><tr>'
@@ -1359,163 +522,502 @@ I18N.ko = {
     svg += '<rect class="klvr-overlay" x="'+mL+'" y="'+mT+'" width="'+pW+'" height="'+pH+'" fill="transparent"/>';
     svg += '</svg>';
     var legend = '<div class="klvr-legend">';
-    for (var L=0; L<KLVR_TK.length; L++){ legend += '<span class="klvr-leg-item"><span class="klvr-sw" style="background:'+KLVR_TK[L].color+'"></span>'+(ko?KLVR_TK[L].ko:KLVR_TK[L].en)+'</span>'; }
+    for (var L=0; L<KLVR_TK.length; L++){
+      var item = KLVR_TK[L];
+      legend += '<span class="klvr-leg-item"><span class="klvr-sw" style="background:'+item.color+'"></span>'+(ko?item.ko:item.en)+' ('+(item.pct%1===0?item.pct.toFixed(0):item.pct.toFixed(1))+'%)</span>';
+    }
     legend += '</div>';
-    host.innerHTML = '<div class="klvr-chart-head"><span class="klvr-chart-title">$KLVR Release Schedule</span><span class="klvr-chart-unit">'+(ko?'총 발행량 대비 %':'% of total supply')+'</span></div>'
-      + '<div class="klvr-chart-plot">'+svg+'<div class="klvr-tip" style="opacity:0"></div></div>' + legend;
-    var svgEl = host.querySelector('.klvr-svg'), overlay = host.querySelector('.klvr-overlay');
-    var cross = host.querySelector('.klvr-cross'), dots = host.querySelector('.klvr-dots');
-    var tip = host.querySelector('.klvr-tip'), plot = host.querySelector('.klvr-chart-plot');
+    host.innerHTML = '<div class="klvr-chart-head"><div class="klvr-chart-title">'+(ko?'$KLVR 토큰 언락 일정':'$KLVR Release Schedule')+'</div><div class="klvr-chart-unit">% '+(ko?'누적 유통량':'Circulating Supply')+'</div></div><div class="klvr-chart-plot">'+svg+'<div class="klvr-tip" style="display:none"></div></div>'+legend;
+
+    var plot = host.querySelector('.klvr-chart-plot');
+    var svgEl = host.querySelector('.klvr-svg');
+    var cross = host.querySelector('.klvr-cross');
+    var dotsG = host.querySelector('.klvr-dots');
+    var tip = host.querySelector('.klvr-tip');
     var areas = host.querySelectorAll('.klvr-area');
-    function loc(evt){ var rc = svgEl.getBoundingClientRect(); return { sx:(evt.clientX-rc.left)*(W/rc.width), sy:(evt.clientY-rc.top)*(H/rc.height) }; }
-    function show(evt){
-      var p = loc(evt);
-      var qi = Math.round(((p.sx-mL)/pW)*(N-1)); if (qi<0) qi=0; if (qi>N-1) qi=N-1;
-      var xx = X(qi);
-      cross.setAttribute('x1', xx); cross.setAttribute('x2', xx); cross.style.opacity = 1;
-      var hot = -1;
-      for (var i=0; i<KLVR_TK.length; i++){ if (upper[i] && p.sy<=Y(lower[i][qi]) && p.sy>=Y(upper[i][qi]) && (upper[i][qi]-lower[i][qi])>0.001){ hot=i; break; } }
-      var dh = '';
-      for (var s=0; s<KLVR_STACK.length; s++){ var i=KLVR_STACK[s]; if (upper[i][qi]-lower[i][qi] < 0.001) continue; dh += '<circle cx="'+xx.toFixed(1)+'" cy="'+Y(upper[i][qi]).toFixed(1)+'" r="'+(i===hot?4:2.4)+'" fill="'+KLVR_TK[i].color+'" stroke="var(--kl-bg)" stroke-width="1.2"/>'; }
-      dots.innerHTML = dh;
-      for (var a=0; a<areas.length; a++){ areas[a].classList.toggle('dim', hot>=0 && +areas[a].getAttribute('data-i')!==hot); }
-      var m = qi*3, rows = '';
-      for (var sr=KLVR_STACK.length-1; sr>=0; sr--){ var i=KLVR_STACK[sr]; var v=upper[i][qi]-lower[i][qi]; rows += '<div class="klvr-tip-row'+(i===hot?' hot':'')+'"><span class="klvr-sw" style="background:'+KLVR_TK[i].color+'"></span><span class="klvr-tip-name">'+(ko?KLVR_TK[i].ko:KLVR_TK[i].en)+'</span><span class="klvr-tip-val">'+v.toFixed(1)+'%</span></div>'; }
-      tip.innerHTML = '<div class="klvr-tip-head"><b>'+klvrQLabel(qi)+'</b><span>TGE+'+m+(ko?'개월':'mo')+'</span></div>'
-        + '<div class="klvr-tip-total">'+(ko?'총 유통량':'Circulating')+' <b>'+totals[qi].toFixed(1)+'%</b></div>' + rows;
-      var leftPx = (xx/W)*plot.clientWidth, tw = tip.offsetWidth || 200;
-      var lp = leftPx + 18; if (lp+tw > plot.clientWidth) lp = leftPx - tw - 18; if (lp < 0) lp = 4;
-      tip.style.left = lp+'px'; tip.style.top = '6px'; tip.style.opacity = 1;
+    var activeQi = -1, activeIdx = -1;
+
+    function drawDots(qi, idx){
+      var h = '';
+      for (var s=0; s<KLVR_STACK.length; s++){
+        var k = KLVR_STACK[s];
+        var yVal = upper[k][qi];
+        var isHot = (k === idx);
+        h += '<circle cx="'+X(qi).toFixed(1)+'" cy="'+Y(yVal).toFixed(1)+'" r="'+(isHot?5:3.5)+'" fill="'+KLVR_TK[k].color+'" stroke="var(--kl-bg)" stroke-width="1.5" style="opacity:'+(isHot?1:0.6)+'"/>';
+      }
+      dotsG.innerHTML = h;
     }
-    function hide(){ cross.style.opacity=0; tip.style.opacity=0; dots.innerHTML=''; for (var a=0;a<areas.length;a++) areas[a].classList.remove('dim'); }
-    overlay.addEventListener('mousemove', show);
-    overlay.addEventListener('mouseleave', hide);
-    overlay.addEventListener('touchstart', function(e){ if(e.touches[0]) show(e.touches[0]); }, {passive:true});
-    overlay.addEventListener('touchmove', function(e){ if(e.touches[0]) show(e.touches[0]); }, {passive:true});
+
+    function updateTip(qi, idx){
+      var m = qi * 3;
+      var qLabel = klvrQLabel(qi);
+      var tot = totals[qi];
+      var th = '<div class="klvr-tip-head"><b>'+qLabel+'</b><span>('+(m===0?'TGE':m+(ko?'개월차':' mo'))+')</span></div>';
+      th += '<div class="klvr-tip-total">'+(ko?'총 유통량':'Circulating')+': <b>'+tot.toFixed(1)+'%</b></div>';
+      for (var s=KLVR_STACK.length-1; s>=0; s--){
+        var k = KLVR_STACK[s];
+        var c = KLVR_TK[k];
+        var frac = klvrRelFrac(c, m);
+        var curPct = c.pct * frac;
+        var isHot = (k === idx);
+        th += '<div class="klvr-tip-row'+(isHot?' hot':'')+'"><span class="klvr-sw" style="background:'+c.color+'"></span><span class="klvr-tip-name">'+(ko?c.ko:c.en)+'</span><span class="klvr-tip-val">'+curPct.toFixed(1)+'%</span></div>';
+      }
+      tip.innerHTML = th;
+      tip.style.display = 'block';
+
+      /* Position tooltip */
+      var xPx = X(qi);
+      var plotW = pW + mL + mR;
+      if (xPx > plotW / 2) {
+        tip.style.right = (plotW - xPx + 12) + 'px';
+        tip.style.left = 'auto';
+      } else {
+        tip.style.left = (xPx + 12) + 'px';
+        tip.style.right = 'auto';
+      }
+      tip.style.top = '30px';
+    }
+
+    function onMove(e){
+      var rect = svgEl.getBoundingClientRect();
+      var clientX = e.touches ? e.touches[0].clientX : e.clientX;
+      var clientY = e.touches ? e.touches[0].clientY : e.clientY;
+      var relX = (clientX - rect.left) * (W / rect.width);
+      var relY = (clientY - rect.top) * (H / rect.height);
+
+      var closestQ = 0, minDist = 9999;
+      for (var q=0; q<N; q++){
+        var d = Math.abs(X(q) - relX);
+        if (d < minDist){ minDist = d; closestQ = q; }
+      }
+
+      var hoveredIdx = -1;
+      for (var s=0; s<KLVR_STACK.length; s++){
+        var k = KLVR_STACK[s];
+        var y1 = Y(lower[k][closestQ]);
+        var y2 = Y(upper[k][closestQ]);
+        var minY = Math.min(y1, y2);
+        var maxY = Math.max(y1, y2);
+        if (relY >= minY && relY <= maxY){ hoveredIdx = k; break; }
+      }
+
+      activeQi = closestQ; activeIdx = hoveredIdx;
+      cross.setAttribute('x1', X(closestQ).toFixed(1));
+      cross.setAttribute('x2', X(closestQ).toFixed(1));
+      cross.style.opacity = '1';
+
+      for (var a=0; a<areas.length; a++){
+        var ai = parseInt(areas[a].getAttribute('data-i'), 10);
+        if (hoveredIdx >= 0 && ai !== hoveredIdx) areas[a].classList.add('dim');
+        else areas[a].classList.remove('dim');
+      }
+
+      drawDots(closestQ, hoveredIdx);
+      updateTip(closestQ, hoveredIdx);
+    }
+
+    function onLeave(){
+      cross.style.opacity = '0';
+      dotsG.innerHTML = '';
+      tip.style.display = 'none';
+      for (var a=0; a<areas.length; a++) areas[a].classList.remove('dim');
+      activeQi = -1; activeIdx = -1;
+    }
+
+    var overlay = host.querySelector('.klvr-overlay');
+    overlay.addEventListener('mousemove', onMove);
+    overlay.addEventListener('mouseleave', onLeave);
+    overlay.addEventListener('touchstart', onMove, {passive:true});
+    overlay.addEventListener('touchmove', onMove, {passive:true});
+    overlay.addEventListener('touchend', onLeave);
   }
 
-  /* ---------- TOC ---------- */
-  let tocObserver = null;
-  function buildToc(id) {
-    if (tocObserver) { tocObserver.disconnect(); tocObserver = null; }
+/* ============================================================\n   APPLICATION ENGINE & ROUTER\n   ============================================================ */\nconst el = {};
+function initElements() {
+  el.menuToggle = document.getElementById('menuToggle');
+  el.sidebar = document.getElementById('sidebar');
+  el.scrim = document.getElementById('scrim');
+  el.nav = document.getElementById('nav');
+  el.content = document.getElementById('content');
+  el.breadcrumb = document.getElementById('breadcrumb');
+  el.pager = document.getElementById('pager');
+  el.toc = document.getElementById('toc');
+  el.searchInput = document.getElementById('searchInput');
+  el.searchResults = document.getElementById('searchResults');
+  el.langDropdown = document.getElementById('langDropdown');
+  el.langBtn = document.getElementById('langBtn');
+  el.langCurrent = document.getElementById('langCurrent');
+  el.langMenu = document.getElementById('langMenu');
+  el.themeToggle = document.getElementById('themeToggle');
+  el.iconSun = document.getElementById('iconSun');
+  el.iconMoon = document.getElementById('iconMoon');
+}
+
+function langData() { return I18N[KL_LANG] || I18N.en; }
+function t(key) {
+  const parts = key.split('.');
+  let obj = langData();
+  for (const p of parts) {
+    if (obj && obj[p] !== undefined) obj = obj[p];
+    else return key;
+  }
+  return obj;
+}
+function pageHtml(id) {
+  const ld = langData();
+  return (ld.pages && ld.pages[id]) ? ld.pages[id] : (I18N.en.pages[id] || '');
+}
+function homeData() {
+  const ld = langData();
+  return ld.home || I18N.en.home;
+}
+function navLabel(id) {
+  const ld = langData();
+  return (ld.nav && ld.nav[id]) ? ld.nav[id] : (I18N.en.nav[id] || id);
+}
+
+function setLanguage(code) {
+  if (!SUPPORTED_LANGS.includes(code)) {
+    showComingSoon(code);
+    return;
+  }
+  KL_LANG = code;
+  try { localStorage.setItem('klover-lang', code); } catch(e){}
+  const lObj = LANGS.find(x => x.code === code) || LANGS[0];
+  if (el.langCurrent) el.langCurrent.textContent = lObj.native;
+  document.documentElement.lang = code;
+  renderNav();
+  renderCurrentRoute();
+  closeLangDropdown();
+}
+
+function showComingSoon(code) {
+  const info = COMING_SOON[code] || { native: code, title: 'Coming soon', sub: 'This language version is being prepared.', close: 'Close' };
+  const m = document.getElementById('comingSoonModal');
+  if (!m) return;
+  document.getElementById('csLang').textContent = info.native;
+  document.getElementById('csTitle').textContent = info.title;
+  document.getElementById('csSub').textContent = info.sub;
+  document.getElementById('csClose').textContent = info.close;
+  m.classList.add('open');
+  m.setAttribute('aria-hidden', 'false');
+  closeLangDropdown();
+}
+function closeComingSoon() {
+  const m = document.getElementById('comingSoonModal');
+  if (m) { m.classList.remove('open'); m.setAttribute('aria-hidden', 'true'); }
+}
+
+function renderNav() {
+  let html = '';
+  NAV_GROUPS.forEach(g => {
+    html += '<div class="kl-nav-group">';
+    if (g.label) html += '<div class="kl-nav-group-label">' + t(g.label) + '</div>';
+    g.items.forEach((item, idx) => {
+      const p = sectionToPath(item);
+      const active = currentSectionId() === item ? ' active' : '';
+      const numStr = String(idx + 1).padStart(2, '0');
+      html += '<a class="kl-nav-link' + active + '" data-nav="' + item + '" href="' + p + '"><span class="ico">' + numStr + '</span><span>' + navLabel(item) + '</span></a>';
+    });
+    html += '</div>';
+  });
+  el.nav.innerHTML = html;
+  bindNavLinks(el.nav);
+}
+
+function bindNavLinks(container) {
+  container.querySelectorAll('a[data-nav]').forEach(a => {
+    a.addEventListener('click', e => {
+      e.preventDefault();
+      const id = a.getAttribute('data-nav');
+      navigateToSection(id);
+    });
+  });
+}
+
+function currentSectionId() {
+  const path = window.location.pathname;
+  let clean = path.replace(BASE, '');
+  if (clean.startsWith('/kor')) clean = clean.replace('/kor', '');
+  if (!clean || clean === '/') return 'home';
+  return PATH_TO_ID[clean] || 'home';
+}
+
+function navigateToSection(id, pushState = true) {
+  const path = sectionToPath(id);
+  if (pushState && window.location.pathname !== path) {
+    history.pushState(null, null, path);
+  }
+  renderCurrentRoute();
+}
+
+function renderCurrentRoute() {
+  const id = currentSectionId();
+  if (id === 'home') {
+    renderHome();
+    renderBreadcrumb('home');
+    renderPager('home');
     el.toc.innerHTML = '';
-    const tocTitle = document.querySelector('.kl-toc-title');
-    const showTitle = (v) => { if (tocTitle) tocTitle.style.display = v ? '' : 'none'; };
-    if (id === 'home') { showTitle(false); return; }
-    const heads = Array.from(el.content.querySelectorAll('h2[id]'));
-    if (!heads.length) { showTitle(false); return; }
-    showTitle(true);
-    heads.forEach(h => {
-      const a = document.createElement('a');
-      a.className = 'kl-toc-link'; a.href = '#' + h.id; a.textContent = h.textContent; a.setAttribute('data-anchor', h.id);
-      a.addEventListener('click', (e) => { e.preventDefault(); h.scrollIntoView({ behavior: 'smooth', block: 'start' }); });
-      el.toc.appendChild(a);
-    });
-    tocObserver = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          const hid = entry.target.id;
-          el.toc.querySelectorAll('.kl-toc-link').forEach(l => l.classList.toggle('active', l.getAttribute('data-anchor') === hid));
-        }
-      });
-    }, { rootMargin: '-80px 0px -70% 0px', threshold: 0 });
-    heads.forEach(h => tocObserver.observe(h));
+  } else {
+    renderSection(id);
+    renderBreadcrumb(id);
+    renderPager(id);
+    buildToc(id);
+    if (id === 'sec4') initKlvrChart();
   }
-  function setActiveStates(route) {
-    document.querySelectorAll('.kl-nav-link').forEach(l => l.classList.toggle('active', l.getAttribute('data-nav') === route.section));
-  }
+  window.scrollTo({ top: 0, behavior: 'auto' });
+  closeMobileNav();
+  setActiveStates(id);
+}
 
-  /* ---------- SEARCH ---------- */
-  function stripHtml(s) { const d = document.createElement('div'); d.innerHTML = s; return (d.textContent || '').replace(/\s+/g, ' ').trim(); }
-  function esc(s) { return s.replace(/[&<>"]/g, c => ({ '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;' }[c])); }
-  function buildIndex() {
-    const idx = [];
-    ORDER.forEach(id => {
-      if (id === 'home') return;
-      idx.push({ section: id, title: navLabel(id), crumb: t('ui.docs'), text: stripHtml(pageHtml(id)) });
-    });
-    return idx;
+function renderHome() {
+  const h = homeData();
+  let cards = '';
+  (h.cards || []).forEach((c, i) => {
+    cards += '<div class="kl-card"><div class="ic">' + String(i + 1).padStart(2, '0') + '</div><div class="ct">' + c.t + '</div><div class="cd">' + c.d + '</div></div>';
+  });
+  el.content.innerHTML =
+    '<div class="kl-hero">' +
+      '<span class="eyebrow">' + h.eyebrow + '</span>' +
+      '<h1>' + h.title1 + ' <span class="grad">' + h.title2 + '</span></h1>' +
+      '<p class="lead">' + h.lead + '</p>' +
+      '<div class="kl-hero-cta">' +
+        '<a class="kl-btn kl-btn-primary" data-nav="sec1" href="' + sectionToPath('sec1') + '">' + h.cta1 + ' →</a>' +
+        '<a class="kl-btn kl-btn-ghost" data-nav="sec5" href="' + sectionToPath('sec5') + '">' + h.cta2 + '</a>' +
+      '</div>' +
+      '<div class="kl-byline">' + h.byline + '</div>' +
+    '</div>' +
+    '<hr class="kl-home-divider" />' +
+    '<div class="kl-cards">' + cards + '</div>';
+  bindNavLinks(el.content);
+}
+
+function fixContentLinks(html) {
+  return html.replace(/href="#([\w]+)"/g, function(m, id) {
+    return PATH_MAP[id] ? 'href="' + sectionToPath(id) + '"' : m;
+  });
+}
+
+function renderSection(id) {
+  el.content.innerHTML = '<h1>' + navLabel(id) + '</h1>' + fixContentLinks(pageHtml(id));
+  bindNavLinks(el.content);
+}
+
+function renderBreadcrumb(id) {
+  const root = 'KLOVER ' + t('ui.docs');
+  if (id === 'home') {
+    el.breadcrumb.innerHTML = '<span>' + root + '</span>';
+    return;
   }
-  let searchIndex = [];
-  function runSearch(q) {
-    q = q.trim().toLowerCase();
+  const homePath = sectionToPath('home');
+  el.breadcrumb.innerHTML =
+    '<a data-nav="home" href="' + homePath + '">' + root + '</a>' +
+    '<span class="sep">/</span>' +
+    '<span>' + navLabel(id) + '</span>';
+  bindNavLinks(el.breadcrumb);
+}
+
+const ALL_SECTIONS = ['sec1', 'sec2', 'sec3', 'sec4', 'sec5', 'sec6', 'sec_security', 'sec7', 'sec8', 'sec9', 'sec_team', 'sec10', 'sec_faq'];
+
+function renderPager(id) {
+  if (id === 'home') {
+    const first = ALL_SECTIONS[0];
+    el.pager.innerHTML =
+      '<div class="kl-pager-btn empty"></div>' +
+      '<a class="kl-pager-btn next" data-nav="' + first + '" href="' + sectionToPath(first) + '">' +
+        '<span class="kl-pager-dir">' + t('ui.next') + ' →</span>' +
+        '<span class="kl-pager-title">' + navLabel(first) + '</span>' +
+      '</a>';
+    bindNavLinks(el.pager);
+    return;
+  }
+  const idx = ALL_SECTIONS.indexOf(id);
+  const prevId = idx > 0 ? ALL_SECTIONS[idx - 1] : 'home';
+  const nextId = idx >= 0 && idx < ALL_SECTIONS.length - 1 ? ALL_SECTIONS[idx + 1] : null;
+
+  let prevHtml = '<a class="kl-pager-btn" data-nav="' + prevId + '" href="' + sectionToPath(prevId) + '">' +
+    '<span class="kl-pager-dir">← ' + t('ui.previous') + '</span>' +
+    '<span class="kl-pager-title">' + navLabel(prevId) + '</span>' +
+  '</a>';
+
+  let nextHtml = nextId ?
+    '<a class="kl-pager-btn next" data-nav="' + nextId + '" href="' + sectionToPath(nextId) + '">' +
+      '<span class="kl-pager-dir">' + t('ui.next') + ' →</span>' +
+      '<span class="kl-pager-title">' + navLabel(nextId) + '</span>' +
+    '</a>' : '<div class="kl-pager-btn empty"></div>';
+
+  el.pager.innerHTML = prevHtml + nextHtml;
+  bindNavLinks(el.pager);
+}
+
+function buildToc(id) {
+  const headings = el.content.querySelectorAll('h2, h3');
+  if (!headings.length) { el.toc.innerHTML = ''; return; }
+  let html = '<div class="kl-toc-title">' + t('ui.onThisPage') + '</div>';
+  headings.forEach(h => {
+    if (!h.id) {
+      h.id = h.textContent.toLowerCase().replace(/[^\w\uac00-\ud7a3]+/g, '-').replace(/^-|-$/g, '');
+    }
+    const isH3 = h.tagName.toLowerCase() === 'h3';
+    const indent = isH3 ? ' style="padding-left:24px;"' : '';
+    html += '<a class="kl-toc-link" href="#' + h.id + '"' + indent + '>' + h.textContent + '</a>';
+  });
+  el.toc.innerHTML = html;
+
+  /* Smooth scroll for TOC links */
+  el.toc.querySelectorAll('.kl-toc-link').forEach(a => {
+    a.addEventListener('click', e => {
+      e.preventDefault();
+      const targetId = a.getAttribute('href').slice(1);
+      const targetEl = document.getElementById(targetId);
+      if (targetEl) {
+        targetEl.scrollIntoView({ behavior: 'smooth' });
+        history.replaceState(null, null, '#' + targetId);
+      }
+    });
+  });
+}
+
+function setActiveStates(currentId) {
+  el.nav.querySelectorAll('.kl-nav-link').forEach(a => {
+    if (a.getAttribute('data-nav') === currentId) a.classList.add('active');
+    else a.classList.remove('active');
+  });
+}
+
+function closeMobileNav() { document.body.classList.remove('nav-open'); }
+function toggleMobileNav() { document.body.classList.toggle('nav-open'); }
+function closeLangDropdown() {
+  if (el.langDropdown) el.langDropdown.classList.remove('open');
+  if (el.langBtn) el.langBtn.setAttribute('aria-expanded', 'false');
+}
+
+function initSearch() {
+  if (!el.searchInput) return;
+  el.searchInput.addEventListener('input', () => {
+    const q = el.searchInput.value.trim().toLowerCase();
     if (!q) { el.searchResults.classList.remove('open'); el.searchResults.innerHTML = ''; return; }
-    const hits = [];
-    for (const item of searchIndex) {
-      const hay = (item.title + ' ' + item.text).toLowerCase();
-      const pos = hay.indexOf(q);
-      if (pos >= 0) hits.push({ item, score: (item.title.toLowerCase().includes(q) ? 0 : 100) + pos });
+    const matches = [];
+    const ld = langData();
+    ALL_SECTIONS.forEach(sec => {
+      const pageText = (ld.pages && ld.pages[sec]) ? ld.pages[sec] : (I18N.en.pages[sec] || '');
+      const tmp = document.createElement('div');
+      tmp.innerHTML = pageText;
+      const text = tmp.textContent || '';
+      const title = navLabel(sec);
+      if (title.toLowerCase().includes(q) || text.toLowerCase().includes(q)) {
+        const idx = text.toLowerCase().indexOf(q);
+        let snippet = '';
+        if (idx >= 0) {
+          const start = Math.max(0, idx - 40);
+          const end = Math.min(text.length, idx + q.length + 60);
+          snippet = (start > 0 ? '…' : '') + text.slice(start, end) + (end < text.length ? '…' : '');
+        } else {
+          snippet = text.slice(0, 100) + '…';
+        }
+        matches.push({ id: sec, title, snippet });
+      }
+    });
+    if (!matches.length) {
+      el.searchResults.innerHTML = '<div class="kl-search-empty">' + t('ui.searchNoResults') + '</div>';
+    } else {
+      let html = '';
+      matches.forEach(m => {
+        const path = sectionToPath(m.id);
+        html += '<a class="kl-result" data-nav="' + m.id + '" href="' + path + '">' +
+          '<div class="r-title">' + m.title + '</div>' +
+          '<div class="r-snippet">' + m.snippet + '</div>' +
+        '</a>';
+      });
+      el.searchResults.innerHTML = html;
+      bindNavLinks(el.searchResults);
     }
-    hits.sort((a, b) => a.score - b.score);
-    renderSearchResults(hits.slice(0, 10), q);
-  }
-  function highlight(text, q) {
-    const i = text.toLowerCase().indexOf(q);
-    if (i < 0) return esc(text.slice(0, 90));
-    const start = Math.max(0, i - 30);
-    const snippet = (start > 0 ? '…' : '') + text.slice(start, i + q.length + 50);
-    const j = snippet.toLowerCase().indexOf(q);
-    return esc(snippet.slice(0, j)) + '<mark>' + esc(snippet.slice(j, j + q.length)) + '</mark>' + esc(snippet.slice(j + q.length));
-  }
-  function renderSearchResults(hits, q) {
-    if (!hits.length) { el.searchResults.innerHTML = '<div class="kl-search-empty">' + t('ui.searchNoResults') + '</div>'; el.searchResults.classList.add('open'); return; }
-    el.searchResults.innerHTML = hits.map(h => '<a class="kl-result" href="' + sectionToPath(h.item.section) + '" data-route="' + h.item.section + '"><div class="r-crumb">' + esc(h.item.crumb) + '</div><div class="r-title">' + esc(h.item.title) + '</div>' + (h.item.text ? '<div class="r-snippet">' + highlight(h.item.text, q) + '</div>' : '') + '</a>').join('');
     el.searchResults.classList.add('open');
-    el.searchResults.querySelectorAll('.kl-result').forEach(r => r.addEventListener('click', (e) => { e.preventDefault(); navigate(r.getAttribute('data-route')); el.searchResults.classList.remove('open'); el.search.value = ''; }));
-  }
-  el.search.addEventListener('input', () => { searchIndex = buildIndex(); runSearch(el.search.value); });
-  el.search.addEventListener('focus', () => { searchIndex = buildIndex(); if (el.search.value) runSearch(el.search.value); });
-  document.addEventListener('click', (e) => { if (!e.target.closest('.kl-search-wrap')) el.searchResults.classList.remove('open'); });
-  document.addEventListener('keydown', (e) => {
-    if (e.key === '/' && document.activeElement !== el.search) { e.preventDefault(); el.search.focus(); }
-    if (e.key === 'Escape') { el.searchResults.classList.remove('open'); el.search.blur(); closeLangMenu(); closeModal(); }
   });
 
-  /* ---------- COMPONENT INTERACTIONS (delegated) ---------- */
-  document.addEventListener('click', (e) => {
-    const copyBtn = e.target.closest('[data-copy]');
-    if (copyBtn) {
-      const pre = copyBtn.closest('.kl-code').querySelector('code');
-      const text = pre ? pre.textContent : '';
-      navigator.clipboard && navigator.clipboard.writeText(text);
-      const orig = copyBtn.textContent; copyBtn.textContent = t('ui.copied');
-      setTimeout(() => { copyBtn.textContent = orig; }, 1400);
+  document.addEventListener('click', e => {
+    if (el.searchInput && !el.searchInput.contains(e.target) && el.searchResults && !el.searchResults.contains(e.target)) {
+      el.searchResults.classList.remove('open');
     }
-    const tabHead = e.target.closest('.kl-tab-head');
-    if (tabHead) {
-      const tabs = tabHead.closest('[data-tabs]'); const i = +tabHead.getAttribute('data-tab');
-      tabs.querySelectorAll('.kl-tab-head').forEach((b, k) => b.classList.toggle('active', k === i));
-      tabs.querySelectorAll('.kl-tab-pane').forEach((p, k) => p.classList.toggle('active', k === i));
+  });
+
+  document.addEventListener('keydown', e => {
+    if (e.key === '/' && document.activeElement !== el.searchInput) {
+      e.preventDefault();
+      el.searchInput.focus();
     }
-    const accHead = e.target.closest('.kl-acc-head');
-    if (accHead) accHead.closest('.kl-accordion').classList.toggle('open');
-    const helpBtn = e.target.closest('[data-helpful]');
-    if (helpBtn) { const box = document.getElementById('helpful'); if (box) box.innerHTML = '<span class="thanks">' + t('ui.helpfulThanks') + '</span>'; }
   });
+}
 
-  /* ---------- MOBILE NAV ---------- */
-  function openMobileNav() { document.body.classList.add('nav-open'); }
-  function closeMobileNav() { document.body.classList.remove('nav-open'); }
-  function closeMobileNavMaybe() { if (window.innerWidth <= 860) closeMobileNav(); }
-  el.menuToggle.addEventListener('click', () => document.body.classList.contains('nav-open') ? closeMobileNav() : openMobileNav());
-  el.scrim.addEventListener('click', closeMobileNav);
-  document.addEventListener('click', (e) => {
-    const navEl = e.target.closest('[data-nav]');
-    if (!navEl) return;
-    e.preventDefault();
-    navigate(navEl.getAttribute('data-nav'));
-    closeMobileNavMaybe();
+function initLangDropdown() {
+  if (!el.langBtn) return;
+  el.langBtn.addEventListener('click', e => {
+    e.stopPropagation();
+    const open = el.langDropdown.classList.toggle('open');
+    el.langBtn.setAttribute('aria-expanded', open ? 'true' : 'false');
   });
+  document.addEventListener('click', () => closeLangDropdown());
 
-  /* ---------- INIT ---------- */
-  function init() {
-    document.documentElement.setAttribute('lang', lang);
-    const meta = LANGS.find(l => l.code === lang);
-    el.langCurrent.textContent = meta ? meta.native : 'English';
-    applyStaticI18n(); buildLangMenu(); renderNav(); renderPage(current, false);
+  let menuHtml = '';
+  LANGS.forEach(l => {
+    const active = l.code === KL_LANG ? ' active' : '';
+    menuHtml += '<div class="kl-lang-opt' + active + '" onclick="setLanguage(\'' + l.code + '\')">' +
+      '<div><span class="native">' + l.native + '</span> <span class="en-name">(' + l.en + ')</span></div>' +
+      '<span class="check">✓</span>' +
+    '</div>';
+  });
+  el.langMenu.innerHTML = menuHtml;
+}
+
+function initTheme() {
+  let theme = 'light';
+  try { theme = localStorage.getItem('klover-theme') || 'light'; } catch(e){}
+  setTheme(theme);
+  if (el.themeToggle) {
+    el.themeToggle.addEventListener('click', () => {
+      const next = document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+      setTheme(next);
+    });
   }
-  init();
-})();
+}
+
+function setTheme(t) {
+  document.documentElement.setAttribute('data-theme', t);
+  try { localStorage.setItem('klover-theme', t); } catch(e){}
+  if (el.iconSun && el.iconMoon) {
+    if (t === 'dark') { el.iconSun.style.display = 'none'; el.iconMoon.style.display = 'inline-block'; }
+    else { el.iconSun.style.display = 'inline-block'; el.iconMoon.style.display = 'none'; }
+  }
+}
+
+function sendHelpful(yes) {
+  const thanks = document.getElementById('helpfulThanks');
+  if (thanks) thanks.style.display = 'inline';
+}
+
+/* Handle back/forward navigation */
+window.addEventListener('popstate', () => {
+  renderCurrentRoute();
+});
+
+/* Initialize on DOM load */
+document.addEventListener('DOMContentLoaded', () => {
+  initElements();
+  try {
+    const savedLang = localStorage.getItem('klover-lang');
+    if (savedLang && SUPPORTED_LANGS.includes(savedLang)) KL_LANG = savedLang;
+    else if (window.location.pathname.includes('/kor')) KL_LANG = 'ko';
+  } catch(e){}
+
+  initTheme();
+  initLangDropdown();
+  initSearch();
+  renderNav();
+  renderCurrentRoute();
+
+  if (el.menuToggle) el.menuToggle.addEventListener('click', toggleMobileNav);
+  if (el.scrim) el.scrim.addEventListener('click', closeMobileNav);
+});
 </script>
 </body>
 </html>
