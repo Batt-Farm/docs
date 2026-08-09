@@ -214,12 +214,6 @@ a:hover { text-decoration: underline; }
 .kl-accordion.open .kl-acc-body { display: block; }
 .kl-acc-body p { margin: 0; }
 
-/* Helpful footer */
-.kl-helpful { display: flex; align-items: center; gap: 12px; margin-top: 56px; padding: 18px 0; border-top: 1px solid var(--kl-border); font-size: 14px; color: var(--kl-text-muted); }
-.kl-helpful-btn { background: transparent; border: 1px solid var(--kl-border-strong); color: var(--kl-text-muted); border-radius: 8px; padding: 6px 16px; font-family: inherit; font-size: 13.5px; cursor: pointer; transition: background .13s, border-color .13s, color .13s; }
-.kl-helpful-btn:hover { border-color: var(--kl-accent); color: var(--kl-accent-text); background: var(--kl-accent-soft); }
-.kl-helpful .thanks { color: var(--kl-accent-text); font-weight: 600; }
-.kl-meta { font-size: 13px; color: var(--kl-text-faint); margin-top: 10px; }
 
 /* Pager */
 .kl-pager { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-top: 28px; }
@@ -455,12 +449,6 @@ body { font-family: var(--kl-font); line-height: 1.55; -webkit-font-smoothing: a
 .kl-diagram svg { display: block; width: 100%; height: auto; }
 .kl-diagram-caption { margin-top: 16px; padding-top: 14px; border-top: 1px solid var(--kl-border); font-size: 13px; line-height: 1.6; color: var(--kl-text-faint); text-align: center; }
 
-/* ---------- Helpful footer + meta ---------- */
-.kl-helpful { border-top: 1px solid var(--kl-border); margin-top: 64px; font-size: 13px; letter-spacing: 0.01em; }
-.kl-helpful-btn { border-radius: 0; border-color: var(--kl-border-strong); }
-.kl-helpful-btn:hover { border-color: var(--kl-accent); color: var(--kl-accent-text); background: transparent; }
-.kl-helpful .thanks { color: var(--kl-accent-text); }
-.kl-meta { font-size: 12px; letter-spacing: 0.04em; }
 
 /* ---------- Pager ---------- */
 .kl-pager { border-top: 1px solid var(--kl-border); padding-top: 28px; margin-top: 30px; gap: 24px; }
@@ -552,7 +540,6 @@ body { font-family: var(--kl-font); line-height: 1.55; -webkit-font-smoothing: a
     <div class="kl-article-wrap">
       <div class="kl-breadcrumb" id="breadcrumb"></div>
       <article class="kl-article" id="content"></article>
-      <div id="pageFooter"></div>
       <nav class="kl-pager" id="pager"></nav>
     </div>
   </main>
@@ -633,11 +620,6 @@ I18N.ko = {
     onThisPage: '이 페이지에서',
     previous: '이전',
     next: '다음',
-    helpfulQuestion: '도움이 되셨나요?',
-    helpfulYes: '네',
-    helpfulNo: '아니요',
-    helpfulThanks: '의견 감사합니다',
-    lastModified: '방금 수정됨',
     copy: '복사',
     copied: '복사됐습니다',
   },
@@ -931,7 +913,6 @@ I18N.ko = {
     nav: document.getElementById('nav'),
     content: document.getElementById('content'),
     breadcrumb: document.getElementById('breadcrumb'),
-    pageFooter: document.getElementById('pageFooter'),
     pager: document.getElementById('pager'),
     toc: document.getElementById('toc'),
     langBtn: document.getElementById('langBtn'),
@@ -1085,7 +1066,7 @@ I18N.ko = {
   function renderPage(route, doScroll) {
     const id = route.section;
     renderSection(id);
-    renderBreadcrumb(id); renderFooter(id); renderPager(id); buildToc(id);
+    renderBreadcrumb(id); renderPager(id); buildToc(id);
     window.scrollTo({ top: 0, behavior: 'auto' });
     closeMobileNav(); setActiveStates(route);
   }
@@ -1101,15 +1082,6 @@ I18N.ko = {
     const root = 'BATT ' + t('ui.docs');
     if (id === 'sec_general') el.breadcrumb.innerHTML = '<span>' + root + '</span>';
     else el.breadcrumb.innerHTML = '<a data-nav="sec_general" href="' + sectionToPath('sec_general') + '">' + root + '</a><span class="sep">›</span><span>' + navLabel(id) + '</span>';
-  }
-  function renderFooter(id) {
-    el.pageFooter.innerHTML =
-      '<div class="kl-helpful" id="helpful">' +
-        '<span>' + t('ui.helpfulQuestion') + '</span>' +
-        '<button class="kl-helpful-btn" data-helpful>' + t('ui.helpfulYes') + '</button>' +
-        '<button class="kl-helpful-btn" data-helpful>' + t('ui.helpfulNo') + '</button>' +
-      '</div>' +
-      '<div class="kl-meta">' + t('ui.lastModified') + '</div>';
   }
   function renderPager(id) {
     const idx = ORDER.indexOf(id);
@@ -1218,8 +1190,6 @@ I18N.ko = {
     }
     const accHead = e.target.closest('.kl-acc-head');
     if (accHead) accHead.closest('.kl-accordion').classList.toggle('open');
-    const helpBtn = e.target.closest('[data-helpful]');
-    if (helpBtn) { const box = document.getElementById('helpful'); if (box) box.innerHTML = '<span class="thanks">' + t('ui.helpfulThanks') + '</span>'; }
   });
 
   /* ---------- MOBILE NAV ---------- */
