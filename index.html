@@ -450,6 +450,11 @@ body { font-family: var(--kl-font); line-height: 1.55; -webkit-font-smoothing: a
 .kl-table th, .kl-table td { border-color: var(--kl-border); }
 .kl-table th { background: var(--kl-bg-subtle); font-weight: 600; }
 
+/* ---------- Diagrams ---------- */
+.kl-diagram { margin: 36px 0; padding: 28px clamp(12px, 4vw, 32px); border: 1px solid var(--kl-border); background: var(--kl-bg-subtle); }
+.kl-diagram svg { display: block; width: 100%; height: auto; }
+.kl-diagram-caption { margin-top: 16px; padding-top: 14px; border-top: 1px solid var(--kl-border); font-size: 13px; line-height: 1.6; color: var(--kl-text-faint); text-align: center; }
+
 /* ---------- Helpful footer + meta ---------- */
 .kl-helpful { border-top: 1px solid var(--kl-border); margin-top: 64px; font-size: 13px; letter-spacing: 0.01em; }
 .kl-helpful-btn { border-radius: 0; border-color: var(--kl-border-strong); }
@@ -576,10 +581,14 @@ const COMING_SOON = {
   es: { native: 'Español', title: 'Próximamente', sub: 'La documentación en español estará disponible muy pronto.', close: 'Cerrar' },
 };
 const NAV_GROUPS = [
-  { label: null, items: ['home', 'sec_general', 'sec_roadmap', 'sec_borrowing', 'sec_managing', 'sec_earn', 'sec_faq', 'sec_how_it_works', 'sec_vaults', 'sec_risk'] },
+  { label: null, items: ['home'] },
+  { label: 'nav.group_intro', items: ['sec_general', 'sec_roadmap'] },
+  { label: 'nav.group_using', items: ['sec_borrowing', 'sec_managing', 'sec_earn'] },
+  { label: 'nav.group_mechanism', items: ['sec_how_it_works', 'sec_redemption', 'sec_vaults'] },
+  { label: 'nav.group_reference', items: ['sec_faq', 'sec_risk'] },
 ];
-const ICONS = { home:'', sec_general:'01', sec_roadmap:'02', sec_borrowing:'03', sec_managing:'04', sec_earn:'05', sec_faq:'06', sec_how_it_works:'07', sec_vaults:'08', sec_risk:'09' };
-const ORDER = ['home','sec_general','sec_roadmap','sec_borrowing','sec_managing','sec_earn','sec_faq','sec_how_it_works','sec_vaults','sec_risk'];
+const ICONS = { home:'', sec_general:'01', sec_roadmap:'02', sec_borrowing:'03', sec_managing:'04', sec_earn:'05', sec_how_it_works:'06', sec_redemption:'07', sec_vaults:'08', sec_faq:'09', sec_risk:'10' };
+const ORDER = ['home','sec_general','sec_roadmap','sec_borrowing','sec_managing','sec_earn','sec_how_it_works','sec_redemption','sec_vaults','sec_faq','sec_risk'];
 /* Auto-detect the GitHub Pages project base (repo name) so the same file
    works in any repo. Locally (preview server / file), the base is root. */
 const BASE = location.hostname.endsWith('github.io') ? '/' + (location.pathname.split('/')[1] || '') : '';
@@ -590,9 +599,10 @@ const PATH_MAP = {
   sec_borrowing: '/borrowing',
   sec_managing: '/managing-your-position',
   sec_earn: '/earn',
-  sec_faq: '/faq',
   sec_how_it_works: '/how-it-works',
+  sec_redemption: '/redemption',
   sec_vaults: '/vaults',
+  sec_faq: '/faq',
   sec_risk: '/risk',
 };
 const PATH_TO_ID = Object.fromEntries(Object.entries(PATH_MAP).map(([k,v]) => [v,k]));
@@ -635,15 +645,20 @@ I18N.ko = {
     copied: '복사됐습니다',
   },
   nav: {
+    group_intro: '소개',
+    group_using: 'BATT 이용하기',
+    group_mechanism: '프로토콜 메커니즘',
+    group_reference: '참고',
     home: '개요',
     sec_general: 'BATT 소개',
     sec_roadmap: '로드맵',
     sec_borrowing: 'KRW* 빌리기',
     sec_managing: '포지션 관리',
     sec_earn: '수익 얻기',
-    sec_faq: '자주 묻는 질문',
     sec_how_it_works: '작동 방식',
+    sec_redemption: '리뎀션과 위임',
     sec_vaults: '볼트',
+    sec_faq: '자주 묻는 질문',
     sec_risk: '리스크 관리',
   },
   home: {
@@ -660,9 +675,7 @@ I18N.ko = {
     ],
   },
   pages: {
-    sec_general: `<p class="kl-lead">BATT는 크립토 담보로 원화 스테이블코인 KRW*를 발행하는 프로토콜입니다. sKRW*로 수익을 쌓고, 원화 기준 디파이 전략도 그대로 쓸 수 있습니다.</p>
-<h2 id="what-is-batt">BATT란 무엇인가요?</h2>
-<p>BATT는 크립토 자산을 담보로 맡기고 원화 스테이블코인 <strong>KRW*</strong>를 발행하는 프로토콜입니다. 담보를 팔지 않고도 원화 유동성을 손에 쥘 수 있다는 게 핵심입니다. 발행한 KRW*는 그대로 들고 있어도 되고, <strong>sKRW*</strong>에 넣어 수익을 쌓아도 되고, 원화 기준으로 롱숏 전략을 짜는 데 써도 됩니다. GIWA 위에 네이티브로 구축돼, 원화 표시 디파이를 온체인에서 그대로 경험할 수 있습니다.</p>
+    sec_general: `<p class="kl-lead">BATT는 원화 기반 디파이 신용 프로토콜입니다. 담보를 팔지 않고도 원화 유동성을 손에 쥘 수 있다는 게 핵심입니다. 발행한 KRW*는 그대로 들고 있어도 되고, sKRW*에 넣어 수익을 쌓아도 되고, 원화 기준으로 롱숏 전략을 짜는 데 써도 됩니다. GIWA 위에 네이티브로 구축돼, 원화 디파이를 온체인에서 제공합니다.</p>
 <h2 id="who-is-it-for">누가 BATT를 쓰나요?</h2>
 <p>몇 가지 상황을 예로 들면 이렇습니다.</p>
 <ul>
@@ -725,11 +738,9 @@ I18N.ko = {
 <p>ETH와 BTC 계열 자산, sUSDe 같은 수익형 달러 자산을 담보로 지원할 계획입니다. 정확한 목록은 출시 시점에 맞춰 순차적으로 공개하고, 이후에도 계속 늘려 갈 예정입니다.</p>
 <h2 id="interest-rate">이자율은 어떻게 정해지나요?</h2>
 <p>BATT의 이자율은 프로토콜이 정하지 않습니다. 포지션을 열 때 대출자가 직접 이자율을 고르고, 이후에도 원하는 만큼 자유롭게 조정할 수 있습니다.</p>
-<p>이자율을 낮게 잡을수록 이자 비용은 줄지만 리뎀션 대상이 될 위험은 커집니다. 반대로 높게 잡을수록 이자 비용은 늘지만 리뎀션에서는 안전해집니다. 리뎀션과 이자율이 왜 연결되는지는 <a data-nav="sec_how_it_works" href="#sec_how_it_works">작동 방식</a> 섹션에서 자세히 다룹니다.</p>
+<p>이자율을 낮게 잡을수록 이자 비용은 줄지만 리뎀션 대상이 될 위험은 커집니다. 반대로 높게 잡을수록 이자 비용은 늘지만 리뎀션에서는 안전해집니다. 리뎀션이 어떻게 작동하는지, 그리고 관리를 대신 맡기는 이자율 위임 기능은 <a data-nav="sec_redemption" href="#sec_redemption">리뎀션과 위임</a> 섹션에서 자세히 다룹니다.</p>
 <p>다른 대출자들과 비슷한 이자율에 몰리는 것도 생각해 볼 부분입니다. 이자율이 같으면 리뎀션 순서도 같아지기 때문에, 리뎀션 한 번에 비슷한 조건의 포지션들이 한꺼번에 정리될 수 있습니다. 시장 이자율 분포를 참고해 다른 포지션들과 약간의 차이를 두는 것도 리스크를 줄이는 방법입니다.</p>
 <p>이자율을 너무 자주 바꾸지 못하도록, 포지션을 새로 열거나 이자율을 바꾼 직후 일정 기간 안에 다시 조정하면 그 기간의 평균 시장 이자만큼 조기 조정 수수료가 붙습니다. 포지션을 처음 열 때도 같은 방식으로 계산되는 최초 발행 수수료가 함께 붙습니다.</p>
-<h3 id="delegation">이자율 위임</h3>
-<p>이자율을 직접 관리하기 부담스럽다면, 조정 권한을 위임하는 기능도 준비하고 있습니다. 매니저나 자동화된 전략이 시장 상황에 맞춰 대신 조정해 주기 때문에, 따로 시간을 들이지 않아도 경쟁력 있는 금리를 유지할 수 있습니다.</p>
 <h2 id="liquidation">청산은 어떻게 이루어지나요?</h2>
 <p>담보 비율이 자산별 최소 기준 아래로 떨어지면 포지션이 청산됩니다. 구체적인 절차는 <a data-nav="sec_how_it_works" href="#sec_how_it_works">작동 방식</a> 섹션에서 다룹니다.</p>
 <p>안전하게 운용하려면 최소 기준보다 여유 있게 담보 비율을 유지하는 게 좋습니다. 150% 안팎을 유지하며 직접 챙기는 방법도 있고, 180~200%로 넉넉하게 잡고 느슨하게 운용하는 방법도 있습니다. 자산별 정확한 최소 담보 비율은 출시 시점에 공개됩니다.</p>
@@ -759,7 +770,7 @@ I18N.ko = {
 <h2 id="avoid-liquidation">청산을 피하려면 어떻게 해야 하나요?</h2>
 <p>담보 비율을 최소 기준보다 넉넉하게 유지하는 게 기본입니다. 담보 자산 가격을 주기적으로 확인하고, 시장이 흔들릴 때는 담보를 추가하거나 부채를 일부 갚아 비율을 끌어올리세요.</p>
 <h2 id="avoid-redemption">리뎀션을 피하려면 어떻게 해야 하나요?</h2>
-<p>리뎀션은 이자율이 가장 낮은 포지션부터 순서대로 대상이 됩니다. 우선순위에서 밀리지 않으려면 다른 포지션과 비교해 경쟁력 있는 이자율을 유지하세요. 직접 관리하기 어렵다면 <a data-nav="sec_borrowing" href="#sec_borrowing">이자율 위임</a> 기능을 활용하는 것도 방법입니다. 금리를 낮게 유지하고 싶다면 그만큼 KRW* 가격과 리뎀션 흐름을 자주 들여다봐야 합니다.</p>`,
+<p>리뎀션은 이자율이 가장 낮은 포지션부터 순서대로 대상이 됩니다. 우선순위에서 밀리지 않으려면 다른 포지션과 비교해 경쟁력 있는 이자율을 유지하세요. 직접 관리하기 어렵다면 <a data-nav="sec_redemption" href="#sec_redemption">이자율 위임</a> 기능을 활용하는 것도 방법입니다. 금리를 낮게 유지하고 싶다면 그만큼 KRW* 가격과 리뎀션 흐름을 자주 들여다봐야 합니다.</p>`,
     sec_earn: `<p class="kl-lead">KRW*는 크립토 담보로 뒷받침되는 원화 스테이블코인이고, sKRW*는 그 KRW*를 예치해 수익을 쌓는 저축 자산입니다.</p>
 <h2 id="what-backs-krw">KRW*는 무엇으로 뒷받침되나요?</h2>
 <p>KRW*는 은행 예치금이나 채권 같은 실물 자산이 아니라 ETH, BTC 계열 자산과 수익형 달러 자산 같은 크립토 담보로 뒷받침됩니다. 특정 발행 주체나 커스터디언에 기대지 않는 구조를 지향합니다.</p>
@@ -774,12 +785,35 @@ I18N.ko = {
 <p>KRW*를 발행할 수 있다는 것만으로는 계속 들고 있을 이유가 생기지 않습니다. sKRW*는 KRW*를 예치하기만 해도 수익이 쌓이게 해서, KRW*를 팔기만 하는 자산이 아니라 들고 있을 이유가 있는 자산으로 만드는 장치입니다.</p>
 <h2 id="ecosystem-routing">sKRW*는 다른 프로토콜과 어떻게 연결되나요?</h2>
 <p>BATT는 GIWA의 개별 프로토콜에 KRW*를 통합해 달라고 요청하지 않습니다. 대신 sKRW*를 KRW 수익 라우터로 삼아 유동성을 자동으로 흘려보냅니다. PIL로 파트너 렌딩 마켓의 KRW* 포지션에 보상을 지급하면, 그 프로토콜들도 자연스럽게 KRW*를 홍보할 이유가 생깁니다. sKRW*는 이렇게 보상이 걸린 렌딩 마켓과 볼트, DEX로 KRW*를 흘려보내고, 예치 규모가 커지면 BATT는 해당 파트너의 보상 프로그램에서 더 큰 몫을 받도록 협상할 수 있습니다.</p>
+<div class="kl-diagram">
+<svg viewBox="0 0 640 216" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="sKRW*가 KRW*를 파트너 렌딩 마켓, 볼트, DEX로 라우팅하는 구조를 보여주는 다이어그램">
+<rect x="8" y="78" width="92" height="60" fill="none" stroke="var(--kl-border-strong)" stroke-width="1.5"/>
+<text x="54" y="114" text-anchor="middle" font-size="15" font-weight="700" fill="var(--kl-text)" font-family="var(--kl-font)">KRW*</text>
+<line x1="100" y1="108" x2="178" y2="108" stroke="var(--kl-border-strong)" stroke-width="1"/>
+<path d="M 170 102 L 182 108 L 170 114" fill="none" stroke="var(--kl-border-strong)" stroke-width="1.2"/>
+<rect x="188" y="68" width="120" height="80" fill="none" stroke="var(--kl-accent)" stroke-width="1.5"/>
+<text x="248" y="114" text-anchor="middle" font-size="15" font-weight="700" fill="var(--kl-accent-text)" font-family="var(--kl-font)">sKRW*</text>
+<line x1="308" y1="88" x2="412" y2="32" stroke="var(--kl-border-strong)" stroke-width="1"/>
+<path d="M 400 30 L 414 28 L 407 40" fill="none" stroke="var(--kl-border-strong)" stroke-width="1.2"/>
+<line x1="308" y1="108" x2="412" y2="108" stroke="var(--kl-border-strong)" stroke-width="1"/>
+<path d="M 402 102 L 414 108 L 402 114" fill="none" stroke="var(--kl-border-strong)" stroke-width="1.2"/>
+<line x1="308" y1="128" x2="412" y2="184" stroke="var(--kl-border-strong)" stroke-width="1"/>
+<path d="M 407 176 L 414 188 L 400 186" fill="none" stroke="var(--kl-border-strong)" stroke-width="1.2"/>
+<rect x="420" y="4" width="212" height="52" fill="none" stroke="var(--kl-border-strong)" stroke-width="1.5"/>
+<text x="526" y="35" text-anchor="middle" font-size="13" fill="var(--kl-text)" font-family="var(--kl-font)">파트너 렌딩 마켓</text>
+<rect x="420" y="82" width="212" height="52" fill="none" stroke="var(--kl-border-strong)" stroke-width="1.5"/>
+<text x="526" y="113" text-anchor="middle" font-size="13" fill="var(--kl-text)" font-family="var(--kl-font)">파트너 볼트</text>
+<rect x="420" y="160" width="212" height="52" fill="none" stroke="var(--kl-border-strong)" stroke-width="1.5"/>
+<text x="526" y="191" text-anchor="middle" font-size="13" fill="var(--kl-text)" font-family="var(--kl-font)">DEX</text>
+</svg>
+<div class="kl-diagram-caption">sKRW*는 예치된 KRW*를 보상이 걸린 곳으로 자동 라우팅합니다.</div>
+</div>
 <p>즉 sKRW*의 수익은 BATT가 직접 찍어내는 인센티브가 아니라, 생태계 바깥에서 들어오는 외부 수요에서 나옵니다.</p>
 <h2 id="earn-risk">리스크는 무엇인가요?</h2>
 <p>Stability Pool에 들어간 KRW*는 청산이 날 때마다 담보 자산으로 바뀝니다. 그만큼 예치자는 담보 자산 가격 변동에 노출되고, 시장이 급락하면 손실을 볼 수도 있습니다. 자세한 내용은 <a data-nav="sec_risk" href="#sec_risk">리스크 관리</a> 섹션에서 다룹니다.</p>`,
     sec_faq: `<p class="kl-lead">BATT를 처음 접하는 분들이 자주 묻는 질문을 모았습니다. 더 자세한 내용은 각 섹션에서 확인할 수 있습니다.</p>
 <h2 id="peg">KRW*의 페그는 어떻게 유지되나요?</h2>
-<p>KRW* 보유자는 누구나 프로토콜에 직접 제출해 원화 가치만큼의 담보 자산으로 바꿀 수 있습니다. KRW*가 1원보다 싸게 거래되면, 이 리뎀션 구조 덕분에 차익거래자가 싸게 사서 액면가로 바꿔 이익을 챙길 수 있고, 그 매수 압력이 가격을 다시 끌어올립니다. 자세한 구조는 <a data-nav="sec_how_it_works" href="#sec_how_it_works">작동 방식</a> 섹션에서 다룹니다.</p>
+<p>KRW* 보유자는 누구나 프로토콜에 직접 제출해 원화 가치만큼의 담보 자산으로 바꿀 수 있습니다. KRW*가 1원보다 싸게 거래되면, 이 리뎀션 구조 덕분에 차익거래자가 싸게 사서 액면가로 바꿔 이익을 챙길 수 있고, 그 매수 압력이 가격을 다시 끌어올립니다. 자세한 구조는 <a data-nav="sec_redemption" href="#sec_redemption">리뎀션과 위임</a> 섹션에서 다룹니다.</p>
 <h2 id="why-not-lending">왜 일반적인 렌딩 프로토콜과 다른가요?</h2>
 <p>일반적인 렌딩 프로토콜은 예치자가 맡긴 자산을 다른 사람이 빌려 가는 구조라, 빌릴 사람이 없으면 그 자금은 그대로 놉니다. BATT는 담보에서 KRW*를 바로 발행하니 이런 유휴 유동성이 생기지 않고, 그만큼 차입 비용은 낮아지고 예치자 몫은 커집니다.</p>
 <h2 id="faq-collateral">담보로는 어떤 자산을 쓸 수 있나요?</h2>
@@ -799,19 +833,12 @@ I18N.ko = {
 <p>BATT는 네 가지 원칙을 중심으로 설계됩니다.</p>
 <ul>
 <li><strong>지급 여력:</strong> 모든 KRW* 포지션은 담보 가치가 부채보다 항상 큰 초과담보 구조입니다. 이 여유분이 시장 변동성에 대한 안전판이 됩니다.</li>
-<li><strong>페그 유지:</strong> 담보로 완전히 뒷받침되는 것과 별개로, 리뎀션과 PIL 같은 장치로 KRW*가 원화 가치를 실제로 지키게 합니다.</li>
+<li><strong>페그 유지:</strong> 담보로 완전히 뒷받침되는 것과 별개로, <a data-nav="sec_redemption" href="#sec_redemption">리뎀션</a>과 PIL 같은 장치로 KRW*가 원화 가치를 실제로 지키게 합니다.</li>
 <li><strong>효율적인 청산:</strong> 부실 포지션은 Stability Pool을 통해 빠르게 정리돼 부실채권이 쌓이지 않습니다.</li>
 <li><strong>관리자 없이 굴러가는 구조:</strong> 중앙화된 관리자 없이, 청산과 리뎀션이라는 두 장치만으로 유통되는 모든 KRW*가 담보로 뒷받침됩니다.</li>
 </ul>
 <h2 id="position">포지션이란 무엇인가요?</h2>
-<p>포지션은 담보를 넣고 KRW*를 발행하는 단위입니다. 담보와 부채 비율, 이자율을 각자 독립적으로 관리할 수 있고, 한 지갑에서 여러 포지션을 동시에 운용할 수도 있습니다. 여는 방법은 <a data-nav="sec_borrowing" href="#sec_borrowing">KRW* 빌리기</a> 섹션에서 다룹니다.</p>
-<h2 id="redemption">리뎀션은 어떻게 이루어지나요?</h2>
-<p>KRW* 보유자는 누구나 KRW*를 프로토콜에 직접 제출해 원화 가치만큼의 담보 자산으로 바꿀 수 있습니다. 이때 이자율이 가장 낮은 포지션부터 순서대로 리뎀션 대상이 됩니다.</p>
-<p>리뎀션은 청산과 다릅니다. 리뎀션 대상이 된 포지션은 페널티 없이, 리뎀션이 진행된 만큼 부채와 담보가 함께 줄어들 뿐입니다. 자산 가치로는 손해가 아니지만, 담보 자산에 대한 노출은 그만큼 잃습니다.</p>
-<p>예를 들어보겠습니다. ETH를 담보로 맡기고 KRW* 100만 원어치를 발행한 포지션이 있다고 해보겠습니다. 이 포지션에 리뎀션이 절반 진행되면, 부채는 50만 원어치로 줄고 담보 ETH도 정확히 그만큼의 가치만큼 함께 빠져나갑니다. 포지션 소유자 입장에서는 자산 가치 기준 손해는 없지만, ETH에 대한 노출은 그만큼 줄어드는 셈입니다.</p>
-<p>이 구조가 페그를 지키는 원리는 이렇습니다. KRW*가 1원보다 싸게 거래되면 차익거래자는 시장에서 싸게 사서 액면가로 바꿔 이익을 챙길 수 있고, 이 매수 수요가 가격을 다시 끌어올립니다. 동시에 리뎀션 위험이 커지면 대출자들은 리뎀션을 피하려고 이자율을 높이고, 이는 KRW* 보유와 예치 수요를 늘려 가격을 한 번 더 밀어 올립니다.</p>
-<p>반대로 KRW*가 1원보다 비싸게 거래되면 대출자들은 리뎀션 위험이 낮아진 만큼 이자율을 낮출 여유가 생기고, KRW* 발행이 늘면서 가격이 다시 내려옵니다.</p>
-<p>리뎀션에는 별도 수수료가 붙습니다. 짧은 시간에 리뎀션이 몰리면 수수료가 잠깐 올랐다가 시간이 지나며 다시 낮아지는 방식이라, 급격한 리뎀션 쏠림이 시스템에 무리를 주지 않습니다.</p>
+<p>포지션은 담보를 넣고 KRW*를 발행하는 단위입니다. 담보와 부채 비율, 이자율을 각자 독립적으로 관리할 수 있고, 한 지갑에서 여러 포지션을 동시에 운용할 수도 있습니다. 여는 방법은 <a data-nav="sec_borrowing" href="#sec_borrowing">KRW* 빌리기</a> 섹션에서 다룹니다. KRW*가 페그를 지키는 상환 구조인 리뎀션은 별도로 <a data-nav="sec_redemption" href="#sec_redemption">리뎀션과 위임</a> 섹션에서 자세히 다룹니다.</p>
 <h2 id="liquidation-detail">청산은 어떻게 이루어지나요?</h2>
 <p>담보 비율이 자산별 최소 기준 아래로 떨어지면 포지션이 청산됩니다. 순서는 이렇습니다.</p>
 <ul>
@@ -819,7 +846,56 @@ I18N.ko = {
 <li><strong>즉시 청산:</strong> Stability Pool이 부족하면, 그 자리에서 KRW*를 직접 공급하는 청산인이 부채를 대신 메우고 할인된 담보를 받아 갑니다. 이 경로는 GIWA 위에 플래시론으로 쓸 수 있는 유동성이 충분히 있어야 원활하게 작동합니다.</li>
 <li><strong>재분배:</strong> 그마저 없으면 남은 손실은 다른 포지션에 담보 비율만큼 나눠집니다.</li>
 </ul>
+<div class="kl-diagram">
+<svg viewBox="0 0 500 320" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="청산 처리 순서 다이어그램: Stability Pool, 즉시 청산, 재분배">
+<rect x="90" y="10" width="320" height="66" fill="none" stroke="var(--kl-accent)" stroke-width="1.5"/>
+<text x="250" y="37" text-anchor="middle" font-size="14" font-weight="700" fill="var(--kl-text)" font-family="var(--kl-font)">1. Stability Pool</text>
+<text x="250" y="57" text-anchor="middle" font-size="12" fill="var(--kl-text-muted)" font-family="var(--kl-font)">예치된 KRW*로 부채를 우선 상쇄</text>
+<line x1="250" y1="76" x2="250" y2="118" stroke="var(--kl-border-strong)" stroke-width="1"/>
+<path d="M 243 110 L 250 120 L 257 110" fill="none" stroke="var(--kl-border-strong)" stroke-width="1.2"/>
+<text x="266" y="101" font-size="11.5" fill="var(--kl-text-faint)" font-family="var(--kl-font)">부족하면</text>
+<rect x="90" y="126" width="320" height="66" fill="none" stroke="var(--kl-border-strong)" stroke-width="1.5"/>
+<text x="250" y="153" text-anchor="middle" font-size="14" font-weight="700" fill="var(--kl-text)" font-family="var(--kl-font)">2. 즉시 청산 (JIT)</text>
+<text x="250" y="173" text-anchor="middle" font-size="12" fill="var(--kl-text-muted)" font-family="var(--kl-font)">청산인이 그 자리에서 KRW*를 직접 공급</text>
+<line x1="250" y1="192" x2="250" y2="234" stroke="var(--kl-border-strong)" stroke-width="1"/>
+<path d="M 243 226 L 250 236 L 257 226" fill="none" stroke="var(--kl-border-strong)" stroke-width="1.2"/>
+<text x="266" y="217" font-size="11.5" fill="var(--kl-text-faint)" font-family="var(--kl-font)">그마저 없으면</text>
+<rect x="90" y="242" width="320" height="66" fill="none" stroke="var(--kl-border-strong)" stroke-width="1.5" stroke-dasharray="3 3"/>
+<text x="250" y="269" text-anchor="middle" font-size="14" font-weight="700" fill="var(--kl-text)" font-family="var(--kl-font)">3. 재분배</text>
+<text x="250" y="289" text-anchor="middle" font-size="12" fill="var(--kl-text-muted)" font-family="var(--kl-font)">남은 손실을 다른 포지션에 비례 배분</text>
+</svg>
+<div class="kl-diagram-caption">Stability Pool과 즉시 청산만으로 대부분의 청산이 처리되고, 재분배는 최후의 수단입니다.</div>
+</div>
 <p>재분배가 발생하면, 자기 포지션을 문제없이 관리하던 다른 대출자가 자신과 무관한 부채와 손실을 떠안게 됩니다. 시스템이 지급불능에 빠지는 것은 막아 주지만 흔히 일어나서는 안 되는 최후의 수단이고, 정상적인 상황이라면 Stability Pool과 즉시 청산만으로 대부분 처리됩니다.</p>`,
+    sec_redemption: `<p class="kl-lead">리뎀션은 KRW*가 원화 페그를 지키는 핵심 장치입니다. 직접 관리가 부담스러운 이자율은 위임할 수도 있습니다.</p>
+<h2 id="what-is-redemption">리뎀션은 어떻게 이루어지나요?</h2>
+<p>KRW* 보유자는 누구나 KRW*를 프로토콜에 직접 제출해 원화 가치만큼의 담보 자산으로 바꿀 수 있습니다. 이때 이자율이 가장 낮은 포지션부터 순서대로 리뎀션 대상이 됩니다. 담보를 얼마나 넉넉히 넣었는지는 순서에 영향을 주지 않습니다.</p>
+<p>리뎀션은 청산과 다릅니다. 리뎀션 대상이 된 포지션은 페널티 없이, 리뎀션이 진행된 만큼 부채와 담보가 함께 줄어들 뿐입니다. 자산 가치로는 손해가 아니지만, 담보 자산에 대한 노출은 그만큼 잃습니다.</p>
+<div class="kl-diagram">
+<svg viewBox="0 0 640 210" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="이자율이 낮은 포지션부터 리뎀션 대상이 되는 순서를 보여주는 다이어그램">
+<line x1="40" y1="170" x2="606" y2="170" stroke="var(--kl-border-strong)" stroke-width="1"/>
+<path d="M 598 164 L 610 170 L 598 176" fill="none" stroke="var(--kl-border-strong)" stroke-width="1.2"/>
+<rect x="56" y="122" width="46" height="48" fill="var(--kl-accent)"/>
+<rect x="132" y="100" width="46" height="70" fill="var(--kl-accent)"/>
+<rect x="208" y="78" width="46" height="92" fill="var(--kl-border-strong)"/>
+<rect x="284" y="60" width="46" height="110" fill="var(--kl-border-strong)"/>
+<rect x="360" y="44" width="46" height="126" fill="var(--kl-border-strong)"/>
+<rect x="436" y="30" width="46" height="140" fill="var(--kl-border-strong)"/>
+<rect x="512" y="18" width="46" height="152" fill="var(--kl-border-strong)"/>
+<path d="M 56 105 L 56 93 L 178 93 L 178 105" fill="none" stroke="var(--kl-accent)" stroke-width="1"/>
+<text x="117" y="80" text-anchor="middle" font-size="13" font-weight="600" fill="var(--kl-accent-text)" font-family="var(--kl-font)">리뎀션 대상</text>
+<text x="40" y="196" font-size="12" fill="var(--kl-text-faint)" font-family="var(--kl-font)">이자율 낮음</text>
+<text x="606" y="196" text-anchor="end" font-size="12" fill="var(--kl-text-faint)" font-family="var(--kl-font)">이자율 높음</text>
+</svg>
+<div class="kl-diagram-caption">포지션은 이자율 순으로 정렬되고, 리뎀션은 가장 낮은 금리부터 순서대로 소진합니다.</div>
+</div>
+<p>예를 들어보겠습니다. ETH를 담보로 맡기고 KRW* 100만 원어치를 발행한 포지션이 있다고 해보겠습니다. 이 포지션에 리뎀션이 절반 진행되면, 부채는 50만 원어치로 줄고 담보 ETH도 정확히 그만큼의 가치만큼 함께 빠져나갑니다. 포지션 소유자 입장에서는 자산 가치 기준 손해는 없지만, ETH에 대한 노출은 그만큼 줄어드는 셈입니다.</p>
+<h2 id="how-it-defends-peg">이 구조가 왜 페그를 지키나요?</h2>
+<p>KRW*가 1원보다 싸게 거래되면 차익거래자는 시장에서 싸게 사서 액면가로 바꿔 이익을 챙길 수 있고, 이 매수 수요가 가격을 다시 끌어올립니다. 동시에 리뎀션 위험이 커지면 대출자들은 리뎀션을 피하려고 이자율을 높이고, 이는 KRW* 보유와 예치 수요를 늘려 가격을 한 번 더 밀어 올립니다.</p>
+<p>반대로 KRW*가 1원보다 비싸게 거래되면 대출자들은 리뎀션 위험이 낮아진 만큼 이자율을 낮출 여유가 생기고, KRW* 발행이 늘면서 가격이 다시 내려옵니다.</p>
+<p>리뎀션에는 별도 수수료가 붙습니다. 짧은 시간에 리뎀션이 몰리면 수수료가 잠깐 올랐다가 시간이 지나며 다시 낮아지는 방식이라, 급격한 리뎀션 쏠림이 시스템에 무리를 주지 않습니다.</p>
+<h2 id="delegation">이자율 위임이란 무엇인가요?</h2>
+<p>이자율을 직접 관리하기 부담스럽다면, 조정 권한을 위임하는 기능도 준비하고 있습니다. 매니저나 자동화된 전략이 시장 상황에 맞춰 대신 조정해 주기 때문에, 따로 시간을 들이지 않아도 경쟁력 있는 금리를 유지할 수 있습니다. 위임 뒤에도 포지션 자체는 그대로 본인 소유이며, 위임되는 범위는 이자율 조정으로 한정됩니다.</p>`,
     sec_vaults: `<p class="kl-lead">볼트는 KRW* 전략을 패키지 상품으로 묶어서, 담보 관리나 청산 구조를 몰라도 그대로 쓸 수 있게 해줍니다.</p>
 <h2 id="which-vaults">어떤 볼트가 있나요?</h2>
 <ul>
