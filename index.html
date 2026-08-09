@@ -576,16 +576,17 @@ const COMING_SOON = {
   es: { native: 'Español', title: 'Próximamente', sub: 'La documentación en español estará disponible muy pronto.', close: 'Cerrar' },
 };
 const NAV_GROUPS = [
-  { label: null, items: ['home', 'sec_general', 'sec_borrowing', 'sec_managing', 'sec_earn', 'sec_faq', 'sec_how_it_works', 'sec_vaults', 'sec_risk'] },
+  { label: null, items: ['home', 'sec_general', 'sec_roadmap', 'sec_borrowing', 'sec_managing', 'sec_earn', 'sec_faq', 'sec_how_it_works', 'sec_vaults', 'sec_risk'] },
 ];
-const ICONS = { home:'', sec_general:'01', sec_borrowing:'02', sec_managing:'03', sec_earn:'04', sec_faq:'05', sec_how_it_works:'06', sec_vaults:'07', sec_risk:'08' };
-const ORDER = ['home','sec_general','sec_borrowing','sec_managing','sec_earn','sec_faq','sec_how_it_works','sec_vaults','sec_risk'];
+const ICONS = { home:'', sec_general:'01', sec_roadmap:'02', sec_borrowing:'03', sec_managing:'04', sec_earn:'05', sec_faq:'06', sec_how_it_works:'07', sec_vaults:'08', sec_risk:'09' };
+const ORDER = ['home','sec_general','sec_roadmap','sec_borrowing','sec_managing','sec_earn','sec_faq','sec_how_it_works','sec_vaults','sec_risk'];
 /* Auto-detect the GitHub Pages project base (repo name) so the same file
    works in any repo. Locally (preview server / file), the base is root. */
 const BASE = location.hostname.endsWith('github.io') ? '/' + (location.pathname.split('/')[1] || '') : '';
 const PATH_MAP = {
   home: '/',
   sec_general: '/general',
+  sec_roadmap: '/roadmap',
   sec_borrowing: '/borrowing',
   sec_managing: '/managing-your-position',
   sec_earn: '/earn',
@@ -636,6 +637,7 @@ I18N.ko = {
   nav: {
     home: '개요',
     sec_general: 'BATT 소개',
+    sec_roadmap: '로드맵',
     sec_borrowing: 'KRW* 빌리기',
     sec_managing: '포지션 관리',
     sec_earn: '수익 얻기',
@@ -661,6 +663,14 @@ I18N.ko = {
     sec_general: `<p class="kl-lead">BATT는 크립토 담보로 원화 스테이블코인 KRW*를 발행하는 프로토콜입니다. sKRW*로 수익을 쌓고, 원화 기준 디파이 전략도 그대로 쓸 수 있습니다.</p>
 <h2 id="what-is-batt">BATT란 무엇인가요?</h2>
 <p>BATT는 크립토 자산을 담보로 맡기고 원화 스테이블코인 <strong>KRW*</strong>를 발행하는 프로토콜입니다. 담보를 팔지 않고도 원화 유동성을 손에 쥘 수 있다는 게 핵심입니다. 발행한 KRW*는 그대로 들고 있어도 되고, <strong>sKRW*</strong>에 넣어 수익을 쌓아도 되고, 원화 기준으로 롱숏 전략을 짜는 데 써도 됩니다. GIWA 위에 네이티브로 구축돼, 원화 표시 디파이를 온체인에서 그대로 경험할 수 있습니다.</p>
+<h2 id="who-is-it-for">누가 BATT를 쓰나요?</h2>
+<p>몇 가지 상황을 예로 들면 이렇습니다.</p>
+<ul>
+<li>크립토를 팔고 싶지 않은데 현금이 필요한 사람. 담보를 그대로 둔 채 KRW*로 원화 유동성을 확보할 수 있습니다.</li>
+<li>달러 스테이블코인을 들고 있다가, 환율이나 김치 프리미엄이 움직여도 손해 보지 않고 원화 쪽으로 옮기고 싶은 사람.</li>
+<li>원화 약세에 베팅하고 싶은 사람. 수익형 달러 자산을 담보로 KRW*를 빌려 순수하게 환차익을 노리는 전략도 가능합니다.</li>
+</ul>
+<p>담보를 KRW*로 바꿔 다시 담보로 넣는 루핑처럼, 어떤 자산이든 수익률을 좇아 들어오는 사용자도 자연스럽게 이 위에서 움직이게 됩니다.</p>
 <h2 id="why-onchain-krw">왜 원화가 온체인 자산이 되어야 하나요?</h2>
 <p>지금까지 크립토 생태계에서 원화는 온램프와 오프램프를 잇는 통로 역할이 전부였습니다. KRW*는 여기서 한 걸음 더 나갑니다. 크립토 담보를 기반으로 원화를 온체인에 올려서, 원화 관련 트레이드를 직접 표현하고, 크립토 담보로 원화를 빌리고, sKRW*로 저축까지 할 수 있게 만듭니다.</p>
 <h2 id="roles">BATT는 어떤 참여자로 나뉘나요?</h2>
@@ -676,6 +686,37 @@ I18N.ko = {
 <p>BATT는 이 둘을 경쟁 관계로 보지 않습니다. 규제형 원화 스테이블코인이 결제 레일로 자리잡는다면, KRW*와 sKRW*는 그 위에서 작동하는 수익 레이어가 될 수 있다고 봅니다. USDC가 등장한 뒤 오히려 DAI 유동성이 늘어났던 것처럼, sUSDe가 USDe를 감싸는 수익형 자산으로 자리잡은 것처럼요.</p>
 <h2 id="chain">BATT는 어느 체인에서 작동하나요?</h2>
 <p>BATT는 <strong>GIWA</strong> 위에 네이티브로 구축됩니다. GIWA 생태계에서 원화 표시 디파이를 대표하는 자리를 노리는 동시에, sKRW*로 다른 GIWA 프로토콜에 유동성을 흘려보내는 역할까지 맡습니다. 자세한 내용은 <a data-nav="sec_earn" href="#sec_earn">수익 얻기</a> 섹션에서 다룹니다.</p>`,
+    sec_roadmap: `<p class="kl-lead">BATT는 단계적으로 확장합니다. 각 단계는 이전 단계가 만든 기반 위에서 시작됩니다.</p>
+<h2 id="stages">출시까지 어떤 단계를 거치나요?</h2>
+<div class="kl-timeline">
+<div class="kl-tl-item">
+<div class="kl-tl-dot"></div>
+<div class="kl-tl-phase">STAGE 1</div>
+<div class="kl-tl-title">베타</div>
+<div class="kl-tl-body">담보 자산, 리스크 파라미터, 오라클 설계, 초기 파트너 통합을 확정합니다.</div>
+</div>
+<div class="kl-tl-item future">
+<div class="kl-tl-dot"></div>
+<div class="kl-tl-phase">STAGE 2</div>
+<div class="kl-tl-title">코어 런칭</div>
+<div class="kl-tl-body">KRW*를 배포하고, DEX 유동성을 부트스트래핑하고, Stability Pool을 가동합니다.</div>
+</div>
+<div class="kl-tl-item future">
+<div class="kl-tl-dot"></div>
+<div class="kl-tl-phase">STAGE 3</div>
+<div class="kl-tl-title">GIWA 확장</div>
+<div class="kl-tl-body">sKRW*를 배포하고, 렌딩 마켓과 볼트 파트너를 통합합니다.</div>
+</div>
+<div class="kl-tl-item future">
+<div class="kl-tl-dot"></div>
+<div class="kl-tl-phase">STAGE 4</div>
+<div class="kl-tl-title">sKRW* 확장</div>
+<div class="kl-tl-body">KRW 수익 애그리게이터로서의 역할을 넓혀 갑니다.</div>
+</div>
+</div>
+<h2 id="why-this-order">왜 이 순서인가요?</h2>
+<p>유동성이 먼저 갖춰져야 리뎀션이 실제로 작동하고, 리뎀션이 작동해야 페그가 지켜집니다. 페그가 안정된 뒤에야 KRW*가 BATT 바깥에서도 쓰일 이유가 생기고, 그 외부 수요가 쌓여야 인센티브에 기대지 않고도 굴러가는 구조로 넘어갈 수 있습니다.</p>
+<p>그래서 유동성을 먼저 쌓고, 그다음 생태계 연결을 넓히고, 마지막으로 자생적인 구조를 만드는 순서로 확장합니다.</p>`,
     sec_borrowing: `<p class="kl-lead">KRW*는 크립토 담보를 맡기고 발행하는 신용 자산입니다. 담보와 포지션 구조, 이자율을 정하는 방식, KRW*로 짤 수 있는 전략까지 이 섹션에서 다룹니다.</p>
 <h2 id="how-it-works">기본 구조는 어떻게 되나요?</h2>
 <p>크립토 자산을 담보로 맡기고, 그 가치의 일부만큼 KRW*를 발행합니다. 담보 가치는 항상 발행한 KRW*보다 커야 하고, 이 여유분이 시스템 전체의 안전판이 됩니다. 담보를 팔지 않고도 원화 유동성을 확보한다는 게 핵심입니다.</p>
@@ -685,6 +726,7 @@ I18N.ko = {
 <h2 id="interest-rate">이자율은 어떻게 정해지나요?</h2>
 <p>BATT의 이자율은 프로토콜이 정하지 않습니다. 포지션을 열 때 대출자가 직접 이자율을 고르고, 이후에도 원하는 만큼 자유롭게 조정할 수 있습니다.</p>
 <p>이자율을 낮게 잡을수록 이자 비용은 줄지만 리뎀션 대상이 될 위험은 커집니다. 반대로 높게 잡을수록 이자 비용은 늘지만 리뎀션에서는 안전해집니다. 리뎀션과 이자율이 왜 연결되는지는 <a data-nav="sec_how_it_works" href="#sec_how_it_works">작동 방식</a> 섹션에서 자세히 다룹니다.</p>
+<p>다른 대출자들과 비슷한 이자율에 몰리는 것도 생각해 볼 부분입니다. 이자율이 같으면 리뎀션 순서도 같아지기 때문에, 리뎀션 한 번에 비슷한 조건의 포지션들이 한꺼번에 정리될 수 있습니다. 시장 이자율 분포를 참고해 다른 포지션들과 약간의 차이를 두는 것도 리스크를 줄이는 방법입니다.</p>
 <p>이자율을 너무 자주 바꾸지 못하도록, 포지션을 새로 열거나 이자율을 바꾼 직후 일정 기간 안에 다시 조정하면 그 기간의 평균 시장 이자만큼 조기 조정 수수료가 붙습니다. 포지션을 처음 열 때도 같은 방식으로 계산되는 최초 발행 수수료가 함께 붙습니다.</p>
 <h3 id="delegation">이자율 위임</h3>
 <p>이자율을 직접 관리하기 부담스럽다면, 조정 권한을 위임하는 기능도 준비하고 있습니다. 매니저나 자동화된 전략이 시장 상황에 맞춰 대신 조정해 주기 때문에, 따로 시간을 들이지 않아도 경쟁력 있는 금리를 유지할 수 있습니다.</p>
@@ -774,10 +816,10 @@ I18N.ko = {
 <p>담보 비율이 자산별 최소 기준 아래로 떨어지면 포지션이 청산됩니다. 순서는 이렇습니다.</p>
 <ul>
 <li><strong>Stability Pool:</strong> 해당 담보 자산의 Stability Pool에 예치된 KRW*로 부채를 먼저 상쇄합니다. 예치자는 그 대가로 담보 자산을 시장가보다 약 5% 싸게 받습니다.</li>
-<li><strong>즉시 청산:</strong> Stability Pool이 부족하면, 그 자리에서 KRW*를 직접 공급하는 청산인이 부채를 대신 메우고 할인된 담보를 받아 갑니다.</li>
+<li><strong>즉시 청산:</strong> Stability Pool이 부족하면, 그 자리에서 KRW*를 직접 공급하는 청산인이 부채를 대신 메우고 할인된 담보를 받아 갑니다. 이 경로는 GIWA 위에 플래시론으로 쓸 수 있는 유동성이 충분히 있어야 원활하게 작동합니다.</li>
 <li><strong>재분배:</strong> 그마저 없으면 남은 손실은 다른 포지션에 담보 비율만큼 나눠집니다.</li>
 </ul>
-<p>재분배는 극단적인 상황에서도 시스템이 지급불능에 빠지지 않게 하는 최후의 안전장치입니다. 정상적인 상황이라면 Stability Pool과 즉시 청산만으로 대부분 처리되고, 재분배까지 가는 일은 드뭅니다.</p>`,
+<p>재분배가 발생하면, 자기 포지션을 문제없이 관리하던 다른 대출자가 자신과 무관한 부채와 손실을 떠안게 됩니다. 시스템이 지급불능에 빠지는 것은 막아 주지만 흔히 일어나서는 안 되는 최후의 수단이고, 정상적인 상황이라면 Stability Pool과 즉시 청산만으로 대부분 처리됩니다.</p>`,
     sec_vaults: `<p class="kl-lead">볼트는 KRW* 전략을 패키지 상품으로 묶어서, 담보 관리나 청산 구조를 몰라도 그대로 쓸 수 있게 해줍니다.</p>
 <h2 id="which-vaults">어떤 볼트가 있나요?</h2>
 <ul>
@@ -791,13 +833,16 @@ I18N.ko = {
     sec_risk: `<p class="kl-lead">BATT를 이용하기 전에 아래 리스크를 미리 확인하시기 바랍니다.</p>
 <h2 id="borrower-risk">대출자가 지는 리스크</h2>
 <p><strong>청산 리스크:</strong> 담보 가격이 떨어져 담보 비율이 최소 기준 아래로 내려가면 포지션이 청산됩니다. 담보 비율을 여유 있게 유지하고 시장을 주기적으로 확인하는 게 가장 확실한 대응입니다.</p>
+<p><strong>환율 리스크:</strong> KRW*는 원화 표시 부채이고 담보는 대부분 달러나 크립토 자산입니다. 원화가 강세를 보이면 담보 가치 대비 부채 부담이 커져 청산 위험이 높아질 수 있습니다.</p>
 <p><strong>리뎀션 리스크:</strong> 이자율이 낮은 포지션일수록 리뎀션 우선순위가 높습니다. 리뎀션 자체는 자산 가치로 손해가 아니지만, 담보 자산 노출을 원치 않게 잃을 수 있습니다.</p>
+<p><strong>재분배 리스크:</strong> Stability Pool과 즉시 청산이 모두 부족한 극단적인 상황에서는, 문제없이 포지션을 관리하던 대출자도 다른 사람의 부채와 손실을 나눠 떠안을 수 있습니다.</p>
 <h2 id="earner-risk">예치자가 지는 리스크</h2>
 <p><strong>청산 노출:</strong> Stability Pool에 예치한 KRW*는 청산이 날 때마다 담보 자산으로 바뀝니다. 그만큼 해당 담보 자산의 가격 변동에 노출됩니다.</p>
 <p><strong>손실 가능성:</strong> 시장이 급격히 무너져 담보 가치가 부채를 감당하지 못하면, Stability Pool 예치자가 그 손실을 함께 짊어질 수 있습니다.</p>
 <h2 id="protocol-risk">프로토콜 전반의 리스크</h2>
 <p><strong>담보 자산 리스크:</strong> 특정 담보 자산 가치가 급격히 무너지거나 문제가 생기면 그 담보를 쓰는 포지션 전체에 영향을 줍니다.</p>
 <p><strong>브릿지 리스크:</strong> 다른 체인에서 넘어온 자산을 담보로 쓰면, 브릿지 자체의 안전성에 영향을 받을 수 있습니다.</p>
+<p><strong>오라클 리스크:</strong> 원화는 전통 외환시장 기준으로 하루 24시간, 주 7일 거래되는 자산이 아닙니다. 시장이 닫혀 있는 시간대에는 가격 정보가 지연되거나 스프레드가 벌어질 수 있습니다.</p>
 <p><strong>스마트 컨트랙트 리스크:</strong> 검증된 코드를 기반으로 해도 아직 실전에서 충분히 검증되지 않은 단계라 예상치 못한 리스크가 있을 수 있습니다.</p>
 <h2 id="mitigation">리스크를 어떻게 줄이나요?</h2>
 <p>담보 자산별로 Stability Pool을 분리해 한 자산의 문제가 다른 자산으로 번지지 않게 하고, 자산별 발행 한도를 둬서 특정 담보에 과도하게 쏠리지 않도록 관리할 계획입니다. 출시 전 감사도 함께 진행할 예정입니다.</p>`,
