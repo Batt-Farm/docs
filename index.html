@@ -522,7 +522,7 @@ body { font-family: var(--kl-font); line-height: 1.55; -webkit-font-smoothing: a
   <button class="kl-iconbtn kl-menu-toggle" id="menuToggle" aria-label="Menu">
     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
   </button>
-  <a class="kl-brand" data-nav="home" href="#home"><span class="mark"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><rect x="5" y="1.5" width="14" height="1.5"/><rect x="5" y="3.6" width="14" height="2.5"/><rect x="5" y="6.7" width="14" height="3.5"/><rect x="5" y="10.8" width="14" height="5"/><rect x="5" y="16.4" width="14" height="7"/></svg></span><span>BATT</span><span class="tag" data-i18n="ui.docs">Docs</span></a>
+  <a class="kl-brand" data-nav="sec_general" href="#sec_general"><span class="mark"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><rect x="5" y="1.5" width="14" height="1.5"/><rect x="5" y="3.6" width="14" height="2.5"/><rect x="5" y="6.7" width="14" height="3.5"/><rect x="5" y="10.8" width="14" height="5"/><rect x="5" y="16.4" width="14" height="7"/></svg></span><span>BATT</span><span class="tag" data-i18n="ui.docs">Docs</span></a>
   <div class="kl-header-spacer"></div>
   <div class="kl-search-wrap">
     <span class="kl-search-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></span>
@@ -581,20 +581,18 @@ const COMING_SOON = {
   es: { native: 'Español', title: 'Próximamente', sub: 'La documentación en español estará disponible muy pronto.', close: 'Cerrar' },
 };
 const NAV_GROUPS = [
-  { label: null, items: ['home'] },
   { label: 'nav.group_intro', items: ['sec_general', 'sec_roadmap'] },
   { label: 'nav.group_using', items: ['sec_borrowing', 'sec_managing', 'sec_earn'] },
   { label: 'nav.group_mechanism', items: ['sec_how_it_works', 'sec_redemption', 'sec_vaults'] },
   { label: 'nav.group_reference', items: ['sec_faq', 'sec_risk'] },
 ];
-const ICONS = { home:'', sec_general:'01', sec_roadmap:'02', sec_borrowing:'03', sec_managing:'04', sec_earn:'05', sec_how_it_works:'06', sec_redemption:'07', sec_vaults:'08', sec_faq:'09', sec_risk:'10' };
-const ORDER = ['home','sec_general','sec_roadmap','sec_borrowing','sec_managing','sec_earn','sec_how_it_works','sec_redemption','sec_vaults','sec_faq','sec_risk'];
+const ICONS = { sec_general:'01', sec_roadmap:'02', sec_borrowing:'03', sec_managing:'04', sec_earn:'05', sec_how_it_works:'06', sec_redemption:'07', sec_vaults:'08', sec_faq:'09', sec_risk:'10' };
+const ORDER = ['sec_general','sec_roadmap','sec_borrowing','sec_managing','sec_earn','sec_how_it_works','sec_redemption','sec_vaults','sec_faq','sec_risk'];
 /* Auto-detect the GitHub Pages project base (repo name) so the same file
    works in any repo. Locally (preview server / file), the base is root. */
 const BASE = location.hostname.endsWith('github.io') ? '/' + (location.pathname.split('/')[1] || '') : '';
 const PATH_MAP = {
-  home: '/',
-  sec_general: '/general',
+  sec_general: '/',
   sec_roadmap: '/roadmap',
   sec_borrowing: '/borrowing',
   sec_managing: '/managing-your-position',
@@ -619,11 +617,10 @@ const I18N = {};
 I18N.en = {
   /* English documentation has not been written yet (Korean-first for now).
      This stub only exists so the fallback lookups in the engine below
-     (t/navLabel/pageHtml/homeData) never dereference an undefined object.
+     (t/navLabel/pageHtml) never dereference an undefined object.
      Fill this in when English work starts; see COMING_SOON.en above. */
   ui: {},
   nav: {},
-  home: { cards: [] },
   pages: {},
 };
 
@@ -649,7 +646,6 @@ I18N.ko = {
     group_using: 'BATT 이용하기',
     group_mechanism: '프로토콜 메커니즘',
     group_reference: '참고',
-    home: '개요',
     sec_general: 'BATT 소개',
     sec_roadmap: '로드맵',
     sec_borrowing: 'KRW* 빌리기',
@@ -660,19 +656,6 @@ I18N.ko = {
     sec_vaults: '볼트',
     sec_faq: '자주 묻는 질문',
     sec_risk: '리스크 관리',
-  },
-  home: {
-    eyebrow: 'On-Chain KRW Credit Market',
-    lead: 'GIWA 위에서 크립토 담보로 KRW*를 빌리고, sKRW*로 수익을 쌓고, 원화 표시 디파이 전략까지 그대로 씁니다. BATT 공식 문서에서 구조와 이용 방법을 확인하세요.',
-    cta1: '시작하기',
-    cta2: 'sKRW*로 수익 알아보기',
-    byline: '',
-    cards: [
-      { t: 'KRW*', d: '크립토 담보로 발행하는 원화 스테이블코인입니다.' },
-      { t: 'sKRW*', d: 'KRW*를 예치해 이자 수익을 쌓는 저축 자산입니다.' },
-      { t: 'KRW 캐리 볼트', d: 'KRW*로 달러나 BTC 익스포저를 레버리지로 짜는 패키지 상품입니다.' },
-      { t: 'GIWA 체인', d: 'GIWA 위에 네이티브로 구축된 프로토콜입니다.' },
-    ],
   },
   pages: {
     sec_general: `<p class="kl-lead">BATT는 원화 기반 디파이 신용 프로토콜입니다. 담보를 팔지 않고도 원화 유동성을 손에 쥘 수 있다는 게 핵심입니다. 발행한 KRW*는 그대로 들고 있어도 되고, sKRW*에 넣어 수익을 쌓아도 되고, 원화 기준으로 롱숏 전략을 짜는 데 써도 됩니다. GIWA 위에 네이티브로 구축돼, 원화 디파이를 온체인에서 제공합니다.</p>
@@ -943,7 +926,6 @@ I18N.ko = {
   function t(path) { const v = deepGet(pack(), path); return (v !== undefined && v !== null) ? v : deepGet(I18N.en, path); }
   function navLabel(id) { return (pack().nav && pack().nav[id]) || I18N.en.nav[id] || id; }
   function pageHtml(id) { const p = pack().pages || {}; return (p[id] !== undefined) ? p[id] : (I18N.en.pages[id] || ''); }
-  function homeData() { const en = I18N.en.home, h = pack().home || {}; const m = Object.assign({}, en, h); if (!h.cards || !h.cards.length) m.cards = en.cards; return m; }
 
   const el = {
     nav: document.getElementById('nav'),
@@ -1079,7 +1061,7 @@ I18N.ko = {
     let routeLang = 'ko';
     if (path === '/en' || path.indexOf('/en/') === 0) { routeLang = 'en'; path = path.slice(3) || '/'; }
     if (path !== '/' && path.endsWith('/')) path = path.slice(0, -1);
-    return { section: PATH_TO_ID[path] || 'home', lang: routeLang };
+    return { section: PATH_TO_ID[path] || 'sec_general', lang: routeLang };
   }
   function navigate(id) {
     history.pushState({ section: id }, '', sectionToPath(id));
@@ -1102,27 +1084,10 @@ I18N.ko = {
   /* ---------- RENDER ---------- */
   function renderPage(route, doScroll) {
     const id = route.section;
-    if (id === 'home') renderHome(); else renderSection(id);
+    renderSection(id);
     renderBreadcrumb(id); renderFooter(id); renderPager(id); buildToc(id);
     window.scrollTo({ top: 0, behavior: 'auto' });
     closeMobileNav(); setActiveStates(route);
-  }
-  function renderHome() {
-    const h = homeData();
-    let cards = '';
-    (h.cards || []).forEach((c, i) => { cards += '<div class="kl-card"><div class="ic">' + String(i + 1).padStart(2, '0') + '</div><div class="ct">' + c.t + '</div><div class="cd">' + c.d + '</div></div>'; });
-    el.content.innerHTML =
-      '<div class="kl-hero">' +
-        '<span class="eyebrow">' + h.eyebrow + '</span>' +
-        '<p class="lead">' + h.lead + '</p>' +
-        '<div class="kl-hero-cta">' +
-          '<a class="kl-btn kl-btn-primary" data-nav="sec_general" href="' + sectionToPath('sec_general') + '">' + h.cta1 + ' →</a>' +
-          '<a class="kl-btn kl-btn-ghost" data-nav="sec_earn" href="' + sectionToPath('sec_earn') + '">' + h.cta2 + '</a>' +
-        '</div>' +
-        '<div class="kl-byline">' + h.byline + '</div>' +
-      '</div>' +
-      '<hr class="kl-home-divider" />' +
-      '<div class="kl-cards">' + cards + '</div>';
   }
   function fixContentLinks(html) {
     return html.replace(/href="#([\w]+)"/g, function(m, id) {
@@ -1134,11 +1099,10 @@ I18N.ko = {
   }
   function renderBreadcrumb(id) {
     const root = 'BATT ' + t('ui.docs');
-    if (id === 'home') el.breadcrumb.innerHTML = '<span>' + root + '</span>';
-    else el.breadcrumb.innerHTML = '<a data-nav="home" href="' + sectionToPath('home') + '">' + root + '</a><span class="sep">›</span><span>' + navLabel(id) + '</span>';
+    if (id === 'sec_general') el.breadcrumb.innerHTML = '<span>' + root + '</span>';
+    else el.breadcrumb.innerHTML = '<a data-nav="sec_general" href="' + sectionToPath('sec_general') + '">' + root + '</a><span class="sep">›</span><span>' + navLabel(id) + '</span>';
   }
   function renderFooter(id) {
-    if (id === 'home') { el.pageFooter.innerHTML = ''; return; }
     el.pageFooter.innerHTML =
       '<div class="kl-helpful" id="helpful">' +
         '<span>' + t('ui.helpfulQuestion') + '</span>' +
@@ -1168,7 +1132,6 @@ I18N.ko = {
     el.toc.innerHTML = '';
     const tocTitle = document.querySelector('.kl-toc-title');
     const showTitle = (v) => { if (tocTitle) tocTitle.style.display = v ? '' : 'none'; };
-    if (id === 'home') { showTitle(false); return; }
     const heads = Array.from(el.content.querySelectorAll('h2[id]'));
     if (!heads.length) { showTitle(false); return; }
     showTitle(true);
@@ -1198,7 +1161,6 @@ I18N.ko = {
   function buildIndex() {
     const idx = [];
     ORDER.forEach(id => {
-      if (id === 'home') return;
       idx.push({ section: id, title: navLabel(id), crumb: t('ui.docs'), text: stripHtml(pageHtml(id)) });
     });
     return idx;
