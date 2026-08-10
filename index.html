@@ -568,19 +568,20 @@ const COMING_SOON = {
   es: { native: 'Español', title: 'Próximamente', sub: 'La documentación en español estará disponible muy pronto.', close: 'Cerrar' },
 };
 const NAV_GROUPS = [
-  { label: 'nav.group_intro', items: ['sec_general', 'sec_roadmap'] },
+  { label: 'nav.group_intro', items: ['sec_general', 'sec_roadmap', 'sec_ecosystem'] },
   { label: 'nav.group_using', items: ['sec_borrowing', 'sec_managing', 'sec_earn'] },
   { label: 'nav.group_mechanism', items: ['sec_how_it_works', 'sec_redemption', 'sec_vaults'] },
   { label: 'nav.group_reference', items: ['sec_faq', 'sec_risk'] },
 ];
-const ICONS = { sec_general:'01', sec_roadmap:'02', sec_borrowing:'03', sec_managing:'04', sec_earn:'05', sec_how_it_works:'06', sec_redemption:'07', sec_vaults:'08', sec_faq:'09', sec_risk:'10' };
-const ORDER = ['sec_general','sec_roadmap','sec_borrowing','sec_managing','sec_earn','sec_how_it_works','sec_redemption','sec_vaults','sec_faq','sec_risk'];
+const ICONS = { sec_general:'01', sec_roadmap:'02', sec_ecosystem:'03', sec_borrowing:'04', sec_managing:'05', sec_earn:'06', sec_how_it_works:'07', sec_redemption:'08', sec_vaults:'09', sec_faq:'10', sec_risk:'11' };
+const ORDER = ['sec_general','sec_roadmap','sec_ecosystem','sec_borrowing','sec_managing','sec_earn','sec_how_it_works','sec_redemption','sec_vaults','sec_faq','sec_risk'];
 /* Auto-detect the GitHub Pages project base (repo name) so the same file
    works in any repo. Locally (preview server / file), the base is root. */
 const BASE = location.hostname.endsWith('github.io') ? '/' + (location.pathname.split('/')[1] || '') : '';
 const PATH_MAP = {
   sec_general: '/',
   sec_roadmap: '/roadmap',
+  sec_ecosystem: '/ecosystem',
   sec_borrowing: '/borrowing',
   sec_managing: '/managing-your-position',
   sec_earn: '/earn',
@@ -630,6 +631,7 @@ I18N.ko = {
     group_reference: '참고',
     sec_general: 'BATT 소개',
     sec_roadmap: '로드맵',
+    sec_ecosystem: 'GIWA 생태계',
     sec_borrowing: 'KRW* 빌리기',
     sec_managing: '포지션 관리',
     sec_earn: '수익 얻기',
@@ -695,6 +697,38 @@ I18N.ko = {
 <h2 id="why-this-order">왜 이 순서인가요?</h2>
 <p>유동성이 먼저 갖춰져야 리뎀션이 실제로 작동하고, 리뎀션이 작동해야 페그가 지켜집니다. 페그가 안정된 뒤에야 KRW*가 BATT 바깥에서도 쓰일 이유가 생기고, 그 외부 수요가 쌓여야 인센티브에 기대지 않고도 굴러가는 구조로 넘어갈 수 있습니다.</p>
 <p>그래서 유동성을 먼저 쌓고, 그다음 생태계 연결을 넓히고, 마지막으로 자생적인 구조를 만드는 순서로 확장합니다.</p>`,
+    sec_ecosystem: `<p class="kl-lead">BATT는 GIWA 생태계 안에서 원화 디파이를 대표하는 자리를 목표로 합니다. 다른 프로토콜로부터 받기보다는, 유동성과 수익을 내보내는 쪽에 섭니다.</p>
+<h2 id="why-krw-defi">왜 원화 디파이인가요?</h2>
+<p>GIWA 위에는 DEX와 렌딩 프로토콜이 계속 늘어날 것입니다. 포크가 여러 개 나올 수도 있고, 비슷한 상품끼리 경쟁할 수도 있습니다. 하지만 원화를 온체인 신용 자산으로 다루는 자리는 다릅니다. GIWA를 GIWA답게 만드는 건 원화 디파이이고, BATT는 그 자리를 채우는 프로토콜이 되고자 합니다.</p>
+<h2 id="what-batt-gives">BATT는 생태계에 무엇을 주나요?</h2>
+<p>보통 새로운 프로토콜은 유동성과 관심을 다른 곳에서 빌려 오며 시작합니다. BATT는 그 반대 방향도 함께 만들어 갑니다. PIL로 파트너 렌딩 마켓의 KRW* 포지션에 보상을 지급하고, sKRW*로 예치된 KRW*를 파트너 볼트와 렌딩 마켓, DEX로 흘려보냅니다. 자세한 구조는 <a data-nav="sec_earn" href="#sec_earn">수익 얻기</a> 섹션에서 다룹니다.</p>
+<p>BATT는 GIWA의 개별 프로토콜에 KRW*를 통합해 달라고 요청하지 않습니다. 대신 KRW*를 상품 안에 패키징해서, 그 상품이 자연스럽게 GIWA 프로토콜로 유동성을 라우팅하도록 만듭니다.</p>
+<div class="kl-diagram">
+<svg viewBox="0 0 620 460" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="BATT가 GIWA 생태계 중심에서 DEX, 렌딩 마켓, 볼트, 다른 GIWA 프로토콜로 유동성과 수익을 내보내는 구조를 보여주는 다이어그램">
+<circle cx="310" cy="230" r="52" fill="none" stroke="var(--kl-accent)" stroke-width="1.5"/>
+<text x="310" y="226" text-anchor="middle" font-size="15" font-weight="700" fill="var(--kl-accent-text)" font-family="var(--kl-font)">BATT</text>
+<text x="310" y="244" text-anchor="middle" font-size="11" fill="var(--kl-text-muted)" font-family="var(--kl-font)">sKRW*</text>
+<line x1="310" y1="178" x2="310" y2="114" stroke="var(--kl-border-strong)" stroke-width="1"/>
+<path d="M 303 122 L 310 110 L 317 122" fill="none" stroke="var(--kl-border-strong)" stroke-width="1.2"/>
+<rect x="220" y="52" width="180" height="56" fill="none" stroke="var(--kl-border-strong)" stroke-width="1.5"/>
+<text x="310" y="86" text-anchor="middle" font-size="13" fill="var(--kl-text)" font-family="var(--kl-font)">DEX</text>
+<line x1="362" y1="230" x2="406" y2="230" stroke="var(--kl-border-strong)" stroke-width="1"/>
+<path d="M 398 223 L 410 230 L 398 237" fill="none" stroke="var(--kl-border-strong)" stroke-width="1.2"/>
+<rect x="410" y="202" width="180" height="56" fill="none" stroke="var(--kl-border-strong)" stroke-width="1.5"/>
+<text x="500" y="236" text-anchor="middle" font-size="13" fill="var(--kl-text)" font-family="var(--kl-font)">렌딩 마켓</text>
+<line x1="310" y1="282" x2="310" y2="348" stroke="var(--kl-border-strong)" stroke-width="1"/>
+<path d="M 303 340 L 310 352 L 317 340" fill="none" stroke="var(--kl-border-strong)" stroke-width="1.2"/>
+<rect x="220" y="352" width="180" height="56" fill="none" stroke="var(--kl-border-strong)" stroke-width="1.5"/>
+<text x="310" y="386" text-anchor="middle" font-size="13" fill="var(--kl-text)" font-family="var(--kl-font)">볼트</text>
+<line x1="258" y1="230" x2="214" y2="230" stroke="var(--kl-border-strong)" stroke-width="1"/>
+<path d="M 222 223 L 210 230 L 222 237" fill="none" stroke="var(--kl-border-strong)" stroke-width="1.2"/>
+<rect x="20" y="202" width="180" height="56" fill="none" stroke="var(--kl-border-strong)" stroke-width="1.5"/>
+<text x="110" y="236" text-anchor="middle" font-size="13" fill="var(--kl-text)" font-family="var(--kl-font)">다른 GIWA 프로토콜</text>
+</svg>
+<div class="kl-diagram-caption">BATT는 sKRW*를 통해 유동성과 수익을 GIWA 생태계 곳곳으로 내보내는 중심 노드를 목표로 합니다.</div>
+</div>
+<h2 id="role">장기적으로 어떤 역할을 목표로 하나요?</h2>
+<p>sKRW*를 통해 흘러가는 유동성과 수익이 쌓일수록, BATT는 하나의 개별 프로토콜을 넘어 GIWA 생태계 안에서 자원을 배분하는 노드에 가까워집니다. 이 역할은 <a data-nav="sec_roadmap" href="#sec_roadmap">로드맵</a>의 GIWA 확장 단계에서 본격적으로 시작됩니다.</p>`,
     sec_borrowing: `<p class="kl-lead">KRW*는 크립토 담보를 맡기고 발행하는 신용 자산입니다. 담보와 포지션 구조, 이자율을 정하는 방식, KRW*로 짤 수 있는 전략까지 이 섹션에서 다룹니다.</p>
 <h2 id="how-it-works">기본 구조는 어떻게 되나요?</h2>
 <p>크립토 자산을 담보로 맡기고, 그 가치의 일부만큼 KRW*를 발행합니다. 담보 가치는 항상 발행한 KRW*보다 커야 하고, 이 여유분이 시스템 전체의 안전판이 됩니다. 담보를 팔지 않고도 원화 유동성을 확보한다는 게 핵심입니다.</p>
